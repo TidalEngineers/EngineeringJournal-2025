@@ -1548,14 +1548,15 @@
 </main>
 
 <footer>
-  <p>FIRST LEGO League • Robot Design Process • Temporary images used — replace with team photos and diagrams</p>
+  <p>FIRST LEGO League • Robot Design Process</p>
   
-  <div class="visitor-counter">
+    <div class="visitor-counter">
     <h3>🔥 Website Visitors</h3>
-    <div style="margin-top: 1rem;">
-      <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgio1880.github.io%2Ffirefox65269%2F&count_bg=%23FF6600&title_bg=%23FF3300&icon=&icon_color=%23E7E7E7&title=Visits&edge_flat=false" alt="Visitor Count" style="max-width: 100%; height: auto;" />
+    <div style="margin-top: 1rem;" id="visitorCountWrapper">
+      <div id="visitorCount" class="counter-digit" aria-live="polite">121</div>
     </div>
     <div class="counter-label" style="margin-top: 0.75rem;">Total Page Hits</div>
+    <div style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">Updates every 2 hours</div>
   </div>
 </footer>
 
@@ -1650,6 +1651,34 @@
       section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
       observer.observe(section);
     });
+  });
+</script>
+
+<!-- Live visitor counter script (uses CountAPI) -->
+<script>
+  async function fetchVisitorCount() {
+    const el = document.getElementById('visitorCount');
+    if (!el) return;
+    // show requested default while we attempt to fetch
+    el.textContent = '121';
+    try {
+      // use 'get' to avoid incrementing the counter on each page load
+      const res = await fetch('https://api.countapi.xyz/get/gio1880/firefox65269');
+      if (!res.ok) throw new Error('Network error');
+      const data = await res.json();
+      if (data && typeof data.value !== 'undefined') {
+        el.textContent = Number(data.value).toLocaleString();
+      }
+    } catch (err) {
+      console.error('Failed to fetch visitor count:', err);
+      // keep default 121 if network fails
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    fetchVisitorCount();
+    // refresh every 2 hours (7200000 ms)
+    setInterval(fetchVisitorCount, 7200000);
   });
 </script>
 
