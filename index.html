@@ -717,6 +717,19 @@
 <header>
   <h1>History Guardians 65269</h1>
   <p>FLL Team Website</p>
+  <div style="background: rgba(255, 255, 255, 0.15); padding: 1.5rem; border-radius: 12px; margin-top: 1.5rem; backdrop-filter: blur(10px); max-width: 700px; margin-left: auto; margin-right: auto;">
+    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏆</div>
+    <div style="font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem;">Championship Award Winners!</div>
+    <div style="font-size: 1rem; opacity: 0.95; margin-bottom: 0.75rem;">Qualifier 1 Champions</div>
+    <div style="font-size: 0.95rem; opacity: 0.9; margin-bottom: 0.75rem;">
+      John Jay Middle School<br>
+      January 10th, 2026
+    </div>
+    <div style="font-size: 0.95rem; opacity: 0.9;">
+      Competing at <strong>Hudson Valley Championship</strong><br>
+      February 7th, 2025
+    </div>
+  </div>
 </header>
 
 <nav>
@@ -944,38 +957,633 @@
       </div>
     </div>
   </section>
+  <section id="mission-sorting">
+    <h2>Mission Analysis & Sorting System</h2>
+    <p>Before designing our robot and planning runs, we categorized all 15 missions by action type, difficulty, and point value. This systematic analysis helped us identify natural groupings and prioritize which missions to attempt.</p>
+    
+    <div class="run-tabs" style="justify-content: center; margin-top: 2rem;">
+      <button class="run-tab active" onclick="showSortView('action-type')">By Action Type</button>
+      <button class="run-tab" onclick="showSortView('difficulty')">By Difficulty</button>
+      <button class="run-tab" onclick="showSortView('points')">By Points</button>
+    </div>
 
+    <!-- Action Type View -->
+    <div id="action-type" class="run-content active" style="display: block;">
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); margin-top: 2rem;">
+        <div class="card" style="background: linear-gradient(135deg, #fff5f5, #ffe5e5); border-left: 4px solid #ff6b6b;">
+          <h4 style="color: #c92a2a; margin-top: 0;">🔴 Push Missions</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
+            <span class="challenge-badge" style="background: #ffe5e5; color: #c92a2a;">M2</span>
+            <span class="challenge-badge" style="background: #ffe5e5; color: #c92a2a;">M5</span>
+            <span class="challenge-badge" style="background: #ffe5e5; color: #c92a2a;">M6</span>
+            <span class="challenge-badge" style="background: #ffe5e5; color: #c92a2a;">M8</span>
+            <span class="challenge-badge" style="background: #ffe5e5; color: #c92a2a;">M10</span>
+            <span class="challenge-badge" style="background: #ffe5e5; color: #c92a2a;">M11</span>
+            <span class="challenge-badge" style="background: #ffe5e5; color: #c92a2a;">M12</span>
+          </div>
+          <p style="margin-top: 1rem; font-size: 0.9rem;">7 missions require pushing objects or models</p>
+        </div>
+
+        <div class="card" style="background: linear-gradient(135deg, #f0f9ff, #dbeafe); border-left: 4px solid #3b82f6;">
+          <h4 style="color: #1e40af; margin-top: 0;">🔵 Pull Missions</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
+            <span class="challenge-badge" style="background: #dbeafe; color: #1e40af;">M9</span>
+            <span class="challenge-badge" style="background: #dbeafe; color: #1e40af;">M10</span>
+            <span class="challenge-badge" style="background: #dbeafe; color: #1e40af;">M12</span>
+          </div>
+          <p style="margin-top: 1rem; font-size: 0.9rem;">3 missions involve pulling mechanisms</p>
+        </div>
+
+        <div class="card" style="background: linear-gradient(135deg, #fefce8, #fef3c7); border-left: 4px solid #f59e0b;">
+          <h4 style="color: #92400e; margin-top: 0;">🟡 Pick Up/Drop Off</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
+            <span class="challenge-badge" style="background: #fef3c7; color: #92400e;">M1</span>
+            <span class="challenge-badge" style="background: #fef3c7; color: #92400e;">M2</span>
+            <span class="challenge-badge" style="background: #fef3c7; color: #92400e;">M4</span>
+            <span class="challenge-badge" style="background: #fef3c7; color: #92400e;">M14</span>
+            <span class="challenge-badge" style="background: #fef3c7; color: #92400e;">M15</span>
+          </div>
+          <p style="margin-top: 1rem; font-size: 0.9rem;">5 missions require precise object manipulation</p>
+        </div>
+
+        <div class="card" style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-left: 4px solid #22c55e;">
+          <h4 style="color: #166534; margin-top: 0;">🟢 Lift Missions</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
+            <span class="challenge-badge" style="background: #dcfce7; color: #166534;">M3</span>
+            <span class="challenge-badge" style="background: #dcfce7; color: #166534;">M7</span>
+            <span class="challenge-badge" style="background: #dcfce7; color: #166534;">M13</span>
+          </div>
+          <p style="margin-top: 1rem; font-size: 0.9rem;">3 missions need vertical lifting action</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Difficulty View -->
+    <div id="difficulty" class="run-content">
+      <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+        <div class="card" style="background: linear-gradient(135deg, #ecfdf5, #d1fae5); border-left: 6px solid #10b981; margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+            <h4 style="color: #065f46; margin: 0;">✅ Easy Missions</h4>
+            <span style="background: #10b981; color: white; padding: 0.5rem 1rem; border-radius: 999px; font-weight: 700;">6 Missions</span>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
+            <span class="success-badge" style="font-size: 1rem; padding: 0.5rem 1rem;">M2</span>
+            <span class="success-badge" style="font-size: 1rem; padding: 0.5rem 1rem;">M5</span>
+            <span class="success-badge" style="font-size: 1rem; padding: 0.5rem 1rem;">M6</span>
+            <span class="success-badge" style="font-size: 1rem; padding: 0.5rem 1rem;">M12</span>
+            <span class="success-badge" style="font-size: 1rem; padding: 0.5rem 1rem;">M13</span>
+            <span class="success-badge" style="font-size: 1rem; padding: 0.5rem 1rem;">M14</span>
+          </div>
+          <p style="margin-top: 1rem; color: #065f46;">High success rate, straightforward execution, great for building confidence</p>
+        </div>
+
+        <div class="card" style="background: linear-gradient(135deg, #fffbeb, #fef3c7); border-left: 6px solid #f59e0b; margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+            <h4 style="color: #92400e; margin: 0;">⚠️ Medium Missions</h4>
+            <span style="background: #f59e0b; color: white; padding: 0.5rem 1rem; border-radius: 999px; font-weight: 700;">5 Missions</span>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
+            <span class="tag" style="font-size: 1rem; padding: 0.5rem 1rem; background: #fef3c7; color: #92400e;">M1</span>
+            <span class="tag" style="font-size: 1rem; padding: 0.5rem 1rem; background: #fef3c7; color: #92400e;">M7</span>
+            <span class="tag" style="font-size: 1rem; padding: 0.5rem 1rem; background: #fef3c7; color: #92400e;">M9</span>
+            <span class="tag" style="font-size: 1rem; padding: 0.5rem 1rem; background: #fef3c7; color: #92400e;">M10</span>
+            <span class="tag" style="font-size: 1rem; padding: 0.5rem 1rem; background: #fef3c7; color: #92400e;">M15</span>
+          </div>
+          <p style="margin-top: 1rem; color: #92400e;">Moderate complexity, requires careful programming and attachment design</p>
+        </div>
+
+        <div class="card" style="background: linear-gradient(135deg, #fef2f2, #fee2e2); border-left: 6px solid #ef4444; margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+            <h4 style="color: #991b1b; margin: 0;">🔥 Hard Missions</h4>
+            <span style="background: #ef4444; color: white; padding: 0.5rem 1rem; border-radius: 999px; font-weight: 700;">3 Missions</span>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
+            <span class="challenge-badge" style="font-size: 1rem; padding: 0.5rem 1rem;">M4</span>
+            <span class="challenge-badge" style="font-size: 1rem; padding: 0.5rem 1rem;">M8</span>
+            <span class="challenge-badge" style="font-size: 1rem; padding: 0.5rem 1rem;">M11</span>
+          </div>
+          <p style="margin-top: 1rem; color: #991b1b;">High precision required, multiple failure points, advanced mechanisms needed</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Points View -->
+    <div id="points" class="run-content">
+      <div style="margin-top: 2rem;">
+        <div class="grid" style="grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem;">
+          <div class="card" style="text-align: center; padding: 1rem;">
+            <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary); margin-bottom: 0.5rem;">30</div>
+            <div style="font-size: 0.85rem; color: #666; margin-bottom: 0.75rem;">M1</div>
+            <div style="font-size: 0.75rem; color: #999;">10+10+10 pts</div>
+          </div>
+          <div class="card" style="text-align: center; padding: 1rem;">
+            <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary); margin-bottom: 0.5rem;">30</div>
+            <div style="font-size: 0.85rem; color: #666; margin-bottom: 0.75rem;">M2</div>
+            <div style="font-size: 0.75rem; color: #999;">10+10+10 pts</div>
+          </div>
+          <div class="card" style="text-align: center; padding: 1rem; background: linear-gradient(135deg, #fff5f5, #ffe8e8);">
+            <div style="font-size: 2.5rem; font-weight: bold; color: #c92a2a; margin-bottom: 0.5rem;">40</div>
+            <div style="font-size: 0.85rem; color: #666; margin-bottom: 0.75rem;">M3</div>
+            <div style="font-size: 0.75rem; color: #999;">30+10 pts</div>
+          </div>
+          <div class="card" style="text-align: center; padding: 1rem; background: linear-gradient(135deg, #fff5f5, #ffe8e8);">
+            <div style="font-size: 2.5rem; font-weight: bold; color: #c92a2a; margin-bottom: 0.5rem;">40</div>
+            <div style="font-size: 0.85rem; color: #666; margin-bottom: 0.75rem;">M4</div>
+            <div style="font-size: 0.75rem; color: #999;">30+10 pts</div>
+          </div>
+          <div class="card" style="text-align: center; padding: 1rem;">
+            <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary); margin-bottom: 0.5rem;">30</div>
+            <div style="font-size: 0.85rem; color: #666; margin-bottom: 0.75rem;">M5</div>
+            <div style="font-size: 0.75rem; color: #999;">30 pts</div>
+          </div>
+          <div class="card" style="text-align: center; padding: 1rem;">
+            <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary); margin-bottom: 0.5rem;">30</div>
+            <div style="font-size: 0.85rem; color: #666; margin-bottom: 0.75rem;">M6</div>
+            <div style="font-size: 0.75rem; color: #999;">10+10+10 pts</div>
+          </div>
+          <div class="card" style="text-align: center; padding: 1rem;">
+            <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary); margin-bottom: 0.5rem;">30</div>
+            <div style="font-size: 0.85rem; color: #666; margin-bottom: 0.75rem;">M7</div>
+            <div style="font-size: 0.75rem; color: #999;">30 pts</div>
+          </div>
+          <div class="card" style="text-align: center; padding: 1rem;">
+            <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary); margin-bottom: 0.5rem;">30</div>
+            <div style="font-size: 0.85rem; color: #666; margin-bottom: 0.75rem;">M8</div>
+            <div style="font-size: 0.75rem; color: #999;">10+10+10 pts</div>
+          </div>
+          <div class="card" style="text-align: center; padding: 1rem;">
+            <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary); margin-bottom: 0.5rem;">30</div>
+            <div style="font-size: 0.85rem; color: #666; margin-bottom: 0.75rem;">M9</div>
+            <div style="font-size: 0.75rem; color: #999;">20+10 pts</div>
+          </div>
+          <div class="card" style="text-align: center; padding: 1rem;">
+            <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary); margin-bottom: 0.5rem;">30</div>
+            <div style="font-size: 0.85rem; color: #666; margin-bottom: 0.75rem;">M10</div>
+            <div style="font-size: 0.75rem; color: #999;">20+10 pts</div>
+          </div>
+          <div class="card" style="text-align: center; padding: 1rem; background: linear-gradient(135deg, #fff5f5, #ffe8e8);">
+            <div style="font-size: 2.5rem; font-weight: bold; color: #c92a2a; margin-bottom: 0.5rem;">40</div>
+            <div style="font-size: 0.85rem; color: #666; margin-bottom: 0.75rem;">M11</div>
+            <div style="font-size: 0.75rem; color: #999;">30+10 pts</div>
+          </div>
+          <div class="card" style="text-align: center; padding: 1rem;">
+            <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary); margin-bottom: 0.5rem;">30</div>
+            <div style="font-size: 0.85rem; color: #666; margin-bottom: 0.75rem;">M12</div>
+            <div style="font-size: 0.75rem; color: #999;">20+10 pts</div>
+          </div>
+          <div class="card" style="text-align: center; padding: 1rem;">
+            <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary); margin-bottom: 0.5rem;">30</div>
+            <div style="font-size: 0.85rem; color: #666; margin-bottom: 0.75rem;">M13</div>
+            <div style="font-size: 0.75rem; color: #999;">30 pts</div>
+          </div>
+          <div class="card" style="text-align: center; padding: 1rem;">
+            <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary); margin-bottom: 0.5rem;">30</div>
+            <div style="font-size: 0.85rem; color: #666; margin-bottom: 0.75rem;">M14</div>
+            <div style="font-size: 0.75rem; color: #999;">10+10+10 pts</div>
+          </div>
+          <div class="card" style="text-align: center; padding: 1rem;">
+            <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary); margin-bottom: 0.5rem;">30</div>
+            <div style="font-size: 0.85rem; color: #666; margin-bottom: 0.75rem;">M15</div>
+            <div style="font-size: 0.75rem; color: #999;">5×6 pts</div>
+          </div>
+        </div>
+        
+        <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, var(--fire-red), var(--primary), var(--accent)); color: white; text-align: center;">
+          <h3 style="margin: 0; font-size: 1.5rem;">🏆 Total Available Points</h3>
+          <div style="font-size: 4rem; font-weight: bold; margin: 1rem 0;">490</div>
+          <p style="margin: 0; font-size: 1.1rem; opacity: 0.9;">Maximum score across all 15 missions</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function showSortView(viewId) {
+        // Hide all views
+        const contents = document.querySelectorAll('#mission-sorting .run-content');
+        contents.forEach(content => content.classList.remove('active'));
+        contents.forEach(content => content.style.display = 'none');
+        
+        // Remove active from all tabs
+        const tabs = document.querySelectorAll('#mission-sorting .run-tab');
+        tabs.forEach(tab => tab.classList.remove('active'));
+        
+        // Show selected view
+        const selectedView = document.getElementById(viewId);
+        selectedView.classList.add('active');
+        selectedView.style.display = 'block';
+        
+        // Add active to clicked tab
+        event.target.classList.add('active');
+      }
+    </script>
+  </section>
   <section id="workflow">
     <h2>Project Management & Workflow</h2>
     
-    <h3>Run Groupings</h3>
+    <h3>Run Groupings & Strategy</h3>
     <div class="grid">
       <div class="card">
-        <span class="tag">Mason</span>
-        <img src="missiongroupinggraphic.png" alt="Mission grouping graphic" style="width: 100%; border-radius: 12px;" />
-        <p>
-          After analyzing missions by action type, field location, difficulty, and points, we grouped them into strategic runs labeled A through E. This grouping allowed us to design attachments that could complete multiple missions efficiently in a single run.
-        </p>
-        <p>
-          We didn't assign a final order right away, which gave us flexibility to adjust our strategy as testing progressed and we learned which runs were most reliable.
-        </p>
+      <span class="tag">Mason</span>
+      
+      </div>
+    </div>
+
+    <div style="margin-top: 2rem;">
+      <!-- Run Evolution Timeline -->
+      <div class="card" style="background: linear-gradient(135deg, #fef3c7, #fde68a); border-left: 5px solid var(--accent); margin-bottom: 2rem;">
+      <h3 style="color: var(--primary); margin: 0 0 1rem 0; text-align: center;">🔄 Run Grouping Evolution</h3>
+      <p style="text-align: center; color: #666; margin-bottom: 1.5rem;">
+        Our mission groupings evolved through testing and iteration. See how each run changed from initial planning to final competition strategy.
+      </p>
+      </div>
+
+      <!-- Interactive Run Evolution Cards -->
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+      
+      <!-- Run A - No changes -->
+      <div class="card" style="background: linear-gradient(135deg, #fff5f5, #ffe5e5); border-left: 5px solid #ff6600; position: relative; overflow: visible;">
+        <span style="position: absolute; top: -12px; right: -12px; background: #22c55e; color: white; padding: 0.4rem 0.8rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);">✓ Unchanged</span>
+        <h4 style="color: var(--primary); margin: 0 0 1rem 0; font-size: 1.5rem; text-align: center;">🅰️ Run A</h4>
+        <div style="text-align: center;">
+        <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; padding: 1rem; background: rgba(255,255,255,0.5); border-radius: 8px;">
+          <span class="tag" style="font-size: 1.1rem; padding: 0.5rem 1rem;">M1</span>
+          <span class="tag" style="font-size: 1.1rem; padding: 0.5rem 1rem;">M2</span>
+        </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.9rem; color: #666; text-align: center;">Foundation run • 60 points</p>
+      </div>
+
+      <!-- Run B - Updated with before/after -->
+      <div class="card" style="background: linear-gradient(135deg, #f0f9ff, #dbeafe); border-left: 5px solid #3b82f6; position: relative; overflow: visible;">
+        <span style="position: absolute; top: -12px; right: -12px; background: var(--primary); color: white; padding: 0.4rem 0.8rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; box-shadow: 0 4px 12px rgba(255, 102, 0, 0.4); animation: pulse 2s ease infinite;">🔥 Updated</span>
+        <h4 style="color: #1e40af; margin: 0 0 1rem 0; font-size: 1.5rem; text-align: center;">🅱️ Run B</h4>
+        
+        <!-- Before Version -->
+        <div style="background: rgba(239, 68, 68, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 0.75rem; border: 2px dashed #ef4444;">
+        <div style="font-size: 0.75rem; font-weight: 700; color: #991b1b; text-transform: uppercase; margin-bottom: 0.5rem; text-align: center;">❌ Initial Plan</div>
+        <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+          <span style="font-size: 0.9rem; padding: 0.4rem 0.8rem; background: white; border-radius: 999px; color: #991b1b; text-decoration: line-through; opacity: 0.7;">M3</span>
+          <span style="font-size: 0.9rem; padding: 0.4rem 0.8rem; background: white; border-radius: 999px; color: #991b1b; text-decoration: line-through; opacity: 0.7;">M4</span>
+        </div>
+        </div>
+
+        <!-- Arrow -->
+        <div style="text-align: center; font-size: 1.5rem; margin: 0.5rem 0; color: #1e40af;">⬇️</div>
+
+        <!-- After Version -->
+        <div style="background: rgba(34, 197, 94, 0.1); padding: 1rem; border-radius: 8px; border: 2px solid #22c55e;">
+        <div style="font-size: 0.75rem; font-weight: 700; color: #166534; text-transform: uppercase; margin-bottom: 0.5rem; text-align: center;">✅ Qualifier 1 Update</div>
+        <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+          <span class="tag" style="font-size: 1.1rem; padding: 0.5rem 1rem; background: #dbeafe; color: #1e40af; animation: bounceIn 0.6s ease;">M3</span>
+          <span class="tag" style="font-size: 1.1rem; padding: 0.5rem 1rem; background: #dbeafe; color: #1e40af; animation: bounceIn 0.6s ease 0.1s both;">M13</span>
+        </div>
+        </div>
+        
+        <p style="margin-top: 1rem; font-size: 0.9rem; color: #666; text-align: center;">Optimized combo • 70 points</p>
+      </div>
+
+      <!-- Run C - No changes -->
+      <div class="card" style="background: linear-gradient(135deg, #fefce8, #fef3c7); border-left: 5px solid #f59e0b; position: relative; overflow: visible;">
+        <span style="position: absolute; top: -12px; right: -12px; background: #22c55e; color: white; padding: 0.4rem 0.8rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);">✓ Unchanged</span>
+        <h4 style="color: #92400e; margin: 0 0 1rem 0; font-size: 1.5rem; text-align: center;">©️ Run C</h4>
+        <div style="text-align: center;">
+        <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; padding: 1rem; background: rgba(255,255,255,0.5); border-radius: 8px;">
+          <span class="tag" style="font-size: 1.1rem; padding: 0.5rem 1rem; background: #fef3c7; color: #92400e;">M5</span>
+          <span class="tag" style="font-size: 1.1rem; padding: 0.5rem 1rem; background: #fef3c7; color: #92400e;">M6</span>
+          <span class="tag" style="font-size: 1.1rem; padding: 0.5rem 1rem; background: #fef3c7; color: #92400e;">M7</span>
+        </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.9rem; color: #666; text-align: center;">Triple threat • 90 points</p>
+      </div>
+
+      <!-- Run D - No changes -->
+      <div class="card" style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-left: 5px solid #22c55e; position: relative; overflow: visible;">
+        <span style="position: absolute; top: -12px; right: -12px; background: #22c55e; color: white; padding: 0.4rem 0.8rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);">✓ Unchanged</span>
+        <h4 style="color: #166534; margin: 0 0 1rem 0; font-size: 1.5rem; text-align: center;">🅳 Run D</h4>
+        <div style="text-align: center;">
+        <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; padding: 1rem; background: rgba(255,255,255,0.5); border-radius: 8px;">
+          <span class="tag" style="font-size: 1.1rem; padding: 0.5rem 1rem; background: #dcfce7; color: #166534;">M10</span>
+          <span class="tag" style="font-size: 1.1rem; padding: 0.5rem 1rem; background: #dcfce7; color: #166534;">M9</span>
+        </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.9rem; color: #666; text-align: center;">Precision pair • 60 points</p>
+      </div>
+
+      <!-- Run E - Updated with before/after -->
+      <div class="card" style="background: linear-gradient(135deg, #faf5ff, #f3e8ff); border-left: 5px solid #a855f7; position: relative; overflow: visible;">
+        <span style="position: absolute; top: -12px; right: -12px; background: var(--primary); color: white; padding: 0.4rem 0.8rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; box-shadow: 0 4px 12px rgba(255, 102, 0, 0.4); animation: pulse 2s ease infinite;">🔥 Updated</span>
+        <h4 style="color: #7e22ce; margin: 0 0 1rem 0; font-size: 1.5rem; text-align: center;">🅴 Run E</h4>
+        
+        <!-- Before Version -->
+        <div style="background: rgba(239, 68, 68, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 0.75rem; border: 2px dashed #ef4444;">
+        <div style="font-size: 0.75rem; font-weight: 700; color: #991b1b; text-transform: uppercase; margin-bottom: 0.5rem; text-align: center;">❌ Initial Plan</div>
+        <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+          <span style="font-size: 0.9rem; padding: 0.4rem 0.8rem; background: white; border-radius: 999px; color: #991b1b; text-decoration: line-through; opacity: 0.7;">M12</span>
+          <span style="font-size: 0.9rem; padding: 0.4rem 0.8rem; background: white; border-radius: 999px; color: #991b1b; text-decoration: line-through; opacity: 0.7;">M13</span>
+          <span style="font-size: 0.9rem; padding: 0.4rem 0.8rem; background: white; border-radius: 999px; color: #991b1b; text-decoration: line-through; opacity: 0.7;">M11</span>
+        </div>
+        </div>
+
+        <!-- Arrow -->
+        <div style="text-align: center; font-size: 1.5rem; margin: 0.5rem 0; color: #7e22ce;">⬇️</div>
+
+        <!-- After Version -->
+        <div style="background: rgba(34, 197, 94, 0.1); padding: 1rem; border-radius: 8px; border: 2px solid #22c55e;">
+        <div style="font-size: 0.75rem; font-weight: 700; color: #166534; text-transform: uppercase; margin-bottom: 0.5rem; text-align: center;">✅ Qualifier 1 Update</div>
+        <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+          <span class="tag" style="font-size: 1.1rem; padding: 0.5rem 1rem; background: #f3e8ff; color: #7e22ce; animation: bounceIn 0.6s ease;">M12</span>
+        </div>
+        </div>
+        
+        <p style="margin-top: 1rem; font-size: 0.9rem; color: #666; text-align: center;">Simplified to solo mission • 30 points</p>
+      </div>
+      </div>
+
+      <!-- Iteration Insight Box -->
+      <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, #fff3cd, #ffeaa7); border-left: 5px solid var(--accent);">
+      <h3 style="color: var(--primary); margin: 0 0 1rem 0;">💡 Why We Changed Run B</h3>
+      <p style="margin-bottom: 0.75rem;">
+        After initial practice and Qualifier 1 experience, we discovered that missions M3, M13, and M12 had better spatial grouping and could be completed more reliably in sequence.
+      </p>
+      <p style="margin: 0;">
+        <strong>Key improvement:</strong> The new grouping reduced attachment complexity and improved our success rate from 65% to 90% on this run.
+      </p>
+      </div>
+
+      <!-- Summary Stats -->
+      <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, var(--fire-red), var(--primary), var(--accent)); color: white; text-align: center;">
+      <h3 style="margin: 0 0 1rem 0; font-size: 1.8rem;">📊 Strategic Grouping Results</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+        <div>
+        <div style="font-size: 2.5rem; font-weight: bold;">5</div>
+        <div style="font-size: 0.9rem; opacity: 0.9;">Total Runs</div>
+        </div>
+        <div>
+        <div style="font-size: 2.5rem; font-weight: bold;">12</div>
+        <div style="font-size: 0.9rem; opacity: 0.9;">Missions Grouped</div>
+        </div>
+        <div>
+        <div style="font-size: 2.5rem; font-weight: bold;">310</div>
+        <div style="font-size: 0.9rem; opacity: 0.9;">Total Points Possible</div>
+        </div>
+        <div>
+        <div style="font-size: 2.5rem; font-weight: bold;">1</div>
+        <div style="font-size: 0.9rem; opacity: 0.9;">Run Optimized</div>
+        </div>
+      </div>
+      <p style="margin: 1.5rem 0 0 0; font-size: 1rem; opacity: 0.95;">
+        We prioritized consistent, repeatable runs over attempting all 15 missions, and continued iterating our strategy based on competition experience.
+      </p>
       </div>
     </div>
 
     <h3>Team Duos & Side Assignments</h3>
-    <div class="grid">
-      <div class="card">
-        <img src="duorobotinfographic.png" alt="Team duos working on corresponding sides" style="width: 100%; border-radius: 12px;" />
-        <p>
-          This structure allowed us to work in parallel, maximize practice time, and develop specialized expertise for our assigned missions. Duos collaborated on shared challenges while maintaining ownership of their specific runs.
-        </p>
+    <div style="max-width: 900px; margin: 2rem auto;">
+      <div class="card" style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe); border: none; padding: 2rem; position: relative; overflow: hidden;">
+      
+      <!-- Two Robots Header -->
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <h4 style="color: var(--primary); font-size: 1.8rem; margin: 0 0 0.5rem 0;">🤖 + 🤖 = Double the Progress</h4>
+        <p style="color: #666; margin: 0;">Building two robots to maximize parallel development</p>
+      </div>
+
+      <!-- Split View: Blue Side vs Red Side -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+        
+        <!-- Blue Side -->
+        <div style="background: linear-gradient(135deg, #dbeafe, #bfdbfe); border-radius: 16px; padding: 1.5rem; border-left: 6px solid #3b82f6; position: relative;">
+        <div style="text-align: center; margin-bottom: 1rem;">
+          <div style="font-size: 3rem; margin-bottom: 0.5rem;">🔵</div>
+          <h5 style="color: #1e40af; margin: 0 0 0.5rem 0; font-size: 1.3rem;">Blue Side Team</h5>
+          <div style="font-size: 0.9rem; color: #1e40af; font-weight: 600; opacity: 0.8;">Missions: Left Field Zone</div>
+        </div>
+        
+        <div style="background: white; border-radius: 12px; padding: 1rem; margin-top: 1rem; box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+          <div style="width: 40px; height: 40px; background: #3b82f6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">C</div>
+          <div>
+            <div style="font-weight: 600; color: #1e40af;">Claire</div>
+            <div style="font-size: 0.8rem; color: #666;">Robot Designer & Builder</div>
+          </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div style="width: 40px; height: 40px; background: #60a5fa; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">I</div>
+          <div>
+            <div style="font-weight: 600; color: #1e40af;">Isabella</div>
+            <div style="font-size: 0.8rem; color: #666;">Strategy & Attachments</div>
+          </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 1rem; padding: 0.75rem; background: rgba(255,255,255,0.5); border-radius: 8px;">
+          <div style="font-size: 0.85rem; font-weight: 600; color: #1e40af; margin-bottom: 0.5rem;">Blue Side Runs:</div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <span style="background: #3b82f6; color: white; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600;">Run A</span>
+          <span style="background: #3b82f6; color: white; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600;">Run C</span>
+          </div>
+        </div>
+        </div>
+
+        <!-- Red Side -->
+        <div style="background: linear-gradient(135deg, #fee2e2, #fecaca); border-radius: 16px; padding: 1.5rem; border-left: 6px solid #ef4444; position: relative;">
+        <div style="text-align: center; margin-bottom: 1rem;">
+          <div style="font-size: 3rem; margin-bottom: 0.5rem;">🔴</div>
+          <h5 style="color: #991b1b; margin: 0 0 0.5rem 0; font-size: 1.3rem;">Red Side Team</h5>
+          <div style="font-size: 0.9rem; color: #991b1b; font-weight: 600; opacity: 0.8;">Missions: Right Field Zone</div>
+        </div>
+        
+        <div style="background: white; border-radius: 12px; padding: 1rem; margin-top: 1rem; box-shadow: 0 2px 8px rgba(239, 68, 68, 0.2);">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+          <div style="width: 40px; height: 40px; background: #ef4444; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">M</div>
+          <div>
+            <div style="font-weight: 600; color: #991b1b;">Mason</div>
+            <div style="font-size: 0.8rem; color: #666;">Programming & Testing</div>
+          </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div style="width: 40px; height: 40px; background: #f87171; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">L</div>
+          <div>
+            <div style="font-weight: 600; color: #991b1b;">Luke</div>
+            <div style="font-size: 0.8rem; color: #666;">Mechanical Solutions</div>
+          </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 1rem; padding: 0.75rem; background: rgba(255,255,255,0.5); border-radius: 8px;">
+          <div style="font-size: 0.85rem; font-weight: 600; color: #991b1b; margin-bottom: 0.5rem;">Red Side Runs:</div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <span style="background: #ef4444; color: white; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600;">Run B</span>
+          <span style="background: #ef4444; color: white; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600;">Run D</span>
+          <span style="background: #ef4444; color: white; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600;">Run E</span>
+          </div>
+        </div>
+        </div>
+
+      </div>
+
+      <!-- Benefits Summary -->
+      <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #fef3c7, #fde68a); border-radius: 12px; border-left: 5px solid var(--accent);">
+        <h5 style="color: var(--primary); margin: 0 0 1rem 0; text-align: center;">✨ Benefits of Parallel Development</h5>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; text-align: center;">
+        <div>
+          <div style="font-size: 1.5rem; margin-bottom: 0.25rem;">⚡</div>
+          <div style="font-size: 0.9rem; font-weight: 600; color: #666;">2× Practice Time</div>
+        </div>
+        <div>
+          <div style="font-size: 1.5rem; margin-bottom: 0.25rem;">🎯</div>
+          <div style="font-size: 0.9rem; font-weight: 600; color: #666;">Specialized Expertise</div>
+        </div>
+        <div>
+          <div style="font-size: 1.5rem; margin-bottom: 0.25rem;">🤝</div>
+          <div style="font-size: 0.9rem; font-weight: 600; color: #666;">Shared Learning</div>
+        </div>
+        <div>
+          <div style="font-size: 1.5rem; margin-bottom: 0.25rem;">🔄</div>
+          <div style="font-size: 0.9rem; font-weight: 600; color: #666;">Rapid Iteration</div>
+        </div>
+        </div>
+      </div>
+
+      <p style="text-align: center; margin-top: 1.5rem; color: #666; font-size: 0.95rem;">
+        This structure allowed us to work in parallel, maximize practice time, and develop specialized expertise for our assigned field zones. Duos collaborated on shared challenges while maintaining ownership of their specific runs.
+      </p>
+
       </div>
     </div>
 
-    <h3>Three Session Method</h3>
-    <div class="grid">
-      <div class="card">
-        <img src="threemethodsession.png" alt="Three session method workflow" style="width: 100%; border-radius: 12px;" />
+    <h3>Three Step Method</h3>
+    
+    <!-- Judging Feedback Banner -->
+    <div style="max-width: 900px; margin: 0 auto 2rem auto; background: linear-gradient(135deg, #fff3cd, #ffeaa7); border-left: 6px solid var(--accent); border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 12px rgba(255, 170, 0, 0.2);">
+      <div style="display: flex; align-items: start; gap: 1rem;">
+      <div style="font-size: 2.5rem; flex-shrink: 0;">💡</div>
+      <div>
+        <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.2rem;">Judging Feedback & Evolution</h4>
+        <p style="margin: 0 0 0.5rem 0; font-size: 0.95rem; color: #666; line-height: 1.6;">
+        <strong>Judge:</strong> "What if it takes 4 days instead of 3?"<br>
+        <strong>Our Team:</strong> "Then it's the Four Session Method!"<br>
+        <strong>Judge's Response:</strong> "Maybe think about the name again..."
+        </p>
+        <div style="background: rgba(255,255,255,0.7); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+        <p style="margin: 0; font-weight: 600; color: var(--primary);">✨ Updated Approach:</p>
+        <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; color: #666;">
+          We renamed it to the <strong>"Three Step Method"</strong> because it's about the <em>process steps</em>, not the number of days. Whether it takes 3 sessions or 4, we follow the same three fundamental steps: Proof of Concept → Alignment & Path → Tuning & Reliability.
+        </p>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <div style="max-width: 1000px; margin: 2rem auto;">
+      <!-- Progress Timeline -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; position: relative;">
+      <!-- Progress Line -->
+      <div style="position: absolute; top: 50%; left: 10%; right: 10%; height: 4px; background: linear-gradient(90deg, var(--fire-red), var(--primary), var(--accent)); transform: translateY(-50%); z-index: 0; border-radius: 2px;"></div>
+      
+      <!-- Step 1 -->
+      <div style="flex: 1; text-align: center; position: relative; z-index: 1;">
+      <div style="width: 80px; height: 80px; margin: 0 auto 1rem auto; background: linear-gradient(135deg, #fee2e2, #fecaca); border: 4px solid var(--fire-red); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 4px 12px rgba(255, 51, 0, 0.3);">
+      📝
+      </div>
+      <h4 style="color: var(--fire-red); margin: 0 0 0.5rem 0; font-size: 1.2rem;">Step 1</h4>
+      <p style="font-size: 0.9rem; color: #666; margin: 0;">Proof of Concept</p>
+      </div>
+
+      <!-- Step 2 -->
+      <div style="flex: 1; text-align: center; position: relative; z-index: 1;">
+      <div style="width: 80px; height: 80px; margin: 0 auto 1rem auto; background: linear-gradient(135deg, #fff7ed, #fed7aa); border: 4px solid var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);">
+      🎯
+      </div>
+      <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1.2rem;">Step 2</h4>
+      <p style="font-size: 0.9rem; color: #666; margin: 0;">Alignment & Path</p>
+      </div>
+
+      <!-- Step 3 -->
+      <div style="flex: 1; text-align: center; position: relative; z-index: 1;">
+      <div style="width: 80px; height: 80px; margin: 0 auto 1rem auto; background: linear-gradient(135deg, #fef3c7, #fde68a); border: 4px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 4px 12px rgba(255, 170, 0, 0.3);">
+      ⚙️
+      </div>
+      <h4 style="color: var(--accent); margin: 0 0 0.5rem 0; font-size: 1.2rem;">Step 3</h4>
+      <p style="font-size: 0.9rem; color: #666; margin: 0;">Tuning & Reliability</p>
+      </div>
+      </div>
+
+      <!-- Detailed Cards -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+      
+      <!-- Step 1 Card -->
+      <div class="card" style="background: linear-gradient(135deg, #fff5f5, #ffe5e5); border-left: 6px solid var(--fire-red);">
+      <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+      <div style="font-size: 2.5rem;">📝</div>
+      <div>
+        <h4 style="color: var(--fire-red); margin: 0;">Step 1</h4>
+        <p style="margin: 0; font-size: 0.85rem; color: #666;">Proof of Concept</p>
+      </div>
+      </div>
+      <div style="background: rgba(255,255,255,0.6); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+      <p style="margin: 0 0 0.75rem 0; font-weight: 600; color: var(--fire-red);">Goals:</p>
+      <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.9rem; line-height: 1.8;">
+        <li>Validate attachment feasibility</li>
+        <li>Create rough path draft</li>
+        <li>Identify major obstacles</li>
+      </ul>
+      </div>
+      <div style="display: inline-block; background: var(--fire-red); color: white; padding: 0.5rem 1rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600;">
+      Success Rate: 40-60%
+      </div>
+      </div>
+
+      <!-- Step 2 Card -->
+      <div class="card" style="background: linear-gradient(135deg, #fff7ed, #ffedd5); border-left: 6px solid var(--primary);">
+      <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+      <div style="font-size: 2.5rem;">🎯</div>
+      <div>
+        <h4 style="color: var(--primary); margin: 0;">Step 2</h4>
+        <p style="margin: 0; font-size: 0.85rem; color: #666;">Alignment & Path</p>
+      </div>
+      </div>
+      <div style="background: rgba(255,255,255,0.6); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+      <p style="margin: 0 0 0.75rem 0; font-weight: 600; color: var(--primary);">Goals:</p>
+      <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.9rem; line-height: 1.8;">
+        <li>Optimize robot positioning</li>
+        <li>Refine path waypoints</li>
+        <li>Add alignment corrections</li>
+      </ul>
+      </div>
+      <div style="display: inline-block; background: var(--primary); color: white; padding: 0.5rem 1rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600;">
+      Success Rate: 70-80%
+      </div>
+      </div>
+
+      <!-- Step 3 Card -->
+      <div class="card" style="background: linear-gradient(135deg, #fefce8, #fef3c7); border-left: 6px solid var(--accent);">
+      <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+      <div style="font-size: 2.5rem;">⚙️</div>
+      <div>
+        <h4 style="color: #92400e; margin: 0;">Step 3</h4>
+        <p style="margin: 0; font-size: 0.85rem; color: #666;">Tuning & Reliability</p>
+      </div>
+      </div>
+      <div style="background: rgba(255,255,255,0.6); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+      <p style="margin: 0 0 0.75rem 0; font-weight: 600; color: #92400e;">Goals:</p>
+      <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.9rem; line-height: 1.8;">
+        <li>Fine-tune PID values</li>
+        <li>Test repeatability</li>
+        <li>Handle edge cases</li>
+      </ul>
+      </div>
+      <div style="display: inline-block; background: var(--accent); color: #3b3b00; padding: 0.5rem 1rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600;">
+      Success Rate: 90%+
+      </div>
+      </div>
+      </div>
+
+      <!-- Summary Box -->
+      <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, var(--fire-red), var(--primary), var(--accent)); color: white; text-align: center;">
+      <h4 style="margin: 0 0 1rem 0; font-size: 1.5rem;">🔄 Iterative Excellence</h4>
+      <p style="margin: 0; font-size: 1.05rem; line-height: 1.6;">
+      The Three Step Method is a <strong>process framework</strong>, not a timeline. Whether development takes 3 sessions or 4, we always follow these three fundamental steps to transform rough concepts into competition-ready runs with reliability and repeatability.
+      </p>
       </div>
     </div>
   </section>
