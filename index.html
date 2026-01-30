@@ -1873,7 +1873,206 @@
     </select>
     <canvas id="kdChart" style="max-height: 400px;"></canvas>
   </div>
+  <div class="card" style="margin-top: 1.5rem;">
+    <h4 style="color: var(--primary); margin-top: 0;">Acceleration / Deceleration Profile</h4>
+    <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin:0.75rem 0;">
+      <label style="font-size:0.9rem;">
+        Mode:
+        <select id="profileMode" style="margin-left:0.5rem;padding:6px 8px;">
+          <option value="distance">Distance (mm)</option>
+          <option value="angle">Angle (deg)</option>
+        </select>
+      </label>
 
+      <label style="font-size:0.9rem;">
+        Target:
+        <input id="profileTarget" type="number" value="1000" style="width:100px;margin-left:0.5rem;padding:6px;" />
+      </label>
+
+      <label style="font-size:0.9rem;">
+        Max speed:
+        <input id="profileVmax" type="number" value="300" style="width:100px;margin-left:0.5rem;padding:6px;" /> <small style="opacity:0.7">mm/s or deg/s</small>
+      </label>
+
+      <label style="font-size:0.9rem;">
+        Accel:
+        <input id="profileAccel" type="number" value="800" style="width:100px;margin-left:0.5rem;padding:6px;" /> <small style="opacity:0.7">mm/s²</small>
+      </label>
+
+      <label style="font-size:0.9rem;">
+        Decel:
+        <input id="profileDecel" type="number" value="1200" style="width:100px;margin-left:0.5rem;padding:6px;" /> <small style="opacity:0.7">mm/s²</small>
+      </label>
+
+      <button id="profileSimulate" style="background:var(--primary);color:white;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;font-weight:600;">Simulate</button>
+    </div>
+
+    <canvas id="accelChart" style="max-height:360px;"></canvas>
+    <div style="font-size:0.85rem;color:#666;margin-top:0.5rem;">
+      Blue = speed profile. Orange = distance/angle progression.
+    </div>
+  </div>
+
+  <script>
+    // Utility: compute trapezoidal/triangular speed profile for a target (distance or angle)
+    function computeProfile({target=1000, vmax=300, a=800, d=1200, dt=0.02}) {
+      // Use same physics: braking distance for speed v is v^2/(2*d)
+      // Check achievable peak if distance too short.
+      const tol = 1e-6;
+      let t = 0, v = 0, x = 0;
+      const times = [], speeds = [], positions = [];
+
+      // If target <= 0, return empty.
+      if (target <= 0) return {times, speeds, positions};
+
+      // Pre-calc ideal triangular peak velocity if never reach vmax:
+      const v_peak_sq = (2 * a * d * target) / (a + d);
+      const v_peak = Math.sqrt(Math.max(0, v_peak_sq));
+      const v_allowed = Math.min(vmax, v_peak);
+
+      // Simulation loop until we reach target (or tiny overrun)
+      while (x + 1e-3 < target && t < 60) { // safety cap 60s
+        // remaining distance/angle
+        const rem = Math.max(0, target - x);
+        // braking distance from current (if we would stop from current velocity)
+        const brakeDist = (v * v) / (2 * d);
+        let acc = 0;
+        // decide accelerate, coast, or decelerate
+        if (v < v_allowed - 0.5 && rem > brakeDist + 1e-3) {
+          acc = a; // accelerate
+        } else {
+          // start decel to hit target smoothly
+          acc = -d;
+        }
+        // integrate Euler
+        const v_next = Math.max(0, v + acc * dt);
+        // limit to v_allowed when accelerating
+        if (acc > 0 && v_next > v_allowed) {
+          // cap to v_allowed
+          const dv = v_allowed - v;
+          // compute time fraction to reach v_allowed
+          const t_to_v = dv / Math.max(acc, tol);
+          // advance by that small time step
+          const x_inc = v * t_to_v + 0.5 * acc * t_to_v * t_to_v;
+          t += t_to_v;
+          x += x_inc;
+          v = v_allowed;
+        } else {
+          // normal step
+          const x_inc = v * dt + 0.5 * acc * dt * dt;
+          t += dt;
+          x += x_inc;
+          v = v_next;
+        }
+
+        // push snapshots
+        times.push(t);
+        speeds.push(v);
+        positions.push(Math.min(x, target));
+        // safety break if stuck
+        if (times.length > 200000) break;
+      }
+
+      // ensure final sample at target
+      if (positions.length && positions[positions.length - 1] < target - 1e-3) {
+        const lastT = times.length ? times[times.length-1] : 0;
+        times.push(lastT + 0.001);
+        speeds.push(0);
+        positions.push(target);
+      }
+
+      return {times, speeds, positions};
+    }
+
+    // chart holder
+    let accelChart = null;
+
+    function renderProfile() {
+      const mode = document.getElementById('profileMode').value;
+      const target = parseFloat(document.getElementById('profileTarget').value) || 0;
+      const vmax = parseFloat(document.getElementById('profileVmax').value) || 300;
+      const accel = Math.max(1, parseFloat(document.getElementById('profileAccel').value) || 800);
+      const decel = Math.max(1, parseFloat(document.getElementById('profileDecel').value) || 1200);
+
+      const sim = computeProfile({target, vmax, a: accel, d: decel, dt: 0.02});
+      const labels = sim.times.map(t => t.toFixed(2));
+
+      const speedDataset = {
+        label: 'Speed (' + (mode === 'distance' ? 'mm/s' : 'deg/s') + ')',
+        data: sim.speeds.map(s => Number(s.toFixed(2))),
+        borderColor: '#3b82f6',
+        backgroundColor: '#3b82f6',
+        yAxisID: 'ySpeed',
+        tension: 0.2,
+        fill: false,
+        pointRadius: 0
+      };
+
+      const posDataset = {
+        label: (mode === 'distance' ? 'Distance (mm)' : 'Angle (deg)'),
+        data: sim.positions.map(p => Number(p.toFixed(2))),
+        borderColor: '#f59e0b',
+        backgroundColor: '#f59e0b',
+        yAxisID: 'yPos',
+        tension: 0.2,
+        fill: false,
+        pointRadius: 0
+      };
+
+      const ctx = document.getElementById('accelChart').getContext('2d');
+      if (accelChart) {
+        accelChart.data.labels = labels;
+        accelChart.data.datasets = [speedDataset, posDataset];
+        accelChart.options.plugins.title.text = `Profile to ${target} ${mode === 'distance' ? 'mm' : 'deg'}`;
+        accelChart.update();
+      } else {
+        accelChart = new Chart(ctx, {
+          type: 'line',
+          data: { labels, datasets: [speedDataset, posDataset] },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'bottom' },
+              title: { display: true, text: `Profile to ${target} ${mode === 'distance' ? 'mm' : 'deg'}` },
+              tooltip: {
+                callbacks: {
+                  label: function(context) {
+                    return context.dataset.label + ': ' + context.parsed.y;
+                  }
+                }
+              }
+            },
+            scales: {
+              x: { display: true, title: { display: true, text: 'Time (s)' } },
+              ySpeed: {
+                type: 'linear',
+                position: 'left',
+                title: { display: true, text: 'Speed' }
+              },
+              yPos: {
+                type: 'linear',
+                position: 'right',
+                title: { display: true, text: (mode === 'distance' ? 'Distance (mm)' : 'Angle (deg)') },
+                grid: { drawOnChartArea: false }
+              }
+            }
+          }
+        });
+      }
+    }
+
+    // initialize when page fully loaded (Chart.js is loaded later in page)
+    window.addEventListener('load', function() {
+      // wire controls
+      document.getElementById('profileSimulate').addEventListener('click', renderProfile);
+      ['profileMode','profileTarget','profileVmax','profileAccel','profileDecel'].forEach(id=>{
+        document.getElementById(id).addEventListener('keypress', function(e){ if(e.key==='Enter') renderProfile(); });
+      });
+      // initial render
+      renderProfile();
+    });
+  </script>
   <h3>Drive Straight Function</h3>
   <div class="card">
     <pre><code>def drive_straight(distance_mm, speed, kp=1.15, kd=0.02):
