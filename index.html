@@ -774,6 +774,7 @@
         The rear motor sat at a different height, and swapping attachments often pulled off the front plate. Over the summer, we redesigned our robot using an iterative process.
       </p>
     </div>
+
     <div class="card">
       <h4 style="color: var(--primary); margin-top: 0; margin-bottom: 1rem;">Last Year's Motor Setup Issues</h4>
       <img src="lastyearrobotfrontmotorview.png" alt="Last year's front motor view" style="width: 100%; border-radius: 12px; margin-bottom: 0.75rem;" />
@@ -782,20 +783,49 @@
         Front and back motors at different heights created instability and made attachment swaps difficult.
       </p>
     </div>
-    <div class="card">
-      <h4 style="color: var(--primary); margin-top: 0; margin-bottom: 1rem;">Motor Placement Iterations</h4>
-      <div style="position: relative;">
-        <img id="motorSlide" src="motor placement 1.png" alt="Motor placement iteration" style="width: 100%; border-radius: 12px;" />
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
-          <button onclick="previousMotor()" style="background: var(--primary); color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-weight: 600;">← Previous</button>
-          <span id="motorCounter" style="font-weight: 600;">1 / 7</span>
-          <button onclick="nextMotor()" style="background: var(--primary); color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-weight: 600;">Next →</button>
-        </div>
-      </div>
-      <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
-        We tested different motor placements and orientations using BrickLink Studio, which allowed us to make adjustments without taking the physical robot apart.
-      </p>
+  </div>
+
+  <!-- Motor placement collage moved below the two intro cards -->
+  <h3 style="margin-top: 1.5rem;">Motor Placement Options (Collage)</h3>
+  <div class="card" style="padding: 1rem;">
+    <p style="margin-top: 0; color: #666;">
+      We tested multiple motor placements and orientations. Click any thumbnail to enlarge.
+    </p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.75rem; margin-top: 1rem;">
+      <figure style="margin:0; text-align:center;">
+        <img src="motor placement 1.png" alt="Motor placement option 1" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
+        <figcaption style="font-size:0.8rem; color:#666; margin-top:0.4rem;">Option 1</figcaption>
+      </figure>
+      <figure style="margin:0; text-align:center;">
+        <img src="motor placement 2.png" alt="Motor placement option 2" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
+        <figcaption style="font-size:0.8rem; color:#666; margin-top:0.4rem;">Option 2</figcaption>
+      </figure>
+      <figure style="margin:0; text-align:center;">
+        <img src="motor placement 3.png" alt="Motor placement option 3" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
+        <figcaption style="font-size:0.8rem; color:#666; margin-top:0.4rem;">Option 3</figcaption>
+      </figure>
+      <figure style="margin:0; text-align:center;">
+        <img src="motor placement 4.png" alt="Motor placement option 4" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
+        <figcaption style="font-size:0.8rem; color:#666; margin-top:0.4rem;">Option 4</figcaption>
+      </figure>
+      <figure style="margin:0; text-align:center;">
+        <img src="motor placement 5.png" alt="Motor placement option 5" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
+        <figcaption style="font-size:0.8rem; color:#666; margin-top:0.4rem;">Option 5</figcaption>
+      </figure>
+      <figure style="margin:0; text-align:center;">
+        <img src="motor placement 6.png" alt="Motor placement option 6" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
+        <figcaption style="font-size:0.8rem; color:#666; margin-top:0.4rem;">Option 6</figcaption>
+      </figure>
+      <figure style="margin:0; text-align:center;">
+        <img src="motor placement 7.png" alt="Motor placement option 7" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
+        <figcaption style="font-size:0.8rem; color:#666; margin-top:0.4rem;">Option 7</figcaption>
+      </figure>
     </div>
+
+    <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+      Note: This collage lets viewers compare options at a glance and open any image for a closer look.
+    </p>
   </div>
 
   <h3>CAD Design: BrickLink Studio</h3>
@@ -837,34 +867,8 @@
 </section>
 
 <script>
-    const motorImages = [
-        'motor placement 1.png',
-        'motor placement 2.png',
-        'motor placement 3.png',
-        'motor placement 4.png',
-        'motor placement 5.png',
-        'motor placement 6.png',
-        'motor placement 7.png'
-    ];
-    let motorIndex = 0;
-
-    function nextMotor() {
-        motorIndex = (motorIndex + 1) % motorImages.length;
-        updateMotorSlide();
-    }
-
-    function previousMotor() {
-        motorIndex = (motorIndex - 1 + motorImages.length) % motorImages.length;
-        updateMotorSlide();
-    }
-
-    function updateMotorSlide() {
-        document.getElementById('motorSlide').src = motorImages[motorIndex];
-        document.getElementById('motorCounter').textContent = (motorIndex + 1) + ' / ' + motorImages.length;
-    }
-</script>
-
-<script>
+    // Removed motor slideshow; collage thumbnails open the existing image modal.
+    // Brainstorm slideshow script (unchanged)
     const brainstormImages = [
         'RulesOfBrainstorming.webp',
         'isabelladrawing1.jpg',
@@ -893,6 +897,7 @@
 </script>
 
 <script>
+    // Mission slideshow script (unchanged)
     const missionImages = [
         'actiontypesorting.jpg',
         'missionlocationsorting.jpg',
