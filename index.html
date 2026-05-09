@@ -64,6 +64,100 @@
       position: relative;
       animation: fadeInUp 1s ease 0.3s both;
     }
+    .hero-achievements {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(260px, 1.1fr) minmax(260px, 0.9fr);
+      gap: 1.25rem;
+      align-items: stretch;
+      max-width: 1100px;
+      margin: 1.75rem auto 0;
+      text-align: left;
+      animation: fadeInUp 1s ease 0.45s both;
+    }
+    .hero-photo {
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 12px;
+      padding: 0.75rem;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+    }
+    .hero-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-height: 430px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .season-highlights {
+      display: grid;
+      gap: 0.75rem;
+    }
+    .season-highlights h2 {
+      color: white;
+      margin: 0;
+      padding: 0;
+      text-align: left;
+      font-size: clamp(1.35rem, 2vw, 1.9rem);
+    }
+    .season-highlights h2::after {
+      display: none;
+    }
+    .highlight-card {
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 1rem;
+      border-left: 5px solid var(--accent);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.15);
+    }
+    .highlight-card.current {
+      border-left-color: #22c55e;
+    }
+    .highlight-card.upcoming {
+      border-left-color: #2563eb;
+      background: #eff6ff;
+    }
+    .highlight-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--primary-dark);
+      margin-bottom: 0.35rem;
+    }
+    .highlight-card.upcoming .highlight-label {
+      color: #1d4ed8;
+    }
+    .highlight-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 0.25rem;
+    }
+    .highlight-detail {
+      color: #4b5563;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+    @media (max-width: 760px) {
+      header {
+        padding: 3rem 1rem;
+      }
+      .hero-achievements {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .season-highlights h2 {
+        text-align: center;
+      }
+      .hero-photo img {
+        max-height: none;
+      }
+    }
     @keyframes fadeInDown {
       from {
         opacity: 0;
@@ -717,18 +811,27 @@
 <header>
   <h1>History Guardians 67843</h1>
   <p>FLL Team Website</p>
-  <div style="background: rgba(255, 255, 255, 0.15); padding: 1.5rem; border-radius: 12px; margin-top: 1.5rem; backdrop-filter: blur(10px); max-width: 700px; margin-left: auto; margin-right: auto;">
-    <img src="championship picutre.jpg" alt="Championship team photo" style="width:100%; max-width:680px; border-radius:10px; display:block; margin:0 auto 1rem;" />
-    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏆</div>
-    <div style="font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem;">Championship Award Winners!</div>
-    <div style="font-size: 1rem; opacity: 0.95; margin-bottom: 0.75rem;">Qualifier 1 Champions</div>
-    <div style="font-size: 0.95rem; opacity: 0.9; margin-bottom: 0.75rem;">
-      John Jay Middle School<br>
-      January 10th, 2026
+  <div class="hero-achievements">
+    <div class="hero-photo">
+      <img src="championship picutre.jpg" alt="History Guardians championship team photo" />
     </div>
-    <div style="font-size: 0.95rem; opacity: 0.9;">
-      Competing at <strong>Hudson Valley Championship</strong><br>
-      February 7th, 2026
+    <div class="season-highlights" aria-label="Season highlights">
+      <h2>Season Highlights</h2>
+      <div class="highlight-card">
+        <span class="highlight-label">Qualifier Win</span>
+        <div class="highlight-title">Qualifier 1 Champions</div>
+        <div class="highlight-detail">John Jay Middle School, January 10, 2026</div>
+      </div>
+      <div class="highlight-card current">
+        <span class="highlight-label">Regional Champions</span>
+        <div class="highlight-title">Hudson Valley Regional Championship Winners</div>
+        <div class="highlight-detail">Final championship event, February 7, 2026</div>
+      </div>
+      <div class="highlight-card upcoming">
+        <span class="highlight-label">Next Invitational</span>
+        <div class="highlight-title">California Western Edge Invitational</div>
+        <div class="highlight-detail">May 28-31, 2026, representing the New York State area</div>
+      </div>
     </div>
   </div>
 </header>
@@ -996,14 +1099,14 @@
         </div>
 
         <p style="margin-top: 1rem;">
-          These visual summaries helped us quickly group missions that fit together and prioritize attachments for repeatable runs.
+          These visual summaries helped us quickly group missions that fit together and prioritize attachments for repeatable runs. As the season progressed through Qualifier 1 and the Hudson Valley Regional Championship, we kept refining the plan so each run became more reliable, better grouped, and more competition-ready.
         </p>
       </div>
     </div>
   </section>
   <section id="mission-sorting">
     <h2>Mission Analysis & Sorting System</h2>
-    <p>Before designing our robot and planning runs, we categorized all 15 missions by action type, difficulty, and point value. This systematic analysis helped us identify natural groupings and prioritize which missions to attempt.</p>
+    <p>Before designing our robot and planning runs, we categorized all 15 missions by action type, difficulty, and point value. This systematic analysis helped us identify natural groupings, prioritize which missions to attempt, and keep improving the strategy as our competition experience grew.</p>
     
     <div class="run-tabs" style="justify-content: center; margin-top: 2rem;">
       <button class="run-tab active" onclick="showSortView('action-type')">By Action Type</button>
@@ -1384,10 +1487,10 @@
       <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, #fff3cd, #ffeaa7); border-left: 5px solid var(--accent);">
       <h3 style="color: var(--primary); margin: 0 0 1rem 0;">💡 Why We Changed Run B</h3>
       <p style="margin-bottom: 0.75rem;">
-        After initial practice and Qualifier 1 experience, we discovered that missions M3, M13, and M12 had better spatial grouping and could be completed more reliably in sequence.
+        After initial practice, Qualifier 1, and continued championship preparation, we discovered that missions M3, M13, and M12 had better spatial grouping and could be completed more reliably in sequence.
       </p>
       <p style="margin: 0;">
-        <strong>Key improvement:</strong> The new grouping reduced attachment complexity and improved our success rate from 65% to 90% on this run.
+        <strong>Key improvement:</strong> The new grouping reduced attachment complexity, improved our success rate from 65% to 90% on this run, and gave us a stronger plan for higher-pressure matches.
       </p>
       </div>
 
@@ -1413,7 +1516,7 @@
         </div>
       </div>
       <p style="margin: 1.5rem 0 0 0; font-size: 1rem; opacity: 0.95;">
-        We prioritized consistent, repeatable runs over attempting all 15 missions, and continued iterating our strategy based on competition experience.
+        We prioritized consistent, repeatable runs over attempting all 15 missions, then continued iterating our strategy through the Hudson Valley Regional Championship and toward the California Western Edge Invitational.
       </p>
       </div>
     </div>
@@ -2481,6 +2584,9 @@
       </p>
       <p>
         This process allowed us to overcome challenges from last year, improve our drive-straight performance, and consistently complete more missions during competition.
+      </p>
+      <p>
+        Winning the Hudson Valley Regional Championship showed how much our strategy, robot design, and teamwork grew across the season. Now we are preparing for the California Western Edge Invitational on May 28-31, 2026, where we will represent the New York State area and keep building on the same cycle of testing, learning, and improving.
       </p>
     </div>
   </section>
