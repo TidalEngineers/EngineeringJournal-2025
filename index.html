@@ -386,6 +386,113 @@
       }
     }
 
+    .strategy-intro {
+      background: linear-gradient(135deg, #fff7ed, #ffedd5);
+      border-left: 6px solid var(--primary);
+      text-align: center;
+    }
+    .strategy-intro h3 {
+      color: var(--primary);
+      margin: 0 0 0.75rem 0;
+    }
+    .strategy-intro p {
+      color: #4b5563;
+      margin: 0;
+    }
+    .strategy-comparison {
+      display: grid;
+      grid-template-columns: minmax(240px, 0.85fr) minmax(280px, 1.15fr);
+      gap: 1.5rem;
+      align-items: stretch;
+      margin: 2rem 0;
+    }
+    .strategy-panel {
+      background: white;
+      border-radius: 12px;
+      padding: 1.25rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+    .strategy-panel.current {
+      border: 2px solid rgba(255, 102, 0, 0.35);
+      background: linear-gradient(135deg, #fff7ed, #ffffff);
+    }
+    .strategy-panel h4 {
+      margin: 0 0 0.75rem 0;
+      color: var(--primary);
+    }
+    .strategy-panel p {
+      margin: 0;
+      color: #4b5563;
+    }
+    .western-edge-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .western-run-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1rem;
+      border-top: 5px solid var(--primary);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+    }
+    .western-run-card h5 {
+      margin: 0 0 0.75rem 0;
+      color: #0b5aa6;
+      font-size: 1.05rem;
+    }
+    .mission-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    .mission-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 44px;
+      min-height: 34px;
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      background: #fff7ed;
+      color: var(--primary-dark);
+      border: 1px solid rgba(255, 102, 0, 0.28);
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+    .strategy-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .strategy-stat {
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 10px;
+      padding: 1rem;
+    }
+    .strategy-stat strong {
+      display: block;
+      font-size: 2.1rem;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .strategy-note {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-radius: 10px;
+      background: #eff6ff;
+      border-left: 5px solid #2563eb;
+      color: #1e3a8a;
+    }
+    @media (max-width: 760px) {
+      .strategy-comparison {
+        grid-template-columns: 1fr;
+      }
+    }
+
     footer {
       background: var(--primary);
       color: white;
@@ -1297,8 +1404,8 @@
         
         <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, var(--fire-red), var(--primary), var(--accent)); color: white; text-align: center;">
           <h3 style="margin: 0; font-size: 1.5rem;">🏆 Total Available Points</h3>
-          <div style="font-size: 4rem; font-weight: bold; margin: 1rem 0;">455</div>
-          <p style="margin: 0; font-size: 1.1rem; opacity: 0.9;">Maximum score across all 15 missions</p>
+          <div style="font-size: 4rem; font-weight: bold; margin: 1rem 0;">545</div>
+          <p style="margin: 0; font-size: 1.1rem; opacity: 0.9;">Western Edge maximum/attempted score across all 15 missions</p>
         </div>
       </div>
     </div>
@@ -1328,19 +1435,86 @@
     <h2>Project Management & Workflow</h2>
     
     <h3>Run Groupings & Strategy</h3>
-    <div class="grid">
-      <div class="card">
-      <span class="tag">Mason</span>
-      
-      </div>
-    </div>
 
     <div style="margin-top: 2rem;">
+      <div class="card strategy-intro">
+      <h3>Western Edge Run Plan</h3>
+      <p>
+        After the Hudson Valley Regional Championship, we expanded our strategy from a five-run championship plan into a six-run Western Edge Invitational plan that attempts all 15 missions and targets 545 points.
+      </p>
+      </div>
+
+      <div class="strategy-comparison">
+        <div class="strategy-panel">
+          <h4>Previous Championship Plan</h4>
+          <p>
+            Our earlier plan focused on five reliable runs and 12 grouped missions. It helped us prioritize consistency, fast attachment changes, and repeatable paths during championship competition.
+          </p>
+        </div>
+        <div class="strategy-panel current">
+          <h4>Current Western Edge Plan</h4>
+          <p>
+            The new plan covers every mission in six cleaner runs. Judges can read the full run order below from left to right.
+          </p>
+          <div class="western-edge-grid">
+            <div class="western-run-card">
+              <h5>Run 1</h5>
+              <div class="mission-chip-row">
+                <span class="mission-chip">M1</span>
+                <span class="mission-chip">M2</span>
+              </div>
+            </div>
+            <div class="western-run-card">
+              <h5>Run 2</h5>
+              <div class="mission-chip-row">
+                <span class="mission-chip">M3</span>
+                <span class="mission-chip">M4</span>
+                <span class="mission-chip">M13</span>
+              </div>
+            </div>
+            <div class="western-run-card">
+              <h5>Run 3</h5>
+              <div class="mission-chip-row">
+                <span class="mission-chip">M11</span>
+                <span class="mission-chip">M12</span>
+              </div>
+            </div>
+            <div class="western-run-card">
+              <h5>Run 4</h5>
+              <div class="mission-chip-row">
+                <span class="mission-chip">M9</span>
+                <span class="mission-chip">M10</span>
+              </div>
+            </div>
+            <div class="western-run-card">
+              <h5>Run 5</h5>
+              <div class="mission-chip-row">
+                <span class="mission-chip">M5</span>
+                <span class="mission-chip">M6</span>
+                <span class="mission-chip">M7</span>
+                <span class="mission-chip">M8</span>
+              </div>
+            </div>
+            <div class="western-run-card">
+              <h5>Run 6</h5>
+              <div class="mission-chip-row">
+                <span class="mission-chip">M14</span>
+                <span class="mission-chip">M15</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="strategy-note">
+        <strong>Why the change matters:</strong> The Western Edge grouping makes the plan easier to explain, adds complete mission coverage, and keeps the run order organized around reliability instead of only point chasing.
+      </div>
+
       <!-- Run Evolution Timeline -->
       <div class="card" style="background: linear-gradient(135deg, #fef3c7, #fde68a); border-left: 5px solid var(--accent); margin-bottom: 2rem;">
       <h3 style="color: var(--primary); margin: 0 0 1rem 0; text-align: center;">🔄 Run Grouping Evolution</h3>
       <p style="text-align: center; color: #666; margin-bottom: 1.5rem;">
-        Our mission groupings evolved through testing and iteration. See how each run changed from initial planning to final competition strategy.
+        The cards below document how our earlier championship groupings changed through testing. The Western Edge plan above is our current competition strategy.
       </p>
       </div>
 
@@ -1499,20 +1673,20 @@
       <h3 style="margin: 0 0 1rem 0; font-size: 1.8rem;">📊 Strategic Grouping Results</h3>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
         <div>
-        <div style="font-size: 2.5rem; font-weight: bold;">5</div>
+        <div style="font-size: 2.5rem; font-weight: bold;">6</div>
         <div style="font-size: 0.9rem; opacity: 0.9;">Total Runs</div>
         </div>
         <div>
-        <div style="font-size: 2.5rem; font-weight: bold;">12</div>
+        <div style="font-size: 2.5rem; font-weight: bold;">15</div>
         <div style="font-size: 0.9rem; opacity: 0.9;">Missions Grouped</div>
         </div>
         <div>
-        <div style="font-size: 2.5rem; font-weight: bold;">310</div>
-        <div style="font-size: 0.9rem; opacity: 0.9;">Total Points Possible</div>
+        <div style="font-size: 2.5rem; font-weight: bold;">545</div>
+        <div style="font-size: 0.9rem; opacity: 0.9;">Maximum/Attempted Points</div>
         </div>
         <div>
-        <div style="font-size: 2.5rem; font-weight: bold;">1</div>
-        <div style="font-size: 0.9rem; opacity: 0.9;">Run Optimized</div>
+        <div style="font-size: 2.5rem; font-weight: bold;">Current</div>
+        <div style="font-size: 0.9rem; opacity: 0.9;">Western Edge Strategy</div>
         </div>
       </div>
       <p style="margin: 1.5rem 0 0 0; font-size: 1rem; opacity: 0.95;">
@@ -1775,6 +1949,9 @@
   <section id="mission-runs">
     <h2>Mission Runs: Design & Execution</h2>
     <p>Explore each mission run in detail, including design iterations, attachment evolution, and challenges we overcame.</p>
+    <div class="strategy-note">
+      <strong>Current competition grouping:</strong> Our Western Edge strategy uses Run 1-6 in the plan above. The Run A-E tabs below preserve earlier media and iteration evidence from our championship development process.
+    </div>
     
     <div class="run-tabs">
       <button class="run-tab active" onclick="showRun('run-a')">Run A</button>
