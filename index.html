@@ -3,31 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>History Guardians 67843</title>
+  <title>Tidal Engineers 74703</title>
   <style>
     :root {
-      --primary: #ff6600;        /* Bright orange */
-      --primary-dark: #cc5200;   /* Dark orange */
-      --primary-light: #ff8533;  /* Light orange */
-      --fire-red: #ff3300;       /* Red-orange for fire effect */
-      --accent: #ffaa00;         /* Golden orange */
-      --muted: #f5f5f5;          /* Light gray/white */
-      --text: #1a1a1a;           /* Near black */
+      --primary: #007f8f;
+      --primary-dark: #00556b;
+      --primary-light: #18b6c5;
+      --fire-red: #00335f;
+      --accent: #d88900;
+      --muted: #f4fbfd;
+      --text: #0a2540;
+      --deep-blue: #022c56;
+      --seafoam: #83d9c6;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
       color: var(--text);
-      background: var(--muted);
+      background: white;
       line-height: 1.6;
     }
     header {
-      background: linear-gradient(135deg, var(--fire-red), var(--primary), var(--accent));
-      background-size: 200% 200%;
-      animation: gradientShift 8s ease infinite;
-      color: white;
-      padding: 4rem 1.5rem;
+      background: white;
+      color: var(--deep-blue);
+      padding: 3.25rem 1.5rem 4rem;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -35,12 +35,23 @@
     header::before {
       content: '';
       position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-      animation: rotate 20s linear infinite;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: min(190px, 17vw);
+      background: url("assets/tidal/tidal-engineers-design.png") center / cover;
+      opacity: 0.18;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: min(190px, 17vw);
+      background: url("assets/tidal/tidal-engineers-design.png") center / cover;
+      opacity: 0.18;
+      transform: scaleX(-1);
     }
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
@@ -52,17 +63,110 @@
       to { transform: rotate(360deg); }
     }
     header h1 { 
-      font-size: 2.5rem; 
-      margin-bottom: 0.5rem;
+      font-size: clamp(1.8rem, 4vw, 3.4rem); 
+      line-height: 1;
+      margin: 0.4rem auto 0.5rem;
       position: relative;
       animation: fadeInDown 1s ease;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      color: var(--deep-blue);
+      text-shadow: 0 6px 24px rgba(255, 255, 255, 0.9);
     }
     header p { 
-      max-width: 800px; 
+      max-width: 900px; 
       margin: 0.5rem auto 0; 
       font-size: 1.1rem;
       position: relative;
       animation: fadeInUp 1s ease 0.3s both;
+    }
+    .team-brand {
+      position: relative;
+      display: grid;
+      justify-items: center;
+      gap: 0.75rem;
+      animation: fadeInDown 1s ease;
+    }
+    .hero-logo {
+      width: min(360px, 78vw);
+      max-height: 170px;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 22px rgba(2, 44, 86, 0.2));
+    }
+    .team-number {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: white;
+      color: var(--primary-dark);
+      border: 2px solid rgba(216, 137, 0, 0.8);
+      border-radius: 999px;
+      padding: 0.35rem 0.9rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    }
+    .hero-intro {
+      font-size: clamp(1rem, 1.7vw, 1.25rem);
+      line-height: 1.55;
+    }
+    .team-motto {
+      position: relative;
+      display: grid;
+      place-items: center;
+      gap: 0.2rem;
+      max-width: 980px;
+      margin: 1.15rem auto 0;
+      padding: 1.4rem 1.25rem 1.55rem;
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.88)),
+        url("assets/tidal/tidal-engineers-wave.png") center bottom / auto 92% repeat-x;
+      color: var(--deep-blue);
+      border: 2px solid rgba(0, 127, 143, 0.28);
+      border-radius: 10px;
+      font-weight: 850;
+      box-shadow: 0 14px 32px rgba(2, 44, 86, 0.14);
+      overflow: hidden;
+    }
+    .team-motto::before,
+    .team-motto::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: min(170px, 22vw);
+      background: url("assets/tidal/tidal-engineers-design.png") center / cover;
+      opacity: 0.42;
+    }
+    .team-motto::before {
+      left: 0;
+    }
+    .team-motto::after {
+      right: 0;
+      transform: scaleX(-1);
+    }
+    .motto-line {
+      position: relative;
+      z-index: 1;
+      display: block;
+      font-size: clamp(1.35rem, 4.6vw, 3.2rem);
+      line-height: 1.05;
+      text-align: center;
+      letter-spacing: 0;
+    }
+    .motto-line .gold {
+      color: var(--accent);
+    }
+    .motto-divider {
+      position: relative;
+      z-index: 1;
+      width: min(540px, 70%);
+      height: 2px;
+      margin: 0.35rem auto;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+    .motto-subline {
+      color: var(--primary-dark);
     }
     .hero-achievements {
       position: relative;
@@ -76,9 +180,9 @@
       animation: fadeInUp 1s ease 0.45s both;
     }
     .hero-photo {
-      background: rgba(255, 255, 255, 0.16);
-      border: 1px solid rgba(255, 255, 255, 0.24);
-      border-radius: 12px;
+      background: white;
+      border: 1px solid rgba(0, 127, 143, 0.18);
+      border-radius: 8px;
       padding: 0.75rem;
       backdrop-filter: blur(10px);
       box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
@@ -88,15 +192,58 @@
       width: 100%;
       height: 100%;
       max-height: 430px;
-      object-fit: cover;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+    .slide-card img {
+      display: block;
+      width: 100%;
       border-radius: 8px;
+      margin: 0;
+    }
+    .team-intro-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+    .team-intro-grid img {
+      display: block;
+      width: 100%;
+      border: 1px solid rgba(0, 127, 143, 0.18);
+      border-radius: 8px;
+      box-shadow: 0 8px 18px rgba(0, 71, 92, 0.12);
+    }
+    .initial-ideas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+    .initial-ideas-grid img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      background: white;
+      border: 1px solid rgba(0, 127, 143, 0.18);
+      border-radius: 8px;
+      box-shadow: 0 8px 18px rgba(0, 71, 92, 0.1);
+    }
+    @media (max-width: 720px) {
+      .team-intro-grid {
+        grid-template-columns: 1fr;
+      }
+      .initial-ideas-grid {
+        grid-template-columns: 1fr;
+      }
     }
     .season-highlights {
       display: grid;
       gap: 0.75rem;
     }
     .season-highlights h2 {
-      color: white;
+      color: var(--deep-blue);
       margin: 0;
       padding: 0;
       text-align: left;
@@ -106,19 +253,45 @@
       display: none;
     }
     .highlight-card {
-      background: rgba(255, 255, 255, 0.92);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(231, 250, 255, 0.92)),
+        url("assets/tidal/tidal-engineers-wave.png") right bottom / 180px auto no-repeat;
       color: var(--text);
-      border-radius: 8px;
-      padding: 1rem;
-      border-left: 5px solid var(--accent);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.15);
+      border-radius: 10px;
+      padding: 1rem 1rem 1rem 4.35rem;
+      border: 1px solid rgba(0, 127, 143, 0.22);
+      box-shadow: 0 10px 26px rgba(2, 44, 86, 0.14);
+      position: relative;
+      overflow: hidden;
+    }
+    .highlight-card::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 1rem;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      transform: translateY(-50%);
+      background:
+        radial-gradient(circle at center, white 0 28%, transparent 29%),
+        conic-gradient(from 15deg, var(--accent), var(--primary-light), var(--deep-blue), var(--seafoam), var(--accent));
+      box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.85), 0 4px 14px rgba(0, 85, 107, 0.22);
+    }
+    .highlight-card::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--seafoam), var(--accent));
     }
     .highlight-card.current {
-      border-left-color: #22c55e;
+      background-color: #f2fffb;
     }
     .highlight-card.upcoming {
-      border-left-color: #2563eb;
-      background: #eff6ff;
+      background: #e7faff;
     }
     .highlight-label {
       display: inline-block;
@@ -130,7 +303,319 @@
       margin-bottom: 0.35rem;
     }
     .highlight-card.upcoming .highlight-label {
-      color: #1d4ed8;
+      color: var(--primary-dark);
+    }
+    .season-gallery {
+      column-count: 4;
+      column-gap: 0.9rem;
+      margin-top: 1.25rem;
+    }
+    .gallery-item {
+      background: white;
+      border: 1px solid rgba(0, 127, 143, 0.14);
+      border-radius: 8px;
+      padding: 0.45rem;
+      margin: 0 0 0.9rem;
+      break-inside: avoid;
+      box-shadow: 0 8px 20px rgba(2, 44, 86, 0.08);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      display: block;
+    }
+    .mission-analysis-section {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(242, 255, 251, 0.94)),
+        url("assets/tidal/tidal-engineers-design.png") left top / 360px auto no-repeat;
+    }
+    .mission-analysis-section::after {
+      content: '';
+      position: absolute;
+      right: -8rem;
+      bottom: -4rem;
+      width: 420px;
+      height: 180px;
+      background: url("assets/tidal/tidal-engineers-wave.png") center / contain no-repeat;
+      opacity: 0.2;
+      pointer-events: none;
+    }
+    .mission-analysis-section > * {
+      position: relative;
+      z-index: 1;
+    }
+    .mission-analysis-kicker {
+      width: max-content;
+      max-width: 100%;
+      margin: 0 auto 0.75rem;
+      padding: 0.35rem 0.8rem;
+      border: 1px solid rgba(216, 137, 0, 0.42);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.84);
+      color: var(--primary-dark);
+      font-size: 0.78rem;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .mission-analysis-section .run-tabs {
+      padding: 0.35rem;
+      width: max-content;
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      background: white;
+      border: 1px solid rgba(0, 127, 143, 0.18);
+      border-radius: 999px;
+      box-shadow: 0 10px 24px rgba(2, 44, 86, 0.08);
+    }
+    .mission-analysis-section .run-tab {
+      border-radius: 999px;
+    }
+    .mission-analysis-section .card {
+      border-radius: 8px;
+      box-shadow: 0 12px 26px rgba(2, 44, 86, 0.1);
+    }
+    .mission-analysis-section .challenge-badge,
+    .mission-analysis-section .success-badge,
+    .mission-analysis-section .tag {
+      box-shadow: inset 0 -2px 0 rgba(2, 44, 86, 0.08);
+    }
+    .cad-design-section {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      border: 1px solid rgba(0, 127, 143, 0.16);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(231, 250, 255, 0.92)),
+        url('assets/tidal/tidal-engineers-design.png') center / cover;
+      box-shadow: 0 12px 28px rgba(2, 44, 86, 0.08);
+    }
+    .cad-design-section h3 {
+      margin-top: 0;
+    }
+    .cad-design-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .cad-design-points {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .cad-design-point {
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(0, 127, 143, 0.12);
+      border-radius: 8px;
+      padding: 0.85rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+    .cad-design-media {
+      order: -1;
+      background: white;
+      border-radius: 8px;
+      padding: 0.75rem;
+      box-shadow: 0 10px 24px rgba(2, 44, 86, 0.1);
+    }
+    .cad-design-media img {
+      width: 100%;
+      display: block;
+      border-radius: 6px;
+    }
+    .cad-design-media video {
+      width: 100%;
+      max-height: 76vh;
+      display: block;
+      border-radius: 6px;
+      background: #0b2545;
+    }
+    .core-values-quotes {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .core-value-quote {
+      position: relative;
+      margin: 0;
+      padding: 1.4rem 1.4rem 1.25rem;
+      background: white;
+      border: 1px solid rgba(0, 127, 143, 0.2);
+      border-top: 5px solid var(--primary);
+      border-radius: 8px;
+      box-shadow: 0 10px 22px rgba(2, 44, 86, 0.08);
+    }
+    .core-value-quote::before {
+      content: '"';
+      display: block;
+      color: var(--accent);
+      font-family: Georgia, serif;
+      font-size: 4.5rem;
+      line-height: 0.55;
+      margin-bottom: 0.45rem;
+    }
+    .core-value-quote p {
+      margin: 0;
+      color: var(--deep-blue);
+      font-size: 1.02rem;
+      font-weight: 650;
+    }
+    .core-value-quote cite {
+      display: block;
+      margin-top: 0.8rem;
+      color: var(--primary-dark);
+      font-size: 0.86rem;
+      font-style: normal;
+      font-weight: 850;
+    }
+    @media (max-width: 700px) {
+      .core-values-quotes {
+        grid-template-columns: 1fr;
+      }
+    }
+    .testing-accuracy-section {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      border: 1px solid rgba(0, 127, 143, 0.16);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(240, 253, 250, 0.94)),
+        url('assets/tidal/tidal-engineers-wave.png') bottom right / min(520px, 70%) no-repeat;
+      box-shadow: 0 12px 28px rgba(2, 44, 86, 0.08);
+    }
+    .testing-accuracy-layout {
+      display: block;
+    }
+    .testing-accuracy-results {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(420px, 1.25fr);
+      gap: 1.25rem;
+      align-items: start;
+      margin-top: 1rem;
+    }
+    .testing-accuracy-gallery {
+      display: grid;
+      gap: 1rem;
+      width: 100%;
+      margin: 0;
+    }
+    .testing-accuracy-gallery img {
+      width: 100%;
+      display: block;
+      border-radius: 8px;
+      background: white;
+      border: 3px solid rgba(0, 127, 143, 0.5);
+      padding: 0.45rem;
+      filter: saturate(1.22) contrast(1.04);
+      box-shadow: 0 12px 26px rgba(0, 127, 143, 0.18);
+      cursor: pointer;
+    }
+    .testing-accuracy-gallery img:nth-child(2) {
+      border-color: rgba(216, 137, 0, 0.64);
+      box-shadow: 0 12px 26px rgba(216, 137, 0, 0.2);
+    }
+    .testing-accuracy-points {
+      display: grid;
+      gap: 0.8rem;
+    }
+    .testing-accuracy-point {
+      background: rgba(255, 255, 255, 0.9);
+      border-left: 5px solid var(--primary);
+      border-radius: 8px;
+      padding: 0.9rem 1rem;
+      box-shadow: 0 8px 18px rgba(2, 44, 86, 0.08);
+    }
+    .testing-accuracy-point strong {
+      display: block;
+      color: var(--primary-dark);
+      margin-bottom: 0.25rem;
+    }
+    .testing-accuracy-point ul {
+      margin: 0.25rem 0 0;
+      padding-left: 1.15rem;
+    }
+    .testing-pid-summary {
+      margin-top: 1.25rem;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 1.15rem;
+      background: rgba(255, 255, 255, 0.94);
+      border: 2px solid rgba(0, 127, 143, 0.22);
+      border-radius: 8px;
+      box-shadow: 0 10px 22px rgba(2, 44, 86, 0.08);
+    }
+    #pid-tuning-results-home,
+    #pid-tuning-results-detail {
+      width: 100%;
+      max-width: none;
+      box-sizing: border-box;
+    }
+    .testing-pid-summary table {
+      width: 100%;
+      min-width: 640px;
+      border-collapse: collapse;
+      background: white;
+    }
+    .testing-pid-summary th,
+    .testing-pid-summary td {
+      padding: 0.65rem;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: left;
+    }
+    .testing-pid-summary th {
+      color: white;
+      background: var(--deep-blue);
+    }
+    .pid-tuning-graph {
+      width: 100%;
+      display: block;
+      margin: 1rem 0;
+      padding: 0.45rem;
+      border: 3px solid rgba(216, 137, 0, 0.64);
+      border-radius: 8px;
+      background: white;
+      filter: saturate(1.22) contrast(1.04);
+      box-shadow: 0 12px 26px rgba(216, 137, 0, 0.2);
+      cursor: pointer;
+    }
+    .motor-setups-section {
+      margin-top: 2rem;
+    }
+    .motor-setups-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.9rem;
+      margin-top: 1rem;
+    }
+    .motor-setups-gallery figure {
+      margin: 0;
+      background: white;
+      border: 1px solid rgba(0, 127, 143, 0.14);
+      border-radius: 8px;
+      padding: 0.55rem;
+      box-shadow: 0 8px 20px rgba(2, 44, 86, 0.08);
+    }
+    .motor-setups-gallery img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 6px;
+      display: block;
+      cursor: pointer;
+    }
+    .motor-setups-gallery figcaption {
+      font-size: 0.82rem;
+      color: #4b5563;
+      margin-top: 0.45rem;
+      text-align: center;
+      font-weight: 700;
     }
     .highlight-title {
       font-size: 1.05rem;
@@ -144,8 +629,30 @@
       line-height: 1.4;
     }
     @media (max-width: 760px) {
+      .season-gallery {
+        column-count: 2;
+      }
+      .cad-design-copy {
+        grid-template-columns: 1fr;
+      }
+      .testing-accuracy-layout {
+        display: block;
+      }
+      .testing-accuracy-results {
+        grid-template-columns: 1fr;
+      }
+      .testing-accuracy-gallery {
+        width: 100%;
+        margin: 0 0 1rem;
+      }
+      #mentors-support .grid {
+        grid-template-columns: 1fr;
+      }
       header {
         padding: 3rem 1rem;
+      }
+      section::before {
+        display: none;
       }
       .hero-achievements {
         grid-template-columns: 1fr;
@@ -156,6 +663,11 @@
       }
       .hero-photo img {
         max-height: none;
+      }
+    }
+    @media (min-width: 761px) and (max-width: 1050px) {
+      .season-gallery {
+        column-count: 3;
       }
     }
     @keyframes fadeInDown {
@@ -284,6 +796,23 @@
       scroll-margin-top: 80px;
       opacity: 0;
       animation: fadeInSection 0.8s ease forwards;
+      position: relative;
+    }
+    section::before {
+      content: '';
+      position: absolute;
+      top: -18px;
+      right: calc(100% + 18px);
+      width: 90px;
+      height: 220px;
+      background: url("assets/tidal/tidal-engineers-design.png") center / cover;
+      border-radius: 8px;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+    section:nth-of-type(even)::before {
+      right: auto;
+      left: calc(100% + 18px);
     }
     @keyframes fadeInSection {
       to {
@@ -364,6 +893,19 @@
     }
     .card:hover img {
       transform: scale(1.05);
+    }
+
+    #mentors-support .grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: stretch;
+    }
+
+    #mentors-support .card img {
+      height: 260px;
+      object-fit: cover;
+    }
+    #mentors-support .coach-gio-photo {
+      object-position: center 35%;
     }
 
     .tag {
@@ -494,10 +1036,31 @@
     }
 
     footer {
-      background: var(--primary);
+      background:
+        linear-gradient(180deg, rgba(2, 44, 86, 0.96), rgba(0, 85, 107, 0.96)),
+        url("assets/tidal/tidal-engineers-wave.png") center bottom / auto 78% repeat-x;
       color: white;
       text-align: center;
-      padding: 2rem 1.5rem;
+      padding: 3rem 1.5rem 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    footer::before,
+    footer::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: min(170px, 18vw);
+      background: url("assets/tidal/tidal-engineers-design.png") center / cover;
+      opacity: 0.22;
+    }
+    footer::before {
+      left: 0;
+    }
+    footer::after {
+      right: 0;
+      transform: scaleX(-1);
     }
     footer p { max-width: 800px; margin: auto; }
     
@@ -505,7 +1068,7 @@
     .visitor-counter {
       margin-top: 1.5rem;
       padding: 1.5rem;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.14);
       border-radius: 12px;
       backdrop-filter: blur(10px);
       display: inline-block;
@@ -627,6 +1190,18 @@
     }
     .run-content.active {
       display: block;
+    }
+    .mission-runs-visuals {
+      display: grid;
+      gap: 1rem;
+      margin: 1.5rem 0 2rem;
+    }
+    .mission-runs-visuals img {
+      display: block;
+      width: 100%;
+      border: 1px solid rgba(0, 127, 143, 0.18);
+      border-radius: 8px;
+      box-shadow: 0 8px 18px rgba(0, 71, 92, 0.12);
     }
     @keyframes fadeIn {
       from { opacity: 0; }
@@ -916,28 +1491,41 @@
 <div class="scroll-top" id="scrollTop" onclick="scrollToTop()">↑</div>
 
 <header>
-  <h1>History Guardians 67843</h1>
-  <p>FLL Team Website</p>
-  <div class="hero-achievements">
+  <div class="team-brand">
+    <img class="hero-logo" src="assets/tidal/tidal-engineers-logo.svg" alt="Tidal Engineers logo" />
+    <span class="team-number">FLL Team 74703</span>
+  </div>
+  <h1>Digital Engineering Journal</h1>
+  <p class="hero-intro">
+    We're the Tidal Engineers, a passionate rookie FIRST LEGO League team made up of best friends and competitive swimmers - fueled by chlorine, snacks and LEGO robotics. Welcome to our Digital Engineering Journal, a collection of everything we learned, tested, built, and discovered throughout our FLL season. Over nine months, we explored coding, mechanical engineering, electrical engineering, robotics, research, 3D printing, teamwork, and innovation while tackling real-world challenges. We learned how to build circuits, connect sensors, solder components, power motors, collect data, and bring our ideas to life through engineering. We hope our journal inspires other students to see what's possible when curiosity, creativity, and teamwork come together. Come explore our journey, one wave at a time!
+  </p>
+  <div class="team-motto" aria-label="Click by click, and brick by brick - teamwork makes our engines tick!">
+    <span class="motto-line">Click by click,</span>
+    <span class="motto-line">and <span class="gold">brick by brick</span></span>
+    <span class="motto-divider"></span>
+    <span class="motto-line motto-subline">teamwork makes</span>
+    <span class="motto-line motto-subline">our engines tick!</span>
+  </div>
+    <div class="hero-achievements">
     <div class="hero-photo">
-      <img src="championship picutre.jpg" alt="History Guardians championship team photo" />
+      <img src="assets/tidal/tidal-engineers-team.jpeg" alt="Tidal Engineers team photo" />
     </div>
     <div class="season-highlights" aria-label="Season highlights">
       <h2>Season Highlights</h2>
       <div class="highlight-card">
-        <span class="highlight-label">Qualifier Win</span>
-        <div class="highlight-title">Qualifier 1 Champions</div>
+        <span class="highlight-label">Qualifier</span>
+        <div class="highlight-title">Qualified</div>
         <div class="highlight-detail">John Jay Middle School, January 10, 2026</div>
       </div>
       <div class="highlight-card current">
-        <span class="highlight-label">Regional Champions</span>
-        <div class="highlight-title">Hudson Valley Regional Championship Winners</div>
+        <span class="highlight-label">Regional Championship</span>
+        <div class="highlight-title"><strong>Hudson Valley Regional Championship 3rd Place, Best Innovation Award</strong></div>
         <div class="highlight-detail">Final championship event, February 7, 2026</div>
       </div>
       <div class="highlight-card upcoming">
         <span class="highlight-label">Next Invitational</span>
-        <div class="highlight-title">California Western Edge Invitational</div>
-        <div class="highlight-detail">May 28-31, 2026, representing the New York State area</div>
+        <div class="highlight-title">American Robotics Invitational</div>
+        <div class="highlight-detail">June 6-7, 2026, representing the New York State area</div>
       </div>
     </div>
   </div>
@@ -946,9 +1534,12 @@
 <nav>
   <ul>
     <li class="dropdown">
-      <a href="#robot-design">Robot Design</a>
+      <a href="#design">Robot Design</a>
       <ul class="dropdown-menu">
-        <li><a href="#design">Design Evolution</a></li>
+        <li><a href="#design">Robot Design</a></li>
+        <li><a href="#cad-design">CAD Design</a></li>
+        <li><a href="#motor-setups">Different Motors</a></li>
+        <li><a href="#testing-accuracy">Testing for Accuracy</a></li>
         <li><a href="#strategy">Mission Strategy</a></li>
         <li><a href="#workflow">Workflow</a></li>
         <li><a href="#mission-runs">Mission Runs</a></li>
@@ -957,14 +1548,23 @@
       </ul>
     </li>
     <li class="dropdown">
-      <a href="#innovation">Innovation</a>
+      <a href="#innovation-project">Innovation</a>
       <ul class="dropdown-menu">
         <li><a href="#innovation-project">Innovation Project</a></li>
         <li><a href="#research">Research</a></li>
       </ul>
     </li>
     <li>
+      <a href="#community-outreach">Community Outreach</a>
+    </li>
+    <li>
+      <a href="#mentors-support">Coaches & Mentors</a>
+    </li>
+    <li>
       <a href="#core-values">Core Values</a>
+    </li>
+    <li>
+      <a href="#season-gallery">Gallery</a>
     </li>
   </ul>
 </nav>
@@ -972,106 +1572,214 @@
 <main>
 
 <section id="design">
-  <h2>Design Evolution & Iteration</h2>
+  <h2>Robot Design</h2>
   <div class="grid">
     <div class="card">
-      <span class="tag">Claire</span>
-      <img src="2robot.gif" alt="Last year's robot design" />
+      <span class="tag">Rookie Build</span>
+      <img src="assets/tidal/robot-spinning.gif" alt="Tidal Engineers robot spinning CAD view" />
       <p>
-        Our robot design started by identifying problems from last season. Previously, our robot used two attachment motors—one in the front and one in the back—but this setup was unstable and inefficient.
+        Consistency starts with a strong base. For our first year, we intentionally built a bulkier robot because it helped us gain confidence with swaps, alignment, and repeatable setup.
       </p>
       <p>
-        The rear motor sat at a different height, and swapping attachments often pulled off the front plate. Over the summer, we redesigned our robot using an iterative process.
+        We used CAD views and spinning renders to study the frame from every angle before committing to the build. The result is a box-style robot with a protected hub, large attachment surfaces, and bright Tidal Engineers colors.
       </p>
     </div>
 
     <div class="card">
-      <h4 style="color: var(--primary); margin-top: 0; margin-bottom: 1rem;">Last Year's Motor Setup Issues</h4>
-      <img src="lastyearrobotfrontmotorview.png" alt="Last year's front motor view" style="width: 100%; border-radius: 12px; margin-bottom: 0.75rem;" />
-      <img src="lastyearbackmotorview.png" alt="Last year's back motor view" style="width: 100%; border-radius: 12px; margin-bottom: 0.75rem;" />
+      <h4 style="color: var(--primary); margin-top: 0; margin-bottom: 1rem;">Protected Core & Attachment Rails</h4>
+      <img src="assets/tidal/robot-view-1.png" alt="Tidal Engineers robot angled CAD view" style="width: 100%; border-radius: 12px; margin-bottom: 0.75rem;" />
+      <img src="assets/tidal/robot-view-2.png" alt="Tidal Engineers robot opposite angled CAD view" style="width: 100%; border-radius: 12px; margin-bottom: 0.75rem;" />
       <p style="font-size: 0.9rem; color: #666;">
-        Front and back motors at different heights created instability and made attachment swaps difficult.
+        Both drive motors were placed in the front, then we added a bridge to reduce flex. The yellow technic panels give the team many connection points, while the cyan side supports and magenta side panels help keep the core strong and recognizable.
       </p>
     </div>
   </div>
 
-  <!-- Motor placement collage moved below the two intro cards -->
-  <h3 style="margin-top: 1.5rem;">Motor Placement Options (Collage)</h3>
+  <section id="cad-design" class="cad-design-section">
+    <h3>CAD Design: BrickLink Studio</h3>
+    <div class="cad-design-copy">
+      <div class="cad-design-media">
+        <video autoplay muted loop controls playsinline preload="metadata" poster="assets/tidal/robot-view-1.png" aria-label="Tidal Engineers BrickLink Studio CAD model walkthrough">
+          <source src="assets/tidal/video/cad-bricklink-studio.mp4" type="video/mp4" />
+          Your browser does not support the CAD video.
+        </video>
+      </div>
+      <div>
+        <p>
+          We created a digital CAD model of our robot and attachments in BrickLink Studio so we could test ideas virtually before building them in real life. This helped us experiment with different designs, improve fit and movement, and quickly spot problems before using LEGO pieces and motors.
+        </p>
+        <p>
+          Using CAD also made it easier to share ideas as a team, plan upgrades, and build more efficiently during practices.
+        </p>
+        <div class="cad-design-points" aria-label="CAD design benefits">
+          <div class="cad-design-point">Test ideas virtually</div>
+          <div class="cad-design-point">Improve fit and motion</div>
+          <div class="cad-design-point">Plan upgrades faster</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <h3 style="margin-top: 1.5rem;">Robot View Gallery</h3>
   <div class="card" style="padding: 1rem;">
     <p style="margin-top: 0; color: #666;">
-      We tested multiple motor placements and orientations. Click any thumbnail to enlarge.
+      We used multiple renders to inspect the robot from the top, front, sides, and attachment angles. Click any thumbnail to enlarge.
     </p>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.75rem; margin-top: 1rem;">
       <figure style="margin:0; text-align:center;">
-        <img src="motor placement 1.png" alt="Motor placement option 1" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
-        <figcaption style="font-size:0.8rem; color:#666; margin-top:0.4rem;">Option 1</figcaption>
+        <img src="assets/tidal/robot-view-1.png" alt="Robot view 1" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
+        <figcaption style="font-size:0.8rem; color:#666; margin-top:0.4rem;">Angled View</figcaption>
       </figure>
       <figure style="margin:0; text-align:center;">
-        <img src="motor placement 2.png" alt="Motor placement option 2" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
-        <figcaption style="font-size:0.8rem; color:#666; margin-top:0.4rem;">Option 2</figcaption>
+        <img src="assets/tidal/robot-view-2.png" alt="Robot view 2" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
+        <figcaption style="font-size:0.8rem; color:#666; margin-top:0.4rem;">Opposite View</figcaption>
       </figure>
       <figure style="margin:0; text-align:center;">
-        <img src="motor placement 3.png" alt="Motor placement option 3" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
-        <figcaption style="font-size:0.8rem; color:#666; margin-top:0.4rem;">Option 3</figcaption>
+        <img src="assets/tidal/robot-view-3.png" alt="Robot view 3" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
+        <figcaption style="font-size:0.8rem; color:#666; margin-top:0.4rem;">Core View</figcaption>
       </figure>
       <figure style="margin:0; text-align:center;">
-        <img src="motor placement 4.png" alt="Motor placement option 4" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
-        <figcaption style="font-size:0.8rem; color:#666; margin-top:0.4rem;">Option 4</figcaption>
+        <img src="assets/tidal/robot-attachment.gif" alt="Robot attachment animation" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
+        <figcaption style="font-size:0.8rem; color:#666; margin-top:0.4rem;">Attachment</figcaption>
       </figure>
       <figure style="margin:0; text-align:center;">
-        <img src="motor placement 5.png" alt="Motor placement option 5" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
-        <figcaption style="font-size:0.8rem; color:#666; margin-top:0.4rem;">Option 5</figcaption>
+        <img src="assets/tidal/robot-spin.gif" alt="Robot spin animation" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
+        <figcaption style="font-size:0.8rem; color:#666; margin-top:0.4rem;">Spin Render</figcaption>
       </figure>
       <figure style="margin:0; text-align:center;">
-        <img src="motor placement 6.png" alt="Motor placement option 6" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
-        <figcaption style="font-size:0.8rem; color:#666; margin-top:0.4rem;">Option 6</figcaption>
-      </figure>
-      <figure style="margin:0; text-align:center;">
-        <img src="motor placement 7.png" alt="Motor placement option 7" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
-        <figcaption style="font-size:0.8rem; color:#666; margin-top:0.4rem;">Option 7</figcaption>
+        <img src="assets/tidal/robot-spinning.gif" alt="Robot spinning animation" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
+        <figcaption style="font-size:0.8rem; color:#666; margin-top:0.4rem;">Full Rotation</figcaption>
       </figure>
     </div>
 
     <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
-      Note: This collage lets viewers compare options at a glance and open any image for a closer look.
+      The gallery helps judges see both the finished model and the design thinking behind the build.
     </p>
   </div>
 
-  <h3>CAD Design: BrickLink Studio</h3>
-  <div class="grid">
-    <div class="card" style="text-align: center;">
-      <h4 style="color: var(--primary); margin-bottom: 0.5rem;">BrickLink Studio Model</h4>
-      <img src="bricklinkstudioupdated.gif" alt="BrickLink Studio CAD model" style="width: 100%; border-radius: 12px; margin-bottom: 1rem;" />
-      <p style="font-size: 0.9rem; color: #666;">Digital CAD model allowing us to test designs virtually before building</p>
+  <section id="motor-setups" class="motor-setups-section">
+    <h3>Different Motor Setups</h3>
+    <div class="card" style="padding: 1rem;">
+      <p style="margin-top: 0; color: #4b5563;">
+        We tested different motor placements and orientations before choosing our final setup. The goal was to find a layout that made the robot stable, kept the drive base strong, and gave us enough room to swap attachments quickly.
+      </p>
+      <div class="grid" style="align-items: stretch;">
+        <div>
+          <h4 style="color: var(--primary); margin-top: 0;">What We Compared</h4>
+          <p>
+            We looked at how each motor setup affected balance, cable routing, attachment space, and how easy it was for the team to repair or adjust the robot during practice.
+          </p>
+        </div>
+        <div>
+          <h4 style="color: var(--primary); margin-top: 0;">What We Chose</h4>
+          <p>
+            Our final design keeps the drive motors aligned in the front and uses a protected core with a top-mounted attachment gear system. That helped reduce flex, make alignment more repeatable, and keep important mechanisms easy to inspect.
+          </p>
+        </div>
+      </div>
+      <div class="motor-setups-gallery">
+        <figure>
+          <img src="assets/tidal/motors/motor-placement-1.png" alt="Tidal Engineers motor placement option 1" onclick="openImageModal(this.src)" />
+          <figcaption>Option 1</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/tidal/motors/motor-placement-2.png" alt="Tidal Engineers motor placement option 2" onclick="openImageModal(this.src)" />
+          <figcaption>Option 2</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/tidal/motors/motor-placement-3.png" alt="Tidal Engineers motor placement option 3" onclick="openImageModal(this.src)" />
+          <figcaption>Option 3</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/tidal/motors/motor-placement-4.png" alt="Tidal Engineers motor placement option 4" onclick="openImageModal(this.src)" />
+          <figcaption>Option 4</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/tidal/motors/motor-placement-5.png" alt="Tidal Engineers motor placement option 5" onclick="openImageModal(this.src)" />
+          <figcaption>Option 5</figcaption>
+        </figure>
+      </div>
+      <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+        Click any image to compare the motor placement options up close.
+      </p>
     </div>
-  </div>
+  </section>
 
-  <h3>Pinless Attachment System</h3>
+  <section id="testing-accuracy" class="testing-accuracy-section">
+    <h3>Testing for Accuracy</h3>
+    <div class="testing-accuracy-layout">
+      <div>
+        <p>
+          At first, we focused on testing our robot's speed and turn accuracy. Before attempting missions, we wanted to understand how different motor speeds affected performance and reliability. We investigated two key questions:
+        </p>
+        <ul>
+          <li>What motor speed gives the best balance of speed and accuracy?</li>
+          <li>What speed makes the most accurate turn?</li>
+        </ul>
+        <p>
+          By running multiple trials and collecting data, we learned that the fastest robot is not always the most successful. These tests helped us find the right balance between speed, precision, and consistency for competition runs.
+        </p>
+      </div>
+      <div class="testing-accuracy-results">
+        <div class="testing-accuracy-points">
+          <div class="testing-accuracy-point">
+            <strong>Test 1: Finding the Best Drive Speed</strong>
+            <ul>
+              <li>Tested 5 different drive speeds from 10% to 100%.</li>
+              <li>Measured travel time and stability at each speed.</li>
+              <li>Used repeated trials to ensure reliable results.</li>
+            </ul>
+          </div>
+          <div class="testing-accuracy-point">
+            <strong>Test 2: Finding the Most Accurate Turn</strong>
+            <ul>
+              <li>Tested turns at different motor speeds.</li>
+              <li>Measured turning accuracy and consistency.</li>
+              <li>Used the gyro sensor to improve accuracy and help the robot recover from disturbances.</li>
+              <li>Repeated the trials to compare reliable results.</li>
+            </ul>
+          </div>
+          <div class="testing-accuracy-point">
+            <strong>Engineering Conclusion</strong>
+            After testing multiple speed settings and turn strategies, we found that moderate speeds produced the most reliable results. Using the gyro sensor significantly improved driving accuracy and helped our robot recover from disturbances, leading to more consistent mission performance.
+          </div>
+        </div>
+        <div class="testing-accuracy-gallery">
+          <img src="assets/tidal/testing/speed-turn-test-results.png" alt="Tidal Engineers speed and turn accuracy testing results" onclick="openImageModal(this.src)" />
+        </div>
+      </div>
+    </div>
+    <div class="testing-pid-summary">
+      <div id="pid-tuning-results-home"></div>
+    </div>
+  </section>
+
+  <h3>Attachment System</h3>
   <div class="grid">
     <div class="card" style="text-align: center;">
       <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Attachment Mechanism</h4>
-      <img src="pinless attachment rotating.gif" alt="Pinless attachment mechanism" style="width: 100%; border-radius: 12px; margin-bottom: 1rem;" />
-      <p style="font-size: 0.9rem; color: #666;">Gravity-drop attachments that fit securely without pins, allowing for quick swaps</p>
+      <img src="assets/tidal/robot-attachment.gif" alt="Tidal Engineers attachment animation" style="width: 100%; border-radius: 12px; margin-bottom: 1rem;" />
+      <p style="font-size: 0.9rem; color: #666;">The large front and rear connection surfaces make it easier for rookies to build, test, remove, and improve attachments between runs.</p>
     </div>
     <div class="card" style="text-align: center;">
-      <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Attachment in Action</h4>
-      <img src="Claire Robot with attachment 3 (1).gif" alt="Robot with attachment demonstration" style="width: 100%; border-radius: 12px; margin-bottom: 1rem;" />
-      <p style="font-size: 0.9rem; color: #666;">Demonstrating the quick-swap mechanism with gravity-drop attachment</p>
+      <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Clips Reduce Small Errors</h4>
+      <img src="assets/tidal/robot-spinning.gif" alt="Tidal Engineers robot in motion" style="width: 100%; border-radius: 12px; margin-bottom: 1rem;" />
+      <p style="font-size: 0.9rem; color: #666;">We created an innovative solution for front-heavy attachments by adding a small clip to secure the pinless attachment to the robot, preventing it from tilting during runs. This improved alignment and repeatability.</p>
     </div>
   </div>
 
-  <h3>Before & After: Design Evolution</h3>
+  <h3>Design Priorities</h3>
   <div class="grid">
     <div class="card" style="text-align: center;">
-      <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Last Year's Robot</h4>
-      <img src="lastyearrobot.png" alt="Last year's robot" style="width: 100%; border-radius: 12px; margin-bottom: 1rem;" />
-      <p style="font-size: 0.9rem; color: #666;">Unstable dual-motor setup with rear motor at different height</p>
+      <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Stable Rookie Base</h4>
+      <img src="assets/tidal/robot-view-3.png" alt="Tidal Engineers stable robot base" style="width: 100%; border-radius: 12px; margin-bottom: 1rem;" />
+      <p style="font-size: 0.9rem; color: #666;">We prioritized a simple, strong base over a complicated build so every teammate could understand and improve it.</p>
     </div>
     <div class="card" style="text-align: center;">
-      <h4 style="color: var(--primary); margin-bottom: 0.5rem;">This Year's Robot</h4>
-      <img src="Claire Robot with attachment 3 (1).gif" alt="This year's robot with attachment" style="width: 100%; border-radius: 12px; margin-bottom: 1rem;" />
-      <p style="font-size: 0.9rem; color: #666;">Optimized flat front motors with pinless, gravity-drop attachments</p>
+      <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Easy Attachment Testing</h4>
+      <img src="assets/tidal/robot-view-2.png" alt="Tidal Engineers attachment-friendly robot view" style="width: 100%; border-radius: 12px; margin-bottom: 1rem;" />
+      <p style="font-size: 0.9rem; color: #666;">Lots of open technic holes gave us flexibility to keep trying ideas, which mattered because our team learned by building, testing, and rebuilding.</p>
     </div>
   </div>
 </section>
@@ -1135,7 +1843,6 @@
     <h2>Mission Strategy & Brainstorming</h2>
     <div class="grid" style="grid-template-columns: 1fr; gap: 1.5rem;">
       <div class="card">
-        <span class="tag">Isabella</span>
         <h4 style="color: var(--primary); margin-top: 0; margin-bottom: 1rem;">Student Brainstorming & Sketches (Collage)</h4>
 
         <!-- Sketch collage: click any thumbnail to enlarge -->
@@ -1146,27 +1853,27 @@
           </figure>
           <figure style="margin:0; text-align:center;">
             <img src="isabelladrawing1.jpg" alt="Brainstorm sketch 2" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
-            <figcaption style="font-size:0.75rem; color:#666; margin-top:0.35rem;">Isabella drawing 1</figcaption>
+            <figcaption style="font-size:0.75rem; color:#666; margin-top:0.35rem;">Elis drawing 1</figcaption>
           </figure>
           <figure style="margin:0; text-align:center;">
             <img src="isabelladrawing2.jpg" alt="Brainstorm sketch 3" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
-            <figcaption style="font-size:0.75rem; color:#666; margin-top:0.35rem;">Isabella drawing 2</figcaption>
+            <figcaption style="font-size:0.75rem; color:#666; margin-top:0.35rem;">Elis drawing 2</figcaption>
           </figure>
           <figure style="margin:0; text-align:center;">
             <img src="ClaireBrainstormingDrawing1.jpeg" alt="Brainstorm sketch 4" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
-            <figcaption style="font-size:0.75rem; color:#666; margin-top:0.35rem;">Claire sketch 1</figcaption>
+            <figcaption style="font-size:0.75rem; color:#666; margin-top:0.35rem;">Isaiah sketch 1</figcaption>
           </figure>
           <figure style="margin:0; text-align:center;">
             <img src="ClaireBrainstormingDrawing2.jpeg" alt="Brainstorm sketch 5" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
-            <figcaption style="font-size:0.75rem; color:#666; margin-top:0.35rem;">Claire sketch 2</figcaption>
+            <figcaption style="font-size:0.75rem; color:#666; margin-top:0.35rem;">Isaiah sketch 2</figcaption>
           </figure>
           <figure style="margin:0; text-align:center;">
             <img src="ClaireBrainstormingDrawing3.jpeg" alt="Brainstorm sketch 6" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
-            <figcaption style="font-size:0.75rem; color:#666; margin-top:0.35rem;">Claire sketch 3</figcaption>
+            <figcaption style="font-size:0.75rem; color:#666; margin-top:0.35rem;">Isaiah sketch 3</figcaption>
           </figure>
           <figure style="margin:0; text-align:center;">
             <img src="ClaireBrainstormingDrawing4.jpeg" alt="Brainstorm sketch 7" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
-            <figcaption style="font-size:0.75rem; color:#666; margin-top:0.35rem;">Claire sketch 4</figcaption>
+            <figcaption style="font-size:0.75rem; color:#666; margin-top:0.35rem;">Isaiah sketch 4</figcaption>
           </figure>
         </div>
 
@@ -1176,42 +1883,14 @@
 
         <div style="background: linear-gradient(135deg, #fff3cd, #ffeaa7); border-left: 4px solid var(--accent); padding: 1rem; border-radius: 8px; margin-top: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
           <p style="margin: 0; font-weight: 600; color: var(--primary); font-size: 1.05rem;">
-            💡 Brainstorming by the Numbers: Each of our 4 team members generated 4 unique ideas for all 15 missions—resulting in <strong>240 total ideas</strong> to analyze and refine!
+            💡 Brainstorming by the Numbers: Each of our 4 team members generated at least 2 unique ideas for all 15 missions—resulting in <strong>120+ total ideas</strong> to analyze and refine!
           </p>
         </div>
       </div>
-
-      <div class="card">
-        <h4 style="color: var(--primary); margin-top: 0; margin-bottom: 1rem;">Mission Analysis Snapshot</h4>
-
-        <!-- Mission analysis collage: quick glance thumbnails -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.5rem;">
-          <figure style="margin:0; text-align:center;">
-            <img src="actiontypesorting.jpg" alt="Action type sorting" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
-            <figcaption style="font-size:0.75rem; color:#666; margin-top:0.35rem;">Action Type</figcaption>
-          </figure>
-          <figure style="margin:0; text-align:center;">
-            <img src="missionlocationsorting.jpg" alt="Mission location sorting" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
-            <figcaption style="font-size:0.75rem; color:#666; margin-top:0.35rem;">Field Location</figcaption>
-          </figure>
-          <figure style="margin:0; text-align:center;">
-            <img src="difficultysorting.jpg" alt="Difficulty sorting" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
-            <figcaption style="font-size:0.75rem; color:#666; margin-top:0.35rem;">Difficulty</figcaption>
-          </figure>
-          <!-- optional extra thumbnails for quick reference -->
-          <figure style="margin:0; text-align:center;">
-            <img src="mission_grid_overview.jpg" alt="Mission grid overview" style="width:100%; border-radius:8px; cursor:pointer;" onclick="openImageModal(this.src)" />
-            <figcaption style="font-size:0.75rem; color:#666; margin-top:0.35rem;">Grid Overview</figcaption>
-          </figure>
-        </div>
-
-        <p style="margin-top: 1rem;">
-          These visual summaries helped us quickly group missions that fit together and prioritize attachments for repeatable runs. As the season progressed through Qualifier 1 and the Hudson Valley Regional Championship, we kept refining the plan so each run became more reliable, better grouped, and more competition-ready.
-        </p>
-      </div>
     </div>
   </section>
-  <section id="mission-sorting">
+  <section id="mission-sorting" class="mission-analysis-section">
+    <div class="mission-analysis-kicker">Strategy board</div>
     <h2>Mission Analysis & Sorting System</h2>
     <p>Before designing our robot and planning runs, we categorized all 15 missions by action type, difficulty, and point value. This systematic analysis helped us identify natural groupings, prioritize which missions to attempt, and keep improving the strategy as our competition experience grew.</p>
     
@@ -1405,7 +2084,7 @@
         <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, var(--fire-red), var(--primary), var(--accent)); color: white; text-align: center;">
           <h3 style="margin: 0; font-size: 1.5rem;">🏆 Total Available Points</h3>
           <div style="font-size: 4rem; font-weight: bold; margin: 1rem 0;">545</div>
-          <p style="margin: 0; font-size: 1.1rem; opacity: 0.9;">Western Edge maximum/attempted score across all 15 missions</p>
+          <p style="margin: 0; font-size: 1.1rem; opacity: 0.9;">American Robotics Invitational maximum/attempted score across all 15 missions</p>
         </div>
       </div>
     </div>
@@ -1438,9 +2117,9 @@
 
     <div style="margin-top: 2rem;">
       <div class="card strategy-intro">
-      <h3>Western Edge Run Plan</h3>
+      <h3>American Robotics Invitational Run Plan</h3>
       <p>
-        After the Hudson Valley Regional Championship, we expanded our strategy from a five-run championship plan into a six-run Western Edge Invitational plan that attempts all 15 missions and targets 545 points.
+        After the Hudson Valley Regional Championship, we expanded our strategy from a five-run championship plan into a six-run American Robotics Invitational plan that attempts all 15 missions and targets 545 points.
       </p>
       </div>
 
@@ -1452,7 +2131,7 @@
           </p>
         </div>
         <div class="strategy-panel current">
-          <h4>Current Western Edge Plan</h4>
+          <h4>Current Invitational Plan</h4>
           <p>
             The new plan covers every mission in six cleaner runs. Judges can read the full run order below from left to right.
           </p>
@@ -1460,16 +2139,16 @@
             <div class="western-run-card">
               <h5>Run 1</h5>
               <div class="mission-chip-row">
-                <span class="mission-chip">M1</span>
-                <span class="mission-chip">M2</span>
+                <span class="mission-chip">M3</span>
+                <span class="mission-chip">M4</span>
+                <span class="mission-chip">M13</span>
               </div>
             </div>
             <div class="western-run-card">
               <h5>Run 2</h5>
               <div class="mission-chip-row">
-                <span class="mission-chip">M3</span>
-                <span class="mission-chip">M4</span>
-                <span class="mission-chip">M13</span>
+                <span class="mission-chip">M1</span>
+                <span class="mission-chip">M2</span>
               </div>
             </div>
             <div class="western-run-card">
@@ -1482,17 +2161,17 @@
             <div class="western-run-card">
               <h5>Run 4</h5>
               <div class="mission-chip-row">
-                <span class="mission-chip">M9</span>
-                <span class="mission-chip">M10</span>
+                <span class="mission-chip">M5</span>
+                <span class="mission-chip">M6</span>
+                <span class="mission-chip">M7</span>
+                <span class="mission-chip">M8</span>
               </div>
             </div>
             <div class="western-run-card">
               <h5>Run 5</h5>
               <div class="mission-chip-row">
-                <span class="mission-chip">M5</span>
-                <span class="mission-chip">M6</span>
-                <span class="mission-chip">M7</span>
-                <span class="mission-chip">M8</span>
+                <span class="mission-chip">M9</span>
+                <span class="mission-chip">M10</span>
               </div>
             </div>
             <div class="western-run-card">
@@ -1507,166 +2186,9 @@
       </div>
 
       <div class="strategy-note">
-        <strong>Why the change matters:</strong> The Western Edge grouping makes the plan easier to explain, adds complete mission coverage, and keeps the run order organized around reliability instead of only point chasing.
+        <strong>Why the change matters:</strong> The invitational grouping makes the plan easier to explain, adds complete mission coverage, and keeps the run order organized around reliability instead of only point chasing.
       </div>
 
-      <!-- Run Evolution Timeline -->
-      <div class="card" style="background: linear-gradient(135deg, #fef3c7, #fde68a); border-left: 5px solid var(--accent); margin-bottom: 2rem;">
-      <h3 style="color: var(--primary); margin: 0 0 1rem 0; text-align: center;">🔄 Run Grouping Evolution</h3>
-      <p style="text-align: center; color: #666; margin-bottom: 1.5rem;">
-        The cards below document how our earlier championship groupings changed through testing. The Western Edge plan above is our current competition strategy.
-      </p>
-      </div>
-
-      <!-- Interactive Run Evolution Cards -->
-      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
-      
-      <!-- Run A - No changes -->
-      <div class="card" style="background: linear-gradient(135deg, #fff5f5, #ffe5e5); border-left: 5px solid #ff6600; position: relative; overflow: visible;">
-        <span style="position: absolute; top: -12px; right: -12px; background: #22c55e; color: white; padding: 0.4rem 0.8rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);">✓ Unchanged</span>
-        <h4 style="color: var(--primary); margin: 0 0 1rem 0; font-size: 1.5rem; text-align: center;">🅰️ Run A</h4>
-        <div style="text-align: center;">
-        <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; padding: 1rem; background: rgba(255,255,255,0.5); border-radius: 8px;">
-          <span class="tag" style="font-size: 1.1rem; padding: 0.5rem 1rem;">M1</span>
-          <span class="tag" style="font-size: 1.1rem; padding: 0.5rem 1rem;">M2</span>
-        </div>
-        </div>
-        <p style="margin-top: 1rem; font-size: 0.9rem; color: #666; text-align: center;">Foundation run • 60 points</p>
-      </div>
-
-      <!-- Run B - Evolution (Initial → Q1 V1 → Q1 V2) -->
-      <div class="card" style="background: linear-gradient(135deg, #f0f9ff, #dbeafe); border-left: 5px solid #3b82f6; position: relative; overflow: visible;">
-        <span style="position: absolute; top: -12px; right: -12px; background: var(--primary); color: white; padding: 0.4rem 0.8rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; box-shadow: 0 4px 12px rgba(255, 102, 0, 0.4);">🔁 Evolution</span>
-        <h4 style="color: #1e40af; margin: 0 0 1rem 0; font-size: 1.5rem; text-align: center;">🅱️ Run B</h4>
-
-        <!-- Initial Plan -->
-        <div style="background: rgba(239, 68, 68, 0.08); padding: 0.9rem; border-radius: 8px; margin-bottom: 0.6rem; border: 1px dashed #ef4444;">
-          <div style="font-size: 0.75rem; font-weight: 700; color: #991b1b; text-transform: uppercase; margin-bottom: 0.4rem; text-align: center;">Initial Plan</div>
-          <div style="display:flex; gap:0.5rem; justify-content:center; flex-wrap:wrap;">
-            <span style="font-size:0.95rem; padding:0.4rem 0.8rem; background:white; border-radius:999px; color:#991b1b; text-decoration:line-through;">M3</span>
-            <span style="font-size:0.95rem; padding:0.4rem 0.8rem; background:white; border-radius:999px; color:#991b1b; text-decoration:line-through;">M4</span>
-          </div>
-        </div>
-
-        <!-- Qualifier 1 (V1) - existing on site -->
-        <div style="background: rgba(59,130,246,0.06); padding:0.9rem; border-radius:8px; margin-bottom:0.6rem; border:1px solid rgba(59,130,246,0.12);">
-          <div style="font-size:0.75rem; font-weight:700; color:#1e40af; text-transform:uppercase; margin-bottom:0.4rem; text-align:center;">✅ Qualifier 1 (V1) Update</div>
-          <div style="display:flex; gap:0.5rem; justify-content:center; flex-wrap:wrap;">
-            <span style="font-size:0.95rem; padding:0.4rem 0.8rem; background:white; border-radius:999px; color:#1e40af;">M3</span>
-            <span style="font-size:0.95rem; padding:0.4rem 0.8rem; background:white; border-radius:999px; color:#1e40af;">M13</span>
-          </div>
-        </div>
-
-        <!-- Qualifier 1 (V2) - new -->
-        <div style="background: rgba(34,197,94,0.06); padding:0.9rem; border-radius:8px; border:1px solid rgba(34,197,94,0.12);">
-          <div style="font-size:0.75rem; font-weight:700; color:#166534; text-transform:uppercase; margin-bottom:0.4rem; text-align:center;">✅ Qualifier 1 (V2) Update</div>
-          <div style="display:flex; gap:0.5rem; justify-content:center; flex-wrap:wrap;">
-            <span class="tag" style="font-size:0.95rem; padding:0.4rem 0.8rem; background:#dbeafe; color:#1e40af;">M3</span>
-            <span class="tag" style="font-size:0.95rem; padding:0.4rem 0.8rem; background:#dbeafe; color:#1e40af;">M4</span>
-            <span class="tag" style="font-size:0.95rem; padding:0.4rem 0.8rem; background:#dbeafe; color:#1e40af;">M13</span>
-          </div>
-        </div>
-
-        <p style="margin-top: 1rem; font-size: 0.9rem; color: #666; text-align: center;">Optimized combo • 70 points</p>
-      </div>
-
-      <!-- Run C - No changes -->
-      <div class="card" style="background: linear-gradient(135deg, #fefce8, #fef3c7); border-left: 5px solid #f59e0b; position: relative; overflow: visible;">
-        <span style="position: absolute; top: -12px; right: -12px; background: var(--primary); color: white; padding: 0.4rem 0.8rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; box-shadow: 0 4px 12px rgba(255, 102, 0, 0.4);">🔁 Evolution</span>
-        <h4 style="color: #92400e; margin: 0 0 1rem 0; font-size: 1.5rem; text-align: center;">©️ Run C</h4>
-
-        <!-- Initial Plan -->
-        <div style="background: rgba(239,68,68,0.08); padding:0.9rem; border-radius:8px; margin-bottom:0.6rem; border:1px dashed #ef4444;">
-          <div style="font-size:0.75rem; font-weight:700; color:#991b1b; text-transform:uppercase; margin-bottom:0.4rem; text-align:center;">Initial Plan</div>
-          <div style="display:flex; gap:0.5rem; justify-content:center; flex-wrap:wrap;">
-            <span style="font-size:0.95rem; padding:0.4rem 0.8rem; background:white; border-radius:999px; color:#92400e; text-decoration:line-through;">M5</span>
-            <span style="font-size:0.95rem; padding:0.4rem 0.8rem; background:white; border-radius:999px; color:#92400e; text-decoration:line-through;">M6</span>
-            <span style="font-size:0.95rem; padding:0.4rem 0.8rem; background:white; border-radius:999px; color:#92400e; text-decoration:line-through;">M7</span>
-          </div>
-        </div>
-
-        <!-- Qualifier 1 (V1) - existing on site -->
-        <div style="background: rgba(250,204,21,0.06); padding:0.9rem; border-radius:8px; margin-bottom:0.6rem; border:1px solid rgba(250,204,21,0.08);">
-          <div style="font-size:0.75rem; font-weight:700; color:#92400e; text-transform:uppercase; margin-bottom:0.4rem; text-align:center;">✅ Qualifier 1 (V1) Update</div>
-          <div style="display:flex; gap:0.5rem; justify-content:center; flex-wrap:wrap;">
-            <span style="font-size:0.95rem; padding:0.4rem 0.8rem; background:white; border-radius:999px; color:#92400e;">M12</span>
-            <span style="font-size:0.95rem; padding:0.4rem 0.8rem; background:white; border-radius:999px; color:#92400e;">M13</span>
-            <span style="font-size:0.95rem; padding:0.4rem 0.8rem; background:white; border-radius:999px; color:#92400e;">M11</span>
-          </div>
-        </div>
-
-        <!-- Qualifier 1 (V2) - new/current -->
-        <div style="background: rgba(34,197,94,0.06); padding:0.9rem; border-radius:8px; border:1px solid rgba(34,197,94,0.12);">
-          <div style="font-size:0.75rem; font-weight:700; color:#166534; text-transform:uppercase; margin-bottom:0.4rem; text-align:center;">✅ Qualifier 1 (V2) Update</div>
-          <div style="display:flex; gap:0.5rem; justify-content:center; flex-wrap:wrap;">
-            <span class="tag" style="font-size:0.95rem; padding:0.4rem 0.8rem; background:#fef3c7; color:#92400e;">M5</span>
-            <span class="tag" style="font-size:0.95rem; padding:0.4rem 0.8rem; background:#fef3c7; color:#92400e;">M6</span>
-            <span class="tag" style="font-size:0.95rem; padding:0.4rem 0.8rem; background:#fef3c7; color:#92400e;">M7</span>
-            <span class="tag" style="font-size:0.95rem; padding:0.4rem 0.8rem; background:#fef3c7; color:#92400e;">M8</span>
-          </div>
-        </div>
-        <p style="margin-top: 1rem; font-size: 0.9rem; color: #666; text-align: center;">Quad set • 90 points</p>
-      </div>
-
-      <!-- Run D - No changes -->
-      <div class="card" style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-left: 5px solid #22c55e; position: relative; overflow: visible;">
-        <span style="position: absolute; top: -12px; right: -12px; background: #22c55e; color: white; padding: 0.4rem 0.8rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);">✓ Unchanged</span>
-        <h4 style="color: #166534; margin: 0 0 1rem 0; font-size: 1.5rem; text-align: center;">🅳 Run D</h4>
-        <div style="text-align: center;">
-        <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; padding: 1rem; background: rgba(255,255,255,0.5); border-radius: 8px;">
-          <span class="tag" style="font-size: 1.1rem; padding: 0.5rem 1rem; background: #dcfce7; color: #166534;">M10</span>
-          <span class="tag" style="font-size: 1.1rem; padding: 0.5rem 1rem; background: #dcfce7; color: #166534;">M9</span>
-        </div>
-        </div>
-        <p style="margin-top: 1rem; font-size: 0.9rem; color: #666; text-align: center;">Precision pair • 60 points</p>
-      </div>
-
-      <div class="card" style="background: linear-gradient(135deg, #faf5ff, #f3e8ff); border-left: 5px solid #a855f7; position: relative; overflow: visible;">
-        <span style="position: absolute; top: -12px; right: -12px; background: var(--primary); color: white; padding: 0.4rem 0.8rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; box-shadow: 0 4px 12px rgba(255, 102, 0, 0.4);">🔁 Evolution</span>
-        <h4 style="color: #7e22ce; margin: 0 0 1rem 0; font-size: 1.5rem; text-align: center;">🅴 Run E</h4>
-
-        <!-- Initial Plan -->
-        <div style="background: rgba(239,68,68,0.08); padding:0.9rem; border-radius:8px; margin-bottom:0.6rem; border:1px dashed #ef4444;">
-          <div style="font-size:0.75rem; font-weight:700; color:#991b1b; text-transform:uppercase; margin-bottom:0.4rem; text-align:center;">Initial Plan</div>
-          <div style="display:flex; gap:0.5rem; justify-content:center; flex-wrap:wrap;">
-            <span style="font-size:0.95rem; padding:0.4rem 0.8rem; background:white; border-radius:999px; color:#991b1b; text-decoration:line-through;">M12</span>
-            <span style="font-size:0.95rem; padding:0.4rem 0.8rem; background:white; border-radius:999px; color:#991b1b; text-decoration:line-through;">M13</span>
-            <span style="font-size:0.95rem; padding:0.4rem 0.8rem; background:white; border-radius:999px; color:#991b1b; text-decoration:line-through;">M11</span>
-          </div>
-        </div>
-
-        <!-- Qualifier 1 (V1) - existing on site -->
-        <div style="background: rgba(168,85,247,0.04); padding:0.9rem; border-radius:8px; margin-bottom:0.6rem; border:1px solid rgba(168,85,247,0.08);">
-          <div style="font-size:0.75rem; font-weight:700; color:#7e22ce; text-transform:uppercase; margin-bottom:0.4rem; text-align:center;">✅ Qualifier 1 (V1) Update</div>
-          <div style="display:flex; gap:0.5rem; justify-content:center; flex-wrap:wrap;">
-            <span style="font-size:0.95rem; padding:0.4rem 0.8rem; background:white; border-radius:999px; color:#7e22ce;">M12</span>
-          </div>
-        </div>
-
-        <!-- Qualifier 1 (V2) - new/current -->
-        <div style="background: rgba(34,197,94,0.06); padding:0.9rem; border-radius:8px; border:1px solid rgba(34,197,94,0.12);">
-          <div style="font-size:0.75rem; font-weight:700; color:#166534; text-transform:uppercase; margin-bottom:0.4rem; text-align:center;">✅ Qualifier 1 (V2) Update</div>
-          <div style="display:flex; gap:0.5rem; justify-content:center; flex-wrap:wrap;">
-            <span class="tag" style="font-size:0.95rem; padding:0.4rem 0.8rem; background:#f3e8ff; color:#7e22ce;">M12</span>
-            <span class="tag" style="font-size:0.95rem; padding:0.4rem 0.8rem; background:#f3e8ff; color:#7e22ce;">M15</span>
-            <span class="tag" style="font-size:0.95rem; padding:0.4rem 0.8rem; background:#f3e8ff; color:#7e22ce;">M11</span>
-          </div>
-        </div>
-
-        <p style="margin-top: 1rem; font-size: 0.9rem; color: #666; text-align: center;">Simplified to solo mission • 30 points</p>
-      </div>
-      </div>
-
-      <!-- Iteration Insight Box -->
-      <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, #fff3cd, #ffeaa7); border-left: 5px solid var(--accent);">
-      <h3 style="color: var(--primary); margin: 0 0 1rem 0;">💡 Why We Changed Run B</h3>
-      <p style="margin-bottom: 0.75rem;">
-        After initial practice, Qualifier 1, and continued championship preparation, we discovered that missions M3, M13, and M12 had better spatial grouping and could be completed more reliably in sequence.
-      </p>
-      <p style="margin: 0;">
-        <strong>Key improvement:</strong> The new grouping reduced attachment complexity, improved our success rate from 65% to 90% on this run, and gave us a stronger plan for higher-pressure matches.
-      </p>
-      </div>
 
       <!-- Summary Stats -->
       <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, var(--fire-red), var(--primary), var(--accent)); color: white; text-align: center;">
@@ -1686,11 +2208,11 @@
         </div>
         <div>
         <div style="font-size: 2.5rem; font-weight: bold;">Current</div>
-        <div style="font-size: 0.9rem; opacity: 0.9;">Western Edge Strategy</div>
+        <div style="font-size: 0.9rem; opacity: 0.9;">Invitational Strategy</div>
         </div>
       </div>
       <p style="margin: 1.5rem 0 0 0; font-size: 1rem; opacity: 0.95;">
-        We prioritized consistent, repeatable runs over attempting all 15 missions, then continued iterating our strategy through the Hudson Valley Regional Championship and toward the California Western Edge Invitational.
+        We prioritized consistent, repeatable runs over attempting all 15 missions, then continued iterating our strategy through the Hudson Valley Regional Championship and toward the American Robotics Invitational.
       </p>
       </div>
     </div>
@@ -1705,64 +2227,42 @@
         <p style="color: #666; margin: 0;">Building two robots to maximize parallel development</p>
       </div>
 
-      <!-- Split View: Blue Side vs Red Side -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 0 0 2rem;">
+        <figure style="margin: 0; background: white; border-radius: 14px; padding: 0.75rem; box-shadow: 0 8px 20px rgba(2, 44, 86, 0.12);">
+          <img src="assets/tidal/strategy/double-progress-robot-blue.jpg" alt="Tidal Engineers blue-side robot build closeup" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 10px; display: block;" />
+          <figcaption style="font-size: 0.86rem; font-weight: 700; color: var(--primary-dark); text-align: center; margin-top: 0.6rem;">Blue-side robot build</figcaption>
+        </figure>
+        <figure style="margin: 0; background: white; border-radius: 14px; padding: 0.75rem; box-shadow: 0 8px 20px rgba(2, 44, 86, 0.12);">
+          <img src="assets/tidal/strategy/double-progress-robot-yellow.jpg" alt="Tidal Engineers yellow-side robot build closeup" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 10px; display: block;" />
+          <figcaption style="font-size: 0.86rem; font-weight: 700; color: var(--primary-dark); text-align: center; margin-top: 0.6rem;">Yellow-side robot build</figcaption>
+        </figure>
+      </div>
+
+      <!-- Split View: Red Side vs Blue Side -->
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
         
-        <!-- Blue Side -->
-        <div style="background: linear-gradient(135deg, #dbeafe, #bfdbfe); border-radius: 16px; padding: 1.5rem; border-left: 6px solid #3b82f6; position: relative;">
-        <div style="text-align: center; margin-bottom: 1rem;">
-          <div style="font-size: 3rem; margin-bottom: 0.5rem;">🔵</div>
-          <h5 style="color: #1e40af; margin: 0 0 0.5rem 0; font-size: 1.3rem;">Blue Side Team</h5>
-          <div style="font-size: 0.9rem; color: #1e40af; font-weight: 600; opacity: 0.8;">Missions: Left Field Zone</div>
-        </div>
-        
-        <div style="background: white; border-radius: 12px; padding: 1rem; margin-top: 1rem; box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);">
-          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
-          <div style="width: 40px; height: 40px; background: #3b82f6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">C</div>
-          <div>
-            <div style="font-weight: 600; color: #1e40af;">Claire</div>
-            <div style="font-size: 0.8rem; color: #666;">Robot Designer & Builder</div>
-          </div>
-          </div>
-          <div style="display: flex; align-items: center; gap: 0.75rem;">
-          <div style="width: 40px; height: 40px; background: #60a5fa; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">I</div>
-          <div>
-            <div style="font-weight: 600; color: #1e40af;">Isabella</div>
-            <div style="font-size: 0.8rem; color: #666;">Strategy & Attachments</div>
-          </div>
-          </div>
-        </div>
-
-        <div style="margin-top: 1rem; padding: 0.75rem; background: rgba(255,255,255,0.5); border-radius: 8px;">
-          <div style="font-size: 0.85rem; font-weight: 600; color: #1e40af; margin-bottom: 0.5rem;">Blue Side Runs:</div>
-          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <span style="background: #3b82f6; color: white; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600;">Run A</span>
-          <span style="background: #3b82f6; color: white; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600;">Run C</span>
-          </div>
-        </div>
-        </div>
-
         <!-- Red Side -->
         <div style="background: linear-gradient(135deg, #fee2e2, #fecaca); border-radius: 16px; padding: 1.5rem; border-left: 6px solid #ef4444; position: relative;">
         <div style="text-align: center; margin-bottom: 1rem;">
           <div style="font-size: 3rem; margin-bottom: 0.5rem;">🔴</div>
           <h5 style="color: #991b1b; margin: 0 0 0.5rem 0; font-size: 1.3rem;">Red Side Team</h5>
-          <div style="font-size: 0.9rem; color: #991b1b; font-weight: 600; opacity: 0.8;">Missions: Right Field Zone</div>
+          <div style="font-size: 0.9rem; color: #991b1b; font-weight: 600; opacity: 0.8;">Missions: Left Field Zone</div>
         </div>
+        <img src="assets/tidal/strategy/red-side-team.png" alt="Red Side team holding their robot" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 12px; display: block; margin: 0 0 1rem; box-shadow: 0 6px 16px rgba(239, 68, 68, 0.18);" />
         
         <div style="background: white; border-radius: 12px; padding: 1rem; margin-top: 1rem; box-shadow: 0 2px 8px rgba(239, 68, 68, 0.2);">
           <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
-          <div style="width: 40px; height: 40px; background: #ef4444; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">M</div>
+          <div style="width: 40px; height: 40px; background: #ef4444; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">D</div>
           <div>
-            <div style="font-weight: 600; color: #991b1b;">Mason</div>
-            <div style="font-size: 0.8rem; color: #666;">Programming & Testing</div>
+            <div style="font-weight: 600; color: #991b1b;">Dom</div>
+            <div style="font-size: 0.8rem; color: #666;">Robot Designer & Builder</div>
           </div>
           </div>
           <div style="display: flex; align-items: center; gap: 0.75rem;">
-          <div style="width: 40px; height: 40px; background: #f87171; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">L</div>
+          <div style="width: 40px; height: 40px; background: #f87171; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">F</div>
           <div>
-            <div style="font-weight: 600; color: #991b1b;">Luke</div>
-            <div style="font-size: 0.8rem; color: #666;">Mechanical Solutions</div>
+            <div style="font-weight: 600; color: #991b1b;">Finn</div>
+            <div style="font-size: 0.8rem; color: #666;">Strategy & Attachments</div>
           </div>
           </div>
         </div>
@@ -1770,9 +2270,45 @@
         <div style="margin-top: 1rem; padding: 0.75rem; background: rgba(255,255,255,0.5); border-radius: 8px;">
           <div style="font-size: 0.85rem; font-weight: 600; color: #991b1b; margin-bottom: 0.5rem;">Red Side Runs:</div>
           <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <span style="background: #ef4444; color: white; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600;">Run B</span>
-          <span style="background: #ef4444; color: white; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600;">Run D</span>
-          <span style="background: #ef4444; color: white; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600;">Run E</span>
+          <span style="background: #ef4444; color: white; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600;">Run 1</span>
+          <span style="background: #ef4444; color: white; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600;">Run 2</span>
+          <span style="background: #ef4444; color: white; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600;">Run 3</span>
+          </div>
+        </div>
+        </div>
+
+        <!-- Blue Side -->
+        <div style="background: linear-gradient(135deg, #dbeafe, #bfdbfe); border-radius: 16px; padding: 1.5rem; border-left: 6px solid #3b82f6; position: relative;">
+        <div style="text-align: center; margin-bottom: 1rem;">
+          <div style="font-size: 3rem; margin-bottom: 0.5rem;">🔵</div>
+          <h5 style="color: #1e40af; margin: 0 0 0.5rem 0; font-size: 1.3rem;">Blue Side Team</h5>
+          <div style="font-size: 0.9rem; color: #1e40af; font-weight: 600; opacity: 0.8;">Missions: Blue Field Zone</div>
+        </div>
+        <img src="assets/tidal/strategy/blue-side-team.png" alt="Blue Side team holding their robot" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 12px; display: block; margin: 0 0 1rem; box-shadow: 0 6px 16px rgba(59, 130, 246, 0.18);" />
+        
+        <div style="background: white; border-radius: 12px; padding: 1rem; margin-top: 1rem; box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+          <div style="width: 40px; height: 40px; background: #3b82f6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">E</div>
+          <div>
+            <div style="font-weight: 600; color: #1e40af;">Elis</div>
+            <div style="font-size: 0.8rem; color: #666;">Programming & Testing</div>
+          </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div style="width: 40px; height: 40px; background: #60a5fa; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">I</div>
+          <div>
+            <div style="font-weight: 600; color: #1e40af;">Isaiah</div>
+            <div style="font-size: 0.8rem; color: #666;">Mechanical Solutions</div>
+          </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 1rem; padding: 0.75rem; background: rgba(255,255,255,0.5); border-radius: 8px;">
+          <div style="font-size: 0.85rem; font-weight: 600; color: #1e40af; margin-bottom: 0.5rem;">Blue Side Runs:</div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <span style="background: #3b82f6; color: white; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600;">Run 4</span>
+          <span style="background: #3b82f6; color: white; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600;">Run 5</span>
+          <span style="background: #3b82f6; color: white; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600;">Run 6</span>
           </div>
         </div>
         </div>
@@ -1781,8 +2317,8 @@
 
       <!-- Benefits Summary -->
       <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #fef3c7, #fde68a); border-radius: 12px; border-left: 5px solid var(--accent);">
-        <h5 style="color: var(--primary); margin: 0 0 1rem 0; text-align: center;">✨ Benefits of Parallel Development</h5>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; text-align: center;">
+        <h4 style="color: var(--primary); margin: 0 0 1rem 0; text-align: center; font-size: 1.65rem;">✨ Benefits of Parallel Development</h4>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; text-align: center;">
         <div>
           <div style="font-size: 1.5rem; margin-bottom: 0.25rem;">⚡</div>
           <div style="font-size: 0.9rem; font-weight: 600; color: #666;">2× Practice Time</div>
@@ -1793,7 +2329,7 @@
         </div>
         <div>
           <div style="font-size: 1.5rem; margin-bottom: 0.25rem;">🤝</div>
-          <div style="font-size: 0.9rem; font-weight: 600; color: #666;">Shared Learning</div>
+          <div style="font-size: 0.9rem; font-weight: 600; color: #666;">Mentors & Support</div>
         </div>
         <div>
           <div style="font-size: 1.5rem; margin-bottom: 0.25rem;">🔄</div>
@@ -1809,380 +2345,150 @@
       </div>
     </div>
 
-    <h3>Three Step Method</h3>
-    
-    <!-- Judging Feedback Banner -->
-    <div style="max-width: 900px; margin: 0 auto 2rem auto; background: linear-gradient(135deg, #fff3cd, #ffeaa7); border-left: 6px solid var(--accent); border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 12px rgba(255, 170, 0, 0.2);">
-      <div style="display: flex; align-items: start; gap: 1rem;">
-      <div style="font-size: 2.5rem; flex-shrink: 0;">💡</div>
-      <div>
-        <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.2rem;">Judging Feedback & Evolution</h4>
-        <p style="margin: 0 0 0.5rem 0; font-size: 0.95rem; color: #666; line-height: 1.6;">
-        <strong>Judge:</strong> "What if it takes 4 days instead of 3?"<br>
-        <strong>Our Team:</strong> "Then it's the Four Session Method!"<br>
-        <strong>Judge's Response:</strong> "Maybe think about the name again..."
-        </p>
-        <div style="background: rgba(255,255,255,0.7); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
-        <p style="margin: 0; font-weight: 600; color: var(--primary);">✨ Updated Approach:</p>
-        <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; color: #666;">
-          We renamed it to the <strong>"Three Step Method"</strong> because it's about the <em>process steps</em>, not the number of days. Whether it takes 3 sessions or 4, we follow the same three fundamental steps: Proof of Concept → Alignment & Path → Tuning & Reliability.
-        </p>
-        </div>
-      </div>
-      </div>
-    </div>
 
-    <div style="max-width: 1000px; margin: 2rem auto;">
-      <!-- Progress Timeline -->
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; position: relative;">
-      <!-- Progress Line -->
-      <div style="position: absolute; top: 50%; left: 10%; right: 10%; height: 4px; background: linear-gradient(90deg, var(--fire-red), var(--primary), var(--accent)); transform: translateY(-50%); z-index: 0; border-radius: 2px;"></div>
-      
-      <!-- Step 1 -->
-      <div style="flex: 1; text-align: center; position: relative; z-index: 1;">
-      <div style="width: 80px; height: 80px; margin: 0 auto 1rem auto; background: linear-gradient(135deg, #fee2e2, #fecaca); border: 4px solid var(--fire-red); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 4px 12px rgba(255, 51, 0, 0.3);">
-      📝
-      </div>
-      <h4 style="color: var(--fire-red); margin: 0 0 0.5rem 0; font-size: 1.2rem;">Step 1</h4>
-      <p style="font-size: 0.9rem; color: #666; margin: 0;">Proof of Concept</p>
-      </div>
-
-      <!-- Step 2 -->
-      <div style="flex: 1; text-align: center; position: relative; z-index: 1;">
-      <div style="width: 80px; height: 80px; margin: 0 auto 1rem auto; background: linear-gradient(135deg, #fff7ed, #fed7aa); border: 4px solid var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);">
-      🎯
-      </div>
-      <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1.2rem;">Step 2</h4>
-      <p style="font-size: 0.9rem; color: #666; margin: 0;">Alignment & Path</p>
-      </div>
-
-      <!-- Step 3 -->
-      <div style="flex: 1; text-align: center; position: relative; z-index: 1;">
-      <div style="width: 80px; height: 80px; margin: 0 auto 1rem auto; background: linear-gradient(135deg, #fef3c7, #fde68a); border: 4px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 4px 12px rgba(255, 170, 0, 0.3);">
-      ⚙️
-      </div>
-      <h4 style="color: var(--accent); margin: 0 0 0.5rem 0; font-size: 1.2rem;">Step 3</h4>
-      <p style="font-size: 0.9rem; color: #666; margin: 0;">Tuning & Reliability</p>
-      </div>
-      </div>
-
-      <!-- Detailed Cards -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
-      
-      <!-- Step 1 Card -->
-      <div class="card" style="background: linear-gradient(135deg, #fff5f5, #ffe5e5); border-left: 6px solid var(--fire-red);">
-      <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-      <div style="font-size: 2.5rem;">📝</div>
-      <div>
-        <h4 style="color: var(--fire-red); margin: 0;">Step 1</h4>
-        <p style="margin: 0; font-size: 0.85rem; color: #666;">Proof of Concept</p>
-      </div>
-      </div>
-      <div style="background: rgba(255,255,255,0.6); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-      <p style="margin: 0 0 0.75rem 0; font-weight: 600; color: var(--fire-red);">Goals:</p>
-      <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.9rem; line-height: 1.8;">
-        <li>Validate attachment feasibility</li>
-        <li>Create rough path draft</li>
-        <li>Identify major obstacles</li>
-      </ul>
-      </div>
-      <div style="display: inline-block; background: var(--fire-red); color: white; padding: 0.5rem 1rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600;">
-      Success Rate: 40-60%
-      </div>
-      </div>
-
-      <!-- Step 2 Card -->
-      <div class="card" style="background: linear-gradient(135deg, #fff7ed, #ffedd5); border-left: 6px solid var(--primary);">
-      <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-      <div style="font-size: 2.5rem;">🎯</div>
-      <div>
-        <h4 style="color: var(--primary); margin: 0;">Step 2</h4>
-        <p style="margin: 0; font-size: 0.85rem; color: #666;">Alignment & Path</p>
-      </div>
-      </div>
-      <div style="background: rgba(255,255,255,0.6); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-      <p style="margin: 0 0 0.75rem 0; font-weight: 600; color: var(--primary);">Goals:</p>
-      <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.9rem; line-height: 1.8;">
-        <li>Optimize robot positioning</li>
-        <li>Refine path waypoints</li>
-        <li>Add alignment corrections</li>
-      </ul>
-      </div>
-      <div style="display: inline-block; background: var(--primary); color: white; padding: 0.5rem 1rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600;">
-      Success Rate: 70-80%
-      </div>
-      </div>
-
-      <!-- Step 3 Card -->
-      <div class="card" style="background: linear-gradient(135deg, #fefce8, #fef3c7); border-left: 6px solid var(--accent);">
-      <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-      <div style="font-size: 2.5rem;">⚙️</div>
-      <div>
-        <h4 style="color: #92400e; margin: 0;">Step 3</h4>
-        <p style="margin: 0; font-size: 0.85rem; color: #666;">Tuning & Reliability</p>
-      </div>
-      </div>
-      <div style="background: rgba(255,255,255,0.6); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-      <p style="margin: 0 0 0.75rem 0; font-weight: 600; color: #92400e;">Goals:</p>
-      <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.9rem; line-height: 1.8;">
-        <li>Fine-tune PID values</li>
-        <li>Test repeatability</li>
-        <li>Handle edge cases</li>
-      </ul>
-      </div>
-      <div style="display: inline-block; background: var(--accent); color: #3b3b00; padding: 0.5rem 1rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600;">
-      Success Rate: 90%+
-      </div>
-      </div>
-      </div>
-
-      <!-- Summary Box -->
-      <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, var(--fire-red), var(--primary), var(--accent)); color: white; text-align: center;">
-      <h4 style="margin: 0 0 1rem 0; font-size: 1.5rem;">🔄 Iterative Excellence</h4>
-      <p style="margin: 0; font-size: 1.05rem; line-height: 1.6;">
-      The Three Step Method is a <strong>process framework</strong>, not a timeline. Whether development takes 3 sessions or 4, we always follow these three fundamental steps to transform rough concepts into competition-ready runs with reliability and repeatability.
-      </p>
-      </div>
-    </div>
   </section>
 
   <section id="mission-runs">
     <h2>Mission Runs: Design & Execution</h2>
-    <p>Explore each mission run in detail, including design iterations, attachment evolution, and challenges we overcame.</p>
+    <p>Our robot has continued to evolve throughout the season. At Qualifiers, our goal was consistency—making sure the robot could complete missions successfully every time. For Regionals, we focused on scoring more points while staying reliable by analyzing our runs, mission choices, and robot paths. As we prepare for Internationals, our focus is simplifying and speeding up our strategy through more efficient routes, fewer movements, and versatile attachments that can complete multiple jobs. We learned that the best way to level up is not by making things more complicated, but by making them smarter and more efficient.</p>
     <div class="strategy-note">
-      <strong>Current competition grouping:</strong> Our Western Edge strategy uses Run 1-6 in the plan above. The Run A-E tabs below preserve earlier media and iteration evidence from our championship development process.
+      <strong>Current competition grouping:</strong> Our American Robotics Invitational strategy uses six cleaner runs. We are refining each run below to show its missions, challenges, solution, and outcome.
+    </div>
+    <div class="mission-runs-visuals">
+      <img src="assets/tidal/strategy/runs/run-improvement.png" alt="Tidal Engineers mission run improvement from qualifiers to regionals and internationals" />
+      <img src="assets/tidal/strategy/runs/run-analysis.png" alt="Tidal Engineers run-by-run strategy analysis showing which missions to cherish, optimize, rethink, or drop" />
     </div>
     
     <div class="run-tabs">
-      <button class="run-tab active" onclick="showRun('run-a')">Run A</button>
-      <button class="run-tab" onclick="showRun('run-b')">Run B</button>
-      <button class="run-tab" onclick="showRun('run-c')">Run C</button>
-      <button class="run-tab" onclick="showRun('run-d')">Run D</button>
-      <button class="run-tab" onclick="showRun('run-e')">Run E</button>
+      <button class="run-tab active" onclick="showRun('run-a')">Run 1</button>
+      <button class="run-tab" onclick="showRun('run-b')">Run 2</button>
+      <button class="run-tab" onclick="showRun('run-c')">Run 3</button>
+      <button class="run-tab" onclick="showRun('run-d')">Run 4</button>
+      <button class="run-tab" onclick="showRun('run-e')">Run 5</button>
+      <button class="run-tab" onclick="showRun('run-f')">Run 6</button>
     </div>
 
-    <!-- Run A Content -->
+    <!-- Run 1 Content -->
     <div id="run-a" class="run-content active">
       <div class="card">
-        <h3>Run A: Missions 1 & 2</h3>
-        <p><strong>Missions:</strong> Mission 1, Mission 2</p>
-        <p><strong>Points Target:</strong> 60 points</p>
-      </div>
-
-      <!-- Updated to match media in Run A folder: single final image -->
-      <div class="iteration-card">
-        <div class="iteration-image">
-          <img src="Run A/RunAfinalversion.jpg" alt="Run A Final" class="run-image" />
-        </div>
-        <div class="iteration-content">
-          <h4>Iteration 1: Final Solution</h4>
-          <div class="success-badge">Success</div>
-          <p><strong>Solution:</strong> Added a passive guide rail to help align with mission models. Optimized motor speeds and added PID corrections.</p>
-          <p><strong>Outcome:</strong> Achieved 95% success rate in practice. Consistently scores 75 points in this run.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Run B Content -->
-    <div id="run-b" class="run-content">
-      <div class="card">
-        <h3>Run B: Missions 3, 4 & 13</h3>
+        <h3>Run 1: Missions 3, 4 &amp; 13</h3>
         <p><strong>Missions:</strong> Mission 3, Mission 4, Mission 13</p>
         <p><strong>Points Target:</strong> 70 points</p>
-        <div style="margin-top:0.75rem; display:flex; gap:0.75rem; flex-wrap:wrap; justify-content:center;">
-          <div style="background:rgba(239,68,68,0.06); padding:0.6rem; border-radius:8px; border:1px dashed #ef4444; min-width:160px; text-align:center;">
-            <div style="font-weight:700; font-size:0.8rem; color:#991b1b; text-transform:uppercase;">Initial Plan</div>
-            <div style="margin-top:0.4rem; color:#991b1b;">M3 • M4</div>
-          </div>
-          <div style="background:rgba(59,130,246,0.04); padding:0.6rem; border-radius:8px; border:1px solid rgba(59,130,246,0.08); min-width:160px; text-align:center;">
-            <div style="font-weight:700; font-size:0.8rem; color:#1e40af; text-transform:uppercase;">Qualifier 1 (V1)</div>
-            <div style="margin-top:0.4rem; color:#1e40af;">M3 • M13</div>
-          </div>
-          <div style="background:rgba(34,197,94,0.04); padding:0.6rem; border-radius:8px; border:1px solid rgba(34,197,94,0.08); min-width:160px; text-align:center;">
-            <div style="font-weight:700; font-size:0.8rem; color:#166534; text-transform:uppercase;">Qualifier 1 (V2)</div>
-            <div style="margin-top:0.4rem; color:#166534;">M3 • M4 • M13</div>
-          </div>
-        </div>
       </div>
 
-      <!-- Run B: files located in Run B/ (V1 and V2) -->
       <div class="iteration-card">
         <div class="iteration-image">
-          <img src="Run B/Run B V1.jpg" alt="Run B Iteration 1" class="run-image" />
+          <img src="assets/tidal/strategy/runs/run-1.jpg" alt="Run 1 attachment for missions 3, 4, and 13" class="run-image" />
         </div>
         <div class="iteration-content">
-          <h4>Iteration 1: Prototype (V1)</h4>
-          <div class="challenge-badge">Challenge</div>
-          <p><strong>Approach:</strong> Initial prototype to validate dual-action attachment concept.</p>
+          <h4>Design &amp; Execution</h4>
           <p><strong>Challenges:</strong> The mechanism was complex and prone to jamming. Timing between actions was difficult to calibrate.</p>
-        </div>
-      </div>
-
-      <div class="iteration-card">
-        <div class="iteration-image">
-          <video style="max-width: 100%; width: 100%; border-radius: 8px;" controls>
-            <source src="Run B/Run B V2.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="iteration-content">
-          <h4>Iteration 2: Final (V2)</h4>
-          <div class="success-badge">Success</div>
-          <p><strong>Solution:</strong> Simplified mechanism for reliability and added sensor feedback to confirm completion.</p>
+          <p><strong>Solution:</strong> Simplified mechanism for reliability.</p>
           <p><strong>Outcome:</strong> Reliable performance with 90% success rate. Quick attachment swap makes this run efficient.</p>
         </div>
       </div>
     </div>
 
-    <!-- Run C Content -->
+    <!-- Run 2 Content -->
+    <div id="run-b" class="run-content">
+      <div class="card">
+        <h3>Run 2: Missions 1 &amp; 2</h3>
+        <p><strong>Missions:</strong> Mission 1, Mission 2, Mission 15</p>
+        <p><strong>Points Target:</strong> 70 points</p>
+      </div>
+
+      <div class="iteration-card">
+        <div class="iteration-image">
+          <img src="assets/tidal/strategy/runs/run-2.jpg" alt="Run 2 attachment for missions 1, 2, and 15" class="run-image" />
+        </div>
+        <div class="iteration-content">
+          <h4>Design &amp; Execution</h4>
+          <p><strong>Solution:</strong> Added a passive guide rail to help align with mission models. Optimized motor speeds and added PID corrections.</p>
+          <p><strong>Outcome:</strong> Achieved 95% success rate in practice. Consistently scores 70 points in this run.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Run 3 Content -->
     <div id="run-c" class="run-content">
       <div class="card">
-        <h3>Run C: Missions 5,6,7,8</h3>
+        <h3>Run 3: Missions 11, 12 &amp; 15</h3>
+        <p><strong>Missions:</strong> Mission 11, Mission 12, Mission 15</p>
+        <p><strong>Points Target:</strong> 90 points</p>
+      </div>
+
+      <div class="iteration-card">
+        <div class="iteration-image">
+          <img src="Run C/Run C V3.jpg" alt="Run 3 final robot configuration" class="run-image" />
+        </div>
+        <div class="iteration-content">
+          <h4>Design &amp; Execution</h4>
+          <p><strong>Approach:</strong> Attempted to complete missions quickly to maximize remaining time.</p>
+          <p><strong>Challenges:</strong> Higher speeds reduced accuracy. Occasional overshooting caused mission failures.</p>
+          <p><strong>Solution:</strong> Implemented variable speed control—faster on long straights, slower near mission models. Added deceleration ramps.</p>
+          <p><strong>Outcome:</strong> Maintains good speed while ensuring accuracy. Completes in under 30 seconds with high reliability.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Run 4 Content -->
+    <div id="run-d" class="run-content">
+      <div class="card">
+        <h3>Run 4: Missions 5, 6, 7 &amp; 8</h3>
         <p><strong>Missions:</strong> Mission 5, Mission 6, Mission 7, Mission 8</p>
         <p><strong>Points Target:</strong> 90 points</p>
-        <div style="margin-top:0.75rem; display:flex; gap:0.75rem; flex-wrap:wrap; justify-content:center;">
-          <div style="background:rgba(239,68,68,0.06); padding:0.6rem; border-radius:8px; border:1px dashed #ef4444; min-width:160px; text-align:center;">
-            <div style="font-weight:700; font-size:0.8rem; color:#991b1b; text-transform:uppercase;">Initial Plan</div>
-            <div style="margin-top:0.4rem; color:#991b1b;">M5 • M6 • M7</div>
-          </div>
-          <div style="background:rgba(250,204,21,0.04); padding:0.6rem; border-radius:8px; border:1px solid rgba(250,204,21,0.08); min-width:160px; text-align:center;">
-            <div style="font-weight:700; font-size:0.8rem; color:#92400e; text-transform:uppercase;">Qualifier 1 (V1)</div>
-            <div style="margin-top:0.4rem; color:#92400e;">M12 • M13 • M11</div>
-          </div>
-          <div style="background:rgba(34,197,94,0.04); padding:0.6rem; border-radius:8px; border:1px solid rgba(34,197,94,0.08); min-width:160px; text-align:center;">
-            <div style="font-weight:700; font-size:0.8rem; color:#166534; text-transform:uppercase;">Qualifier 1 (V2)</div>
-            <div style="margin-top:0.4rem; color:#166534;">M5 • M6 • M7 • M8</div>
-          </div>
-        </div>
       </div>
 
-      <!-- Run C: three iterations (V1, V2, V3) inside Run C/ -->
       <div class="iteration-card">
         <div class="iteration-image">
-          <video style="max-width: 100%; width: 100%; border-radius: 8px;" controls>
-            <source src="Run C/Run C V1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+          <img src="assets/tidal/strategy/runs/run-4.jpg" alt="Run 4 directional hinge attachment for missions 5, 6, 7, and 8" class="run-image" />
         </div>
         <div class="iteration-content">
-          <h4>Iteration 1: Triple Mission Prototype (V1)</h4>
-          <div class="challenge-badge">Challenge</div>
+          <h4>Design &amp; Execution</h4>
           <p><strong>Approach:</strong> Ambitious design to complete three missions in one run.</p>
           <p><strong>Challenges:</strong> Path was too complex, increasing failure points. Robot occasionally missed alignment marks.</p>
-        </div>
-      </div>
-
-      <div class="iteration-card">
-        <div class="iteration-image">
-          <video style="max-width: 100%; width: 100%; border-radius: 8px;" controls>
-            <source src="Run C/Run C V2.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="iteration-content">
-          <h4>Iteration 2: Path Optimization (V2)</h4>
-          <p><strong>Improvements:</strong> Redesigned the path to reduce turns and improve flow. Added intermediate alignment points.</p>
-          <p><strong>Results:</strong> Better consistency, but Mission 8 still had reliability issues.</p>
-        </div>
-      </div>
-
-      <div class="iteration-card">
-        <div class="iteration-image">
-          <img src="Run C/Run C V3.jpg" alt="Run C Final (V3)" class="run-image" />
-        </div>
-        <div class="iteration-content">
-          <h4>Iteration 3: Final Refinement (V3)</h4>
-          <div class="success-badge">Success</div>
-          <p><strong>Solution:</strong> Fine-tuned PID values for each segment. Added a passive attachment that automatically engages during the run.</p>
+          <p><strong>Solution:</strong> Fine-tuned PID values for each segment. Added a passive 'directional hinge' attachment that automatically engages during the run.</p>
           <p><strong>Outcome:</strong> Our highest-scoring run with excellent reliability. Key to our competition strategy.</p>
         </div>
       </div>
     </div>
 
-    <!-- Run D Content -->
-    <div id="run-d" class="run-content">
+    <!-- Run 5 Content -->
+    <div id="run-e" class="run-content">
       <div class="card">
-        <h3>Run D: Missions 9 & 10</h3>
+        <h3>Run 5: Missions 9 &amp; 10</h3>
         <p><strong>Missions:</strong> Mission 9, Mission 10</p>
         <p><strong>Points Target:</strong> 60 points</p>
       </div>
 
-      <!-- Run D: iterations based on Run D folder (V1 and V2) -->
       <div class="iteration-card">
         <div class="iteration-image">
-          <video style="max-width: 100%; width: 100%; border-radius: 8px;" controls>
-            <source src="Run D/Run D V1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+          <img src="assets/tidal/strategy/runs/run-5.jpg" alt="Run 5 active attachment and one-way door passive part for missions 9 and 10" class="run-image" />
         </div>
         <div class="iteration-content">
-          <h4>Iteration 1: Precision Prototype (V1)</h4>
-          <div class="challenge-badge">Challenge</div>
+          <h4>Design &amp; Execution</h4>
           <p><strong>Approach:</strong> Required extremely precise positioning for small mission models.</p>
-          <p><strong>Challenges:</strong> Even minor drift caused mission failure. Battery level affected motor performance significantly.</p>
-        </div>
-      </div>
-
-      <div class="iteration-card">
-        <div class="iteration-image">
-          <video style="max-width: 100%; width: 100%; border-radius: 8px;" controls>
-            <source src="Run D/Run D V2.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="iteration-content">
-          <h4>Iteration 2: Enhanced Precision (V2)</h4>
-          <div class="success-badge">Success</div>
-          <p><strong>Solution:</strong> Implemented battery voltage compensation in code. Added physical alignment guides to the attachment.</p>
-          <p><strong>Outcome:</strong> Reliable execution even with varying battery levels. Consistent 60-point contribution.</p>
+          <p><strong>Challenges:</strong> Several coordinated movements were required, and the smallest drift caused mission failure.</p>
+          <p><strong>Solution:</strong> Combined an active attachment with a one-way door passive part and better regulated speed across the different movements.</p>
+          <p><strong>Outcome:</strong> Reliable execution. Consistent 60-point contribution.</p>
         </div>
       </div>
     </div>
 
-    <!-- Run E Content -->
-    <div id="run-e" class="run-content">
+    <!-- Run 6 Content -->
+    <div id="run-f" class="run-content">
       <div class="card">
-        <h3>Run E: Missions 11,12,15</h3>
-        <p><strong>Missions:</strong> Mission 11, Mission 12, Mission 15</p>
-        <p><strong>Points Target:</strong> 90 points</p>
-        <div style="margin-top:0.75rem; display:flex; gap:0.75rem; flex-wrap:wrap; justify-content:center;">
-          <div style="background:rgba(239,68,68,0.06); padding:0.6rem; border-radius:8px; border:1px dashed #ef4444; min-width:160px; text-align:center;">
-            <div style="font-weight:700; font-size:0.8rem; color:#991b1b; text-transform:uppercase;">Initial Plan</div>
-            <div style="margin-top:0.4rem; color:#991b1b;">M12 • M13 • M11</div>
-          </div>
-          <div style="background:rgba(168,85,247,0.04); padding:0.6rem; border-radius:8px; border:1px solid rgba(168,85,247,0.08); min-width:160px; text-align:center;">
-            <div style="font-weight:700; font-size:0.8rem; color:#7e22ce; text-transform:uppercase;">Qualifier 1 (V1)</div>
-            <div style="margin-top:0.4rem; color:#7e22ce;">M12</div>
-          </div>
-          <div style="background:rgba(34,197,94,0.04); padding:0.6rem; border-radius:8px; border:1px solid rgba(34,197,94,0.08); min-width:160px; text-align:center;">
-            <div style="font-weight:700; font-size:0.8rem; color:#166534; text-transform:uppercase;">Qualifier 1 (V2)</div>
-            <div style="margin-top:0.4rem; color:#166534;">M12 • M15 • M11</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Run E: iterations based on Run E folder (V1 and V2) -->
-      <div class="iteration-card">
-        <div class="iteration-image">
-          <img src="Run E/Run E V1.jpg" alt="Run E Iteration 1" class="run-image" />
-        </div>
-        <div class="iteration-content">
-          <h4>Iteration 1: Speed vs. Accuracy (V1)</h4>
-          <div class="challenge-badge">Challenge</div>
-          <p><strong>Approach:</strong> Attempted to complete missions quickly to maximize remaining time.</p>
-          <p><strong>Challenges:</strong> Higher speeds reduced accuracy. Occasional overshooting caused mission failures.</p>
-        </div>
+        <h3>Run 6: Missions 14 &amp; 15</h3>
+        <p><strong>Missions:</strong> Mission 14, Mission 15</p>
       </div>
 
       <div class="iteration-card">
         <div class="iteration-image">
-          <img src="Run E/Run E V2.jpg" alt="Run E Final (V2)" class="run-image" />
+          <img src="assets/tidal/strategy/runs/run-6.jpg" alt="Run 6 attachment for missions 14 and 15" class="run-image" />
         </div>
         <div class="iteration-content">
-          <h4>Iteration 2: Balanced Approach (V2)</h4>
-          <div class="success-badge">Success</div>
-          <p><strong>Solution:</strong> Implemented variable speed control—faster on long straights, slower near mission models. Added deceleration ramps.</p>
-          <p><strong>Outcome:</strong> Maintains good speed while ensuring accuracy. Completes in under 30 seconds with high reliability.</p>
+          <h4>Design &amp; Execution</h4>
+          <p><strong>Approach:</strong> Run 6 focuses on capturing the mine cart, dropping off the last flag, and delivering all artifacts to the forum.</p>
         </div>
       </div>
     </div>
@@ -2210,32 +2516,32 @@
     <h2>Mechanical Context & Programming Focus</h2>
     <div class="grid">
         <div class="card">
-            <span class="tag">Luke</span>
-            <img src="Claire Robot 2025-26 (1).png" alt="Claire Robot 2025-26" />
+            <span class="tag">Robot Build</span>
+            <img src="assets/tidal/robot-view-1.png" alt="Tidal Engineers robot CAD view" />
             <p>
-                We faced many mechanical challenges early in the season. Lessons from last year—especially about passive attachments—strongly influenced this year's robot.
+                Our mechanical work focused on making the robot strong, readable, and easy for all four teammates to modify. The box frame protects the hub while keeping attachment points visible.
             </p>
         </div>
         <div class="card">
-            <img src="claire atachment (1).png" alt="Claire robot with attachment" />
+            <img src="assets/tidal/robot-attachment.gif" alt="Tidal Engineers robot attachment animation" />
             <p>
-                By combining two powered motors with passive mechanisms, one motor could complete one task, the second another, and a passive attachment a third—making it realistic to complete three missions in one run.
+                Our attachment workflow is intentionally simple: build a mission idea, connect it to the large panel surfaces, test the run, then adjust the mechanism without rebuilding the entire robot.
             </p>
         </div>
         <div class="card">
-            <img src="Claire Robot with attachment 3 (1).gif" alt="Robot with attachment demonstration" />
+            <img src="assets/tidal/robot-spin.gif" alt="Tidal Engineers robot spinning CAD model" />
             <p>
-                While mechanical challenges were significant, programming ultimately became our biggest focus.
+                Programming and mechanical design grew together. As paths changed, the robot frame gave us a reliable starting point for repeated testing before swim practice, after swim practice, and whenever snacks appeared.
             </p>
         </div>
     </div>
 </section>
 
 <section id="pid">
-  <h2>Programming Evolution, PID, & Improvement</h2>
+  <h2>Programming Evolution &amp; Improvement</h2>
   <div class="grid">
     <div class="card">
-      <span class="tag">Claire</span>
+      <span class="tag">Isaiah</span>
       <img src="spikeprimeblockbasedexample.png" alt="SPIKE Prime block-based programming example" />
       <p>
         To improve consistency, we switched from block coding to Pybricks, which allows a much higher number of control loop iterations. We use the gyro sensor for heading, motor encoders for distance, and degree-based motor control.
@@ -2249,232 +2555,111 @@
     </div>
   </div>
 
-  <h3>PID Tuning Results</h3>
+  <h3 id="pid-tuning-results-title">PID Tuning Results</h3>
+
+  <div id="pid-tuning-results-detail" class="card" style="margin-bottom: 1.5rem; background: linear-gradient(135deg, #ffffff, #f2fffb); border: 1px solid rgba(0, 127, 143, 0.18);">
+    <h4 style="color: var(--primary); margin-top: 0;">Straight Line PID Testing</h4>
+    <p style="font-size: 1.05rem; margin-top: 0;">
+      We tested different Kp and Kd values to see how our robot drives on a straight line.
+    </p>
+    <img class="pid-tuning-graph" src="assets/tidal/testing/pid-testing.png" alt="Teaching our robot to drive straight with Kp and Kd tuning results" onclick="openImageModal(this.src)" />
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1rem 0 1.25rem;">
+      <div style="background: white; border: 2px solid rgba(34, 197, 94, 0.28); border-radius: 8px; padding: 1rem;">
+        <h5 style="color: #166534; margin: 0 0 0.75rem;">What is Kp?</h5>
+        <p style="margin: 0 0 0.75rem;">Kp decides how strongly the robot corrects a mistake.</p>
+        <ul style="margin: 0; padding-left: 1.15rem; line-height: 1.7;">
+          <li>Low Kp = slow correction</li>
+          <li>High Kp = overreacts and zig-zags</li>
+        </ul>
+      </div>
+      <div style="background: white; border: 2px solid rgba(59, 130, 246, 0.28); border-radius: 8px; padding: 1rem;">
+        <h5 style="color: #1e40af; margin: 0 0 0.75rem;">What is Kd?</h5>
+        <p style="margin: 0 0 0.75rem;">Kd helps calm the robot down and stop the wobble.</p>
+        <ul style="margin: 0; padding-left: 1.15rem; line-height: 1.7;">
+          <li>Low Kd = more wobble</li>
+          <li>Higher Kd = smoother driving</li>
+        </ul>
+      </div>
+      <div style="background: white; border: 2px solid rgba(2, 44, 86, 0.16); border-radius: 8px; padding: 1rem;">
+        <h5 style="color: var(--deep-blue); margin: 0 0 0.75rem;">How We Test</h5>
+        <ol style="margin: 0; padding-left: 1.15rem; line-height: 1.7;">
+          <li>Tape a line on the floor</li>
+          <li>Run the robot with different Kp and Kd values</li>
+          <li>Watch the robot and record the results</li>
+          <li>Find the best balance of speed and stability</li>
+        </ol>
+      </div>
+    </div>
+
+    <div style="overflow-x: auto; margin: 1rem 0;">
+      <table style="width: 100%; border-collapse: collapse; min-width: 760px; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 8px 18px rgba(2, 44, 86, 0.08);">
+        <thead>
+          <tr style="background: var(--deep-blue); color: white;">
+            <th style="padding: 0.75rem; text-align: left;">Setting</th>
+            <th style="padding: 0.75rem; text-align: left;">How It Looks</th>
+            <th style="padding: 0.75rem; text-align: left;">What We Notice</th>
+            <th style="padding: 0.75rem; text-align: left;">Time to 100 cm</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 0.75rem; border-bottom: 1px solid #e5e7eb;"><strong>Very Low Kp</strong><br>Kp 0.2, Kd 0</td>
+            <td style="padding: 0.75rem; border-bottom: 1px solid #e5e7eb;">Drifts a lot and takes a long time to fix mistakes.</td>
+            <td style="padding: 0.75rem; border-bottom: 1px solid #e5e7eb;">Too slow to react and does not stay on the line.</td>
+            <td style="padding: 0.75rem; border-bottom: 1px solid #e5e7eb; font-weight: 800; color: #166534;">6.2 s</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.75rem; border-bottom: 1px solid #e5e7eb;"><strong>Medium Kp</strong><br>Kp 0.5, Kd 0</td>
+            <td style="padding: 0.75rem; border-bottom: 1px solid #e5e7eb;">Better small corrections, stays closer to the line.</td>
+            <td style="padding: 0.75rem; border-bottom: 1px solid #e5e7eb;">Still a little slow, but much better than before.</td>
+            <td style="padding: 0.75rem; border-bottom: 1px solid #e5e7eb; font-weight: 800; color: #166534;">3.9 s</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.75rem; border-bottom: 1px solid #e5e7eb;"><strong>Good Balance</strong><br>Kp 0.8, Kd 0.3</td>
+            <td style="padding: 0.75rem; border-bottom: 1px solid #e5e7eb;">Smooth and steady. Stays close to the line.</td>
+            <td style="padding: 0.75rem; border-bottom: 1px solid #e5e7eb;">Best balance of speed and stability. Very good control.</td>
+            <td style="padding: 0.75rem; border-bottom: 1px solid #e5e7eb; font-weight: 800; color: #166534;">3.1 s</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.75rem; border-bottom: 1px solid #e5e7eb;"><strong>High Kp, No Kd</strong><br>Kp 2.0, Kd 0</td>
+            <td style="padding: 0.75rem; border-bottom: 1px solid #e5e7eb;">Zig-zags a lot and overreacts to every small mistake.</td>
+            <td style="padding: 0.75rem; border-bottom: 1px solid #e5e7eb;">Too much steering, not smooth, wastes time.</td>
+            <td style="padding: 0.75rem; border-bottom: 1px solid #e5e7eb; font-weight: 800; color: #c2410c;">4.0 s</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.75rem; border-bottom: 1px solid #e5e7eb;"><strong>High Kp + Some Kd</strong><br>Kp 2.0, Kd 0.3</td>
+            <td style="padding: 0.75rem; border-bottom: 1px solid #e5e7eb;">Better than before. Still a little zig-zag but more controlled.</td>
+            <td style="padding: 0.75rem; border-bottom: 1px solid #e5e7eb;">Kd helps calm the robot down.</td>
+            <td style="padding: 0.75rem; border-bottom: 1px solid #e5e7eb; font-weight: 800; color: #c2410c;">3.2 s</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.75rem;"><strong>High Kp + Good Kd</strong><br>Kp 2.0, Kd 0.8</td>
+            <td style="padding: 0.75rem;">Very smooth and fast. Stays close to the line.</td>
+            <td style="padding: 0.75rem;">Kd removes wobble and makes it stable.</td>
+            <td style="padding: 0.75rem; font-weight: 800; color: #166534;">2.8 s</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1.25rem;">
+      <div style="background: #f8fafc; border-left: 5px solid var(--primary); border-radius: 8px; padding: 1rem;">
+        <h5 style="margin: 0 0 0.75rem; color: var(--primary);">What Did We Learn?</h5>
+        <p style="margin: 0;">Kp too low is too slow to fix mistakes. Kp too high overreacts and zig-zags. Adding Kd calms the robot down and makes the path smoother.</p>
+      </div>
+      <div style="background: #e7faff; border-left: 5px solid #0ea5e9; border-radius: 8px; padding: 1rem;">
+        <h5 style="margin: 0 0 0.75rem; color: var(--deep-blue);">Our Best Setting</h5>
+        <p style="margin: 0 0 0.75rem; font-weight: 800; color: var(--primary);">Kp = 0.8 to 2.0<br>Kd = 0.3 to 0.8</p>
+        <p style="margin: 0;">Fast enough, very stable, stays on the line, and good for missions.</p>
+      </div>
+    </div>
+
+    <p style="margin: 1rem 0 0; font-weight: 700; color: var(--deep-blue);">
+      Experiment, test, improve! Small changes in Kp and Kd make a big difference in how our robot drives.
+    </p>
+  </div>
   
-  <!-- Kp Chart -->
-  <div class="card">
-    <h4 style="color: var(--primary); margin-top: 0;">Kp Tuning (Heading Error in Degrees)</h4>
-    <select id="kpSelect" style="display: block; margin: 0 auto 20px auto; padding: 8px 12px; font-size: 16px; border: 2px solid var(--primary); border-radius: 6px; background: white; cursor: pointer;">
-      <option value="0.6">Kp = 0.6</option>
-      <option value="0.8">Kp = 0.8</option>
-      <option value="1.0">Kp = 1.0</option>
-      <option value="1.15" selected>Kp = 1.15 (Best)</option>
-      <option value="1.2">Kp = 1.2</option>
-    </select>
-    <canvas id="kpChart" style="max-height: 400px;"></canvas>
-  </div>
-
-  <!-- Kd Chart -->
-  <div class="card">
-    <h4 style="color: var(--primary); margin-top: 0;">Kd Tuning (Heading Error in Degrees)</h4>
-    <select id="kdSelect" style="display: block; margin: 0 auto 20px auto; padding: 8px 12px; font-size: 16px; border: 2px solid var(--primary); border-radius: 6px; background: white; cursor: pointer;">
-      <option value="0.0001">Kd = 0.0001</option>
-      <option value="0.001">Kd = 0.001</option>
-      <option value="0.01">Kd = 0.01</option>
-      <option value="0.02" selected>Kd = 0.02 (Best)</option>
-    </select>
-    <canvas id="kdChart" style="max-height: 400px;"></canvas>
-  </div>
-  <div class="card" style="margin-top: 1.5rem;">
-    <h4 style="color: var(--primary); margin-top: 0;">Acceleration / Deceleration Profile</h4>
-    <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin:0.75rem 0;">
-      <label style="font-size:0.9rem;">
-        Mode:
-        <select id="profileMode" style="margin-left:0.5rem;padding:6px 8px;">
-          <option value="distance">Distance (mm)</option>
-          <option value="angle">Angle (deg)</option>
-        </select>
-      </label>
-
-      <label style="font-size:0.9rem;">
-        Target:
-        <input id="profileTarget" type="number" value="1000" style="width:100px;margin-left:0.5rem;padding:6px;" />
-      </label>
-
-      <label style="font-size:0.9rem;">
-        Max speed:
-        <input id="profileVmax" type="number" value="300" style="width:100px;margin-left:0.5rem;padding:6px;" /> <small style="opacity:0.7">mm/s or deg/s</small>
-      </label>
-
-      <label style="font-size:0.9rem;">
-        Accel:
-        <input id="profileAccel" type="number" value="800" style="width:100px;margin-left:0.5rem;padding:6px;" /> <small style="opacity:0.7">mm/s²</small>
-      </label>
-
-      <label style="font-size:0.9rem;">
-        Decel:
-        <input id="profileDecel" type="number" value="1200" style="width:100px;margin-left:0.5rem;padding:6px;" /> <small style="opacity:0.7">mm/s²</small>
-      </label>
-
-      <button id="profileSimulate" style="background:var(--primary);color:white;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;font-weight:600;">Simulate</button>
-    </div>
-
-    <canvas id="accelChart" style="max-height:360px;"></canvas>
-    <div style="font-size:0.85rem;color:#666;margin-top:0.5rem;">
-      Blue = speed profile. Orange = distance/angle progression.
-    </div>
-  </div>
-
-  <script>
-    // Utility: compute trapezoidal/triangular speed profile for a target (distance or angle)
-    function computeProfile({target=1000, vmax=300, a=800, d=1200, dt=0.02}) {
-      // Use same physics: braking distance for speed v is v^2/(2*d)
-      // Check achievable peak if distance too short.
-      const tol = 1e-6;
-      let t = 0, v = 0, x = 0;
-      const times = [], speeds = [], positions = [];
-
-      // If target <= 0, return empty.
-      if (target <= 0) return {times, speeds, positions};
-
-      // Pre-calc ideal triangular peak velocity if never reach vmax:
-      const v_peak_sq = (2 * a * d * target) / (a + d);
-      const v_peak = Math.sqrt(Math.max(0, v_peak_sq));
-      const v_allowed = Math.min(vmax, v_peak);
-
-      // Simulation loop until we reach target (or tiny overrun)
-      while (x + 1e-3 < target && t < 60) { // safety cap 60s
-        // remaining distance/angle
-        const rem = Math.max(0, target - x);
-        // braking distance from current (if we would stop from current velocity)
-        const brakeDist = (v * v) / (2 * d);
-        let acc = 0;
-        // decide accelerate, coast, or decelerate
-        if (v < v_allowed - 0.5 && rem > brakeDist + 1e-3) {
-          acc = a; // accelerate
-        } else {
-          // start decel to hit target smoothly
-          acc = -d;
-        }
-        // integrate Euler
-        const v_next = Math.max(0, v + acc * dt);
-        // limit to v_allowed when accelerating
-        if (acc > 0 && v_next > v_allowed) {
-          // cap to v_allowed
-          const dv = v_allowed - v;
-          // compute time fraction to reach v_allowed
-          const t_to_v = dv / Math.max(acc, tol);
-          // advance by that small time step
-          const x_inc = v * t_to_v + 0.5 * acc * t_to_v * t_to_v;
-          t += t_to_v;
-          x += x_inc;
-          v = v_allowed;
-        } else {
-          // normal step
-          const x_inc = v * dt + 0.5 * acc * dt * dt;
-          t += dt;
-          x += x_inc;
-          v = v_next;
-        }
-
-        // push snapshots
-        times.push(t);
-        speeds.push(v);
-        positions.push(Math.min(x, target));
-        // safety break if stuck
-        if (times.length > 200000) break;
-      }
-
-      // ensure final sample at target
-      if (positions.length && positions[positions.length - 1] < target - 1e-3) {
-        const lastT = times.length ? times[times.length-1] : 0;
-        times.push(lastT + 0.001);
-        speeds.push(0);
-        positions.push(target);
-      }
-
-      return {times, speeds, positions};
-    }
-
-    // chart holder
-    let accelChart = null;
-
-    function renderProfile() {
-      const mode = document.getElementById('profileMode').value;
-      const target = parseFloat(document.getElementById('profileTarget').value) || 0;
-      const vmax = parseFloat(document.getElementById('profileVmax').value) || 300;
-      const accel = Math.max(1, parseFloat(document.getElementById('profileAccel').value) || 800);
-      const decel = Math.max(1, parseFloat(document.getElementById('profileDecel').value) || 1200);
-
-      const sim = computeProfile({target, vmax, a: accel, d: decel, dt: 0.02});
-      const labels = sim.times.map(t => t.toFixed(2));
-
-      const speedDataset = {
-        label: 'Speed (' + (mode === 'distance' ? 'mm/s' : 'deg/s') + ')',
-        data: sim.speeds.map(s => Number(s.toFixed(2))),
-        borderColor: '#3b82f6',
-        backgroundColor: '#3b82f6',
-        yAxisID: 'ySpeed',
-        tension: 0.2,
-        fill: false,
-        pointRadius: 0
-      };
-
-      const posDataset = {
-        label: (mode === 'distance' ? 'Distance (mm)' : 'Angle (deg)'),
-        data: sim.positions.map(p => Number(p.toFixed(2))),
-        borderColor: '#f59e0b',
-        backgroundColor: '#f59e0b',
-        yAxisID: 'yPos',
-        tension: 0.2,
-        fill: false,
-        pointRadius: 0
-      };
-
-      const ctx = document.getElementById('accelChart').getContext('2d');
-      if (accelChart) {
-        accelChart.data.labels = labels;
-        accelChart.data.datasets = [speedDataset, posDataset];
-        accelChart.options.plugins.title.text = `Profile to ${target} ${mode === 'distance' ? 'mm' : 'deg'}`;
-        accelChart.update();
-      } else {
-        accelChart = new Chart(ctx, {
-          type: 'line',
-          data: { labels, datasets: [speedDataset, posDataset] },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: { position: 'bottom' },
-              title: { display: true, text: `Profile to ${target} ${mode === 'distance' ? 'mm' : 'deg'}` },
-              tooltip: {
-                callbacks: {
-                  label: function(context) {
-                    return context.dataset.label + ': ' + context.parsed.y;
-                  }
-                }
-              }
-            },
-            scales: {
-              x: { display: true, title: { display: true, text: 'Time (s)' } },
-              ySpeed: {
-                type: 'linear',
-                position: 'left',
-                title: { display: true, text: 'Speed' }
-              },
-              yPos: {
-                type: 'linear',
-                position: 'right',
-                title: { display: true, text: (mode === 'distance' ? 'Distance (mm)' : 'Angle (deg)') },
-                grid: { drawOnChartArea: false }
-              }
-            }
-          }
-        });
-      }
-    }
-
-    // initialize when page fully loaded (Chart.js is loaded later in page)
-    window.addEventListener('load', function() {
-      // wire controls
-      document.getElementById('profileSimulate').addEventListener('click', renderProfile);
-      ['profileMode','profileTarget','profileVmax','profileAccel','profileDecel'].forEach(id=>{
-        document.getElementById(id).addEventListener('keypress', function(e){ if(e.key==='Enter') renderProfile(); });
-      });
-      // initial render
-      renderProfile();
-    });
-  </script>
   <h3>Drive Straight Function</h3>
   <div class="card">
     <pre><code>def drive_straight(distance_mm, speed, kp=1.15, kd=0.02):
@@ -2545,210 +2730,309 @@
   </div>
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-  // -------------------- Kp Data --------------------
-  const kpData = [
-    { kp: 0.6, speed: 60, rotations: 1, error: -2.4 },
-    { kp: 0.6, speed: 60, rotations: 5, error: -3.5 },
-    { kp: 0.6, speed: 60, rotations: 10, error: -3.8 },
-    { kp: 0.6, speed: 80, rotations: 1, error: -4.2 },
-    { kp: 0.6, speed: 80, rotations: 5, error: -4.3 },
-    { kp: 0.6, speed: 80, rotations: 10, error: 2.7 },
-    { kp: 0.6, speed: 100, rotations: 1, error: -6.5 },
-    { kp: 0.6, speed: 100, rotations: 5, error: 8 },
-    { kp: 0.6, speed: 100, rotations: 10, error: -6 },
-
-    { kp: 0.8, speed: 60, rotations: 1, error: -1.6 },
-    { kp: 0.8, speed: 60, rotations: 5, error: 5.9 },
-    { kp: 0.8, speed: 60, rotations: 10, error: 9.2 },
-    { kp: 0.8, speed: 80, rotations: 1, error: -2.1 },
-    { kp: 0.8, speed: 80, rotations: 5, error: 7.3 },
-    { kp: 0.8, speed: 80, rotations: 10, error: -12.4 },
-
-    { kp: 1.0, speed: 60, rotations: 1, error: 0.9 },
-    { kp: 1.0, speed: 60, rotations: 5, error: 4.1 },
-    { kp: 1.0, speed: 60, rotations: 10, error: -7.8 },
-    { kp: 1.0, speed: 80, rotations: 1, error: 1.6 },
-    { kp: 1.0, speed: 80, rotations: 5, error: -6.2 },
-    { kp: 1.0, speed: 80, rotations: 10, error: 11.9 },
-
-    { kp: 1.15, speed: 60, rotations: 1, error: -0.1 },
-    { kp: 1.15, speed: 60, rotations: 5, error: -0.2 },
-    { kp: 1.15, speed: 60, rotations: 10, error: -0.4 },
-    { kp: 1.15, speed: 80, rotations: 1, error: 0.3 },
-    { kp: 1.15, speed: 80, rotations: 5, error: -0.7 },
-    { kp: 1.15, speed: 80, rotations: 10, error: -1.1 },
-    { kp: 1.15, speed: 100, rotations: 1, error: 0.6 },
-    { kp: 1.15, speed: 100, rotations: 5, error: 1.3 },
-    { kp: 1.15, speed: 100, rotations: 10, error: -1.0 },
-
-    { kp: 1.2, speed: 60, rotations: 1, error: 0.5 },
-    { kp: 1.2, speed: 60, rotations: 5, error: 1.1 },
-    { kp: 1.2, speed: 60, rotations: 10, error: 2.3 },
-    { kp: 1.2, speed: 80, rotations: 1, error: 0.9 },
-    { kp: 1.2, speed: 80, rotations: 5, error: 2.0 },
-    { kp: 1.2, speed: 80, rotations: 10, error: 3.8 },
-    { kp: 1.2, speed: 100, rotations: 1, error: 3.4 },
-    { kp: 1.2, speed: 100, rotations: 5, error: -3.1 },
-    { kp: 1.2, speed: 100, rotations: 10, error: 5.6 }
-  ];
-
-  const kpColors = ['#e6194b','#3cb44b','#4363d8'];
-  const kpCtx = document.getElementById('kpChart').getContext('2d');
-  let kpChart;
-
-  function updateKpChart(selectedKp) {
-    const speeds = [60,80,100];
-    const datasets = speeds.map((speed,i)=>{
-      const points = kpData
-        .filter(d => d.kp == selectedKp && d.speed == speed)
-        .map(d => ({x:d.rotations, y:d.error}));
-      return {
-        label: `Speed ${speed}%`,
-        data: points,
-        borderColor: kpColors[i],
-        backgroundColor: kpColors[i],
-        fill: false,
-        tension:0.2
-      };
-    });
-
-    if(kpChart) {
-      kpChart.data.datasets = datasets;
-      kpChart.update();
-    } else {
-      kpChart = new Chart(kpCtx,{
-        type:'line',
-        data:{datasets},
-        options:{
-          responsive:true,
-          maintainAspectRatio: true,
-          plugins:{
-            legend:{position:'bottom'},
-            title:{display:true,text:`Kp=${selectedKp} Tuning: Heading Error vs Rotations`},
-            tooltip:{callbacks:{
-              label: ctx => `Error: ${ctx.parsed.y}° (Rotations: ${ctx.parsed.x})`
-            }}
-          },
-          scales:{
-            x:{type:'linear', title:{display:true,text:'Rotations'}, min:0, ticks:{stepSize:1}},
-            y:{title:{display:true,text:'Error (degrees)'}}
-          }
-        }
-      });
+  document.addEventListener('DOMContentLoaded', function() {
+    const pidHome = document.getElementById('pid-tuning-results-home');
+    const pidTitle = document.getElementById('pid-tuning-results-title');
+    const pidDetail = document.getElementById('pid-tuning-results-detail');
+    if (pidHome && pidTitle && pidDetail) {
+      pidHome.append(pidTitle, pidDetail);
     }
-  }
-
-  document.getElementById('kpSelect').addEventListener('change', e=>{
-    updateKpChart(e.target.value);
   });
-
-  updateKpChart(1.15); // default best Kp
-
-  // -------------------- Kd Data --------------------
-  const kdData = [
-    { kd: 0.0001, rotations: 1, error: 5 },
-    { kd: 0.0001, rotations: 2, error: 4.2 },
-    { kd: 0.0001, rotations: 3, error: 3.8 },
-    { kd: 0.0001, rotations: 4, error: 3.5 },
-    { kd: 0.0001, rotations: 5, error: 3.2 },
-
-    { kd: 0.001, rotations: 1, error: 4.5 },
-    { kd: 0.001, rotations: 2, error: 3.5 },
-    { kd: 0.001, rotations: 3, error: 2.9 },
-    { kd: 0.001, rotations: 4, error: 2.5 },
-    { kd: 0.001, rotations: 5, error: 2.2 },
-
-    { kd: 0.01, rotations: 1, error: 2.0 },
-    { kd: 0.01, rotations: 2, error: 1.5 },
-    { kd: 0.01, rotations: 3, error: 1.2 },
-    { kd: 0.01, rotations: 4, error: 1.0 },
-    { kd: 0.01, rotations: 5, error: 0.8 },
-
-    { kd: 0.02, rotations: 1, error: 0.5 },
-    { kd: 0.02, rotations: 2, error: 0.3 },
-    { kd: 0.02, rotations: 3, error: 0.1 },
-    { kd: 0.02, rotations: 4, error: -0.1 },
-    { kd: 0.02, rotations: 5, error: -0.2 }
-  ];
-
-  const kdColors = ['#e6194b','#3cb44b','#4363d8','#f58231'];
-  const kdCtx = document.getElementById('kdChart').getContext('2d');
-  let kdChart;
-
-  function updateKdChart(selectedKd) {
-    const points = kdData.filter(d => d.kd == selectedKd)
-                         .map(d => ({x:d.rotations, y:d.error}));
-    const dataset = [{
-      label: `Kd=${selectedKd}${selectedKd==0.02?' (Best)':''}`,
-      data: points,
-      borderColor: kdColors[ kdData.findIndex(d=>d.kd==selectedKd)%kdColors.length ],
-      backgroundColor: kdColors[ kdData.findIndex(d=>d.kd==selectedKd)%kdColors.length ],
-      fill:false,
-      tension:0.2
-    }];
-
-    if(kdChart){
-      kdChart.data.datasets = dataset;
-      kdChart.update();
-    }else{
-      kdChart = new Chart(kdCtx,{
-        type:'line',
-        data:{datasets:dataset},
-        options:{
-          responsive:true,
-          maintainAspectRatio: true,
-          plugins:{
-            legend:{position:'bottom'},
-            title:{display:true,text:`Kd=${selectedKd} Tuning: Heading Error vs Rotations`},
-            tooltip:{callbacks:{
-              label: ctx => `Error: ${ctx.parsed.y}° (Rotations: ${ctx.parsed.x})`
-            }}
-          },
-          scales:{
-            x:{type:'linear', title:{display:true,text:'Rotations'}, min:0, ticks:{stepSize:1}},
-            y:{title:{display:true,text:'Error (degrees)'}}
-          }
-        }
-      });
-    }
-  }
-
-  document.getElementById('kdSelect').addEventListener('change', e=>{
-    updateKdChart(e.target.value);
-  });
-
-  updateKdChart(0.02); // default best Kd
 </script>
 
-  <section id="coopertition">
-    <h2>Coopertition & Shared Learning</h2>
+
+  <section id="innovation-project">
+    <h2>Innovation Project: Tidal Scout</h2>
+    <div class="card" style="background: linear-gradient(135deg, #e7faff, #ffffff); border-left: 6px solid var(--primary); margin-bottom: 1.5rem;">
+      <span class="tag">Best Innovation Award</span>
+      <h3 style="margin-top: 0;">Helping archaeologists explore caves more safely</h3>
+      <p>
+        Our Innovation Project began during a field trip to the Museum of Natural History, where we learned about archaeology and became fascinated by caves. Curious about the challenges archaeologists face when exploring these environments, we chose Cave Safety as the focus of our project.
+      </p>
+    </div>
+
+    <div id="research" class="card" style="background: white; border: 1px solid rgba(0, 127, 143, 0.18); margin-bottom: 1.5rem;">
+      <img src="assets/tidal/innovation-slide-media/slide-21-image45.png" alt="Tidal Engineers research process and cave safety findings" />
+      <h3 style="color: var(--primary); margin-top: 1rem;">Research</h3>
+      <p>
+        Using Google Scholar and other reliable sources, we researched the challenges archaeologists face when exploring caves. We learned that caves can be dangerous due to low oxygen levels, unstable rock formations, flooding risks, and narrow passages. While technologies such as drones and gas detectors already exist, our research showed that many current solutions are too large, too heavy, too expensive, or designed to solve only a single problem.
+      </p>
+      <details style="margin-top: 1rem; background: var(--muted); border-radius: 8px; padding: 1rem;">
+        <summary style="font-weight: 800; color: var(--primary-dark); cursor: pointer;">References</summary>
+        <ol style="font-size: 0.86rem; line-height: 1.45; padding-left: 1.25rem; margin-bottom: 0;">
+          <li>Barbaro, C.C. et al. (2024). Safeguarding archaeological excavations and preserving cultural heritage in cave environments through engineering geological and geophysical methods. <em>Journal of Archaeological Science: Reports</em>, 60, 104868. doi:10.1016/j.jasrep.2024.104868.</li>
+          <li>Brandi, I.V. et al. (2019). Instrumented geotechnical monitoring of a natural cave in a near mine operation: towards a sustainable approach to mining and preservation of speleological heritage. <em>Journal of Cleaner Production</em>, 239, 118040. doi:10.1016/j.jclepro.2019.118040.</li>
+          <li>Peixotto, B., Klehm, C. and Eifling, K.P. (2021). Rethinking research sites as wilderness activity sites: reframing health, safety, and wellness in archaeology. <em>Advances in Archaeological Practice</em>, 9(1), 1-9. doi:10.1017/aap.2020.50.</li>
+          <li>Petracek, P., Kratky, V., Petrlik, M., Baca, T., Kratochvil, R. and Saska, M. (2021). Large-scale exploration of cave environments by unmanned aerial vehicles. <em>IEEE Robotics and Automation Letters</em>, 6(4), 7596-7603. doi:10.1109/LRA.2021.3098304.</li>
+          <li>Promneewat, K. and Taksavasu, T. (2024). Performance of affordable 2D cave scanning technique from LiDAR for constructing 3D cave models. <em>Advanced LiDAR</em>, 4(1), 1-8. https://hal.science/hal-04558554/.</li>
+          <li>Redovnikovic, L., Jakopec, A., Bedkowski, J. and Jagetic, J. (2024). The affordable DIY Mandeye LiDAR system for surveying caves, and how to convert 3D clouds into traditional cave ground plans and extended profiles. <em>International Journal of Speleology</em>, 53(3). doi:10.5038/1827-806X.53.3.2535.</li>
+          <li>Saez, P.I. et al. (2021). Vertical archaeology: safety in the use of ropes for scientific research of pre-columbian Andean cultures. <em>International Journal of Environmental Research and Public Health</em>, 18(7), 3536. doi:10.3390/ijerph18073536.</li>
+          <li>Tringali, L., Canciani, G., Debenjak, A. and Tripari, T. (2024). Charlotte: a modern tool for cave surveying. <em>International Journal of Speleology</em>, 53(3). doi:10.5038/1827-806X.53.3.2496.</li>
+        </ol>
+      </details>
+    </div>
+
+    <div id="initial-idea" class="card" style="background: white; border: 1px solid rgba(0, 127, 143, 0.18); margin-bottom: 1.5rem;">
+      <h3 style="color: var(--primary); margin-top: 0;">Initial Idea</h3>
+      <p>
+        When we first started designing, we knew we wanted to build something that could travel into caves and do more than one job. Our first sketches included lots of exciting ideas, such as digging tools, cameras, sensors, and even a robot that could both drive and fly! We explored many different concepts and imagined how a rover and drone could work together as a team to help archaeologists explore hard-to-reach areas. During this ideation phase, we focused on generating as many creative ideas as possible before deciding which features would be the most useful and practical.
+      </p>
+      <div class="initial-ideas-grid">
+        <img src="assets/tidal/innovation/initial-ideas/initial-idea-1.png" alt="Early Tidal Scout cave robot concept sketch with night vision and sensors" />
+        <img src="assets/tidal/innovation/initial-ideas/initial-idea-2.png" alt="Early Tidal Scout rover concept sketch with camera, storage, robot arms, and wheels" />
+        <img src="assets/tidal/innovation/initial-ideas/initial-idea-3.png" alt="Early Tidal Scout concept sketch with temperature sensor, camera, flashlight, and grabber arm" />
+      </div>
+    </div>
+
+    <div id="expert-feedback" class="card" style="background: white; border: 1px solid rgba(0, 127, 143, 0.18); margin-bottom: 1.5rem;">
+      <img src="assets/tidal/innovation-slide-media/slide-24-image54.png" alt="Expert feedback that shaped Tidal Scout" />
+      <h3 style="color: var(--primary); margin-top: 1rem;">Expert Feedback</h3>
+      <ul style="text-align: left; margin-left: 1rem;">
+        <li>Adam Niesley told us caves are wet and tools need to be waterproof.</li>
+        <li>Margaret J. Furtner said tools should be portable and connect to phones.</li>
+        <li>Judges encouraged us to focus on the most dangerous cave conditions and explain impact clearly.</li>
+      </ul>
+    </div>
+
+    <div id="iteration" class="card" style="background: white; border: 1px solid rgba(0, 127, 143, 0.18); margin-bottom: 1.5rem;">
+      <h3 style="color: var(--primary); margin-top: 0;">Iteration</h3>
+      <p>
+        After gathering feedback from experts and learning more about the real challenges archaeologists face, we decided to improve our design. We removed many of the extra tools and features that were not directly related to cave safety and focused on the sensors that could help identify dangerous conditions. We redesigned the system to be smaller, lighter, and easier to transport through tight cave passages and rough terrain.
+      </p>
+      <p>
+        We also wanted our solution to be affordable and practical so that archaeologists and research teams could use it in real-world fieldwork without needing expensive or specialized equipment. By simplifying our design and focusing on the most important safety needs, we created a solution that is more effective, portable, and realistic to use in the field.
+      </p>
+    </div>
+
+    <h3>Prototype Evolution</h3>
+    <div id="gen-1-prototype" class="card" style="background: white; border: 1px solid rgba(0, 127, 143, 0.18); margin-bottom: 1.5rem;">
+      <h3 style="color: var(--primary); margin-top: 0;">Tidal Scout Rover (Gen 1 Prototype)</h3>
+      <p>
+        Our first-generation Tidal Cave Scout Rover was designed to help archaeologists assess cave conditions before entering potentially dangerous environments. We wanted to create a compact, lightweight, and affordable solution that could travel into caves and gather important safety information. To keep costs low while still building a capable rover, we used Thunder3D, a 3D-printed robotic platform that gave us a strong foundation for our design.
+      </p>
+      <img src="assets/tidal/innovation/gen-1-prototype.png" alt="Tidal Cave Scout Gen 1 prototype rover with lightweight tracked design" style="margin: 1rem 0;" />
+      <p>
+        The rover was equipped with four key sensors that monitor some of the most common cave hazards. An air quality sensor checks for unsafe conditions, a distance sensor helps detect obstacles and narrow passages, a vibration sensor can identify unstable surfaces, and a temperature and humidity sensor monitors environmental conditions inside the cave. Together, these sensors help answer one critical question: <strong>Is it safe for archaeologists to enter the cave?</strong> By collecting this information before people enter, our rover can help reduce risk and improve safety.
+      </p>
+      <p>
+        To bring our rover to life, we used a Pimoroni Pico Plus 2 W microcontroller as the brain of the system. An OLED screen displays sensor readings in real time, allowing users to quickly understand cave conditions. We also used a STEMMA hub and custom soldering to connect all of the components efficiently while keeping the rover lightweight and easy to transport. Building this first-generation prototype taught us valuable lessons about electronics, programming, sensor integration, and designing technology for real-world challenges.
+      </p>
+      <img src="assets/tidal/innovation-slide-media/slide-28-image49.png" alt="Tidal Scout sensors in action" style="margin-top: 1rem;" />
+    </div>
+
+    <div id="feedback-round-2" class="card" style="background: white; border: 1px solid rgba(0, 127, 143, 0.18); margin-bottom: 1.5rem;">
+      <h3 style="color: var(--primary); margin-top: 0;">Feedback Round 2</h3>
+      <p>
+        We did not stop after our first redesign. We shared our updated Tidal Cave Scout with archaeologists, subject matter experts, and FLL judges to gather even more feedback. Their suggestions helped us understand what would make the rover more useful in real-world cave exploration. They encouraged us to focus on making the rover easier to operate, lighter to carry through difficult terrain, and more capable of navigating the uneven surfaces commonly found in caves.
+      </p>
+      <p>
+        Using this feedback, we made several important improvements. We upgraded the tracks to provide better grip on rough cave surfaces, reduced the overall weight to improve portability, and developed a phone-based interface that allows archaeologists to control the rover and view sensor data directly from their smartphones. These enhancements made the Tidal Cave Scout more practical, user-friendly, and better suited for real-world fieldwork.
+      </p>
+    </div>
+
+    <div id="gen-2-prototype" class="card" style="background: white; border: 1px solid rgba(0, 127, 143, 0.18); margin-bottom: 1.5rem;">
+      <h3 style="color: var(--primary); margin-top: 1rem;">Tidal Scout Rover (Gen 2 Prototype)</h3>
+      <p>
+        To make the Tidal Cave Scout even more effective, we continued improving both the hardware and technology inside the rover. We reduced the rover's weight by switching to PLA Aero filament, a lightweight 3D-printing material that made the rover easier to carry and more energy efficient. We also added a UPS battery system to provide a more reliable power supply, helping the rover operate longer and reducing the risk of unexpected shutdowns during cave exploration.
+      </p>
+      <p>
+        At the same time, we upgraded several of the rover's key components. We improved the sensors to provide more accurate environmental data, added a night vision camera to help navigate dark cave environments, and upgraded the onboard computer to a Raspberry Pi 4. This gave the rover more processing power, allowing it to collect, analyze, and display information more efficiently while supporting additional features and future upgrades. We also learned how a 28BYJ-48 stepper motor can work with a ULN2003 motor driver and Raspberry Pi. Stepper motors move in small, controlled steps, making them ideal for precise robot functions such as rotating cameras, moving gears, or positioning sensors. The ULN2003 driver allows the Raspberry Pi to control the motor through four input signals, while a dedicated motor power supply helps make the system safer, more stable, and more reliable.
+      </p>
+      <p>
+        To make the rover easier for archaeologists to use in the field, we added wireless connectivity through a portable router. This allows the Tidal Cave Scout to connect directly to a smartphone, giving users access to live camera footage, sensor readings, and rover controls from almost anywhere near the exploration site. Together, these improvements transformed the rover from a basic prototype into a smarter, more capable, and more reliable tool for real-world cave exploration.
+      </p>
+      <img src="assets/tidal/innovation/gen-2-prototype-overview.png" alt="Tidal Scout Gen 2 prototype overview showing lighter design, better tracks, night vision camera, portable router, stepper motors, and UPS battery system" style="margin-top: 1rem;" />
+      <img src="assets/tidal/innovation/gen-2-prototype-wiring.png" alt="Tidal Scout Gen 2 upgrades with Raspberry Pi 4, night vision, stepper motors, and improved sensors" style="margin-top: 1rem;" />
+      <div style="margin-top: 1rem; padding: 1rem; background: var(--muted); border: 1px solid rgba(0, 127, 143, 0.16); border-radius: 8px;">
+        <h4 style="color: var(--primary-dark); margin: 0 0 0.75rem;">Stepper Motor Engineering Notes</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+          <figure style="margin: 0; background: white; border-radius: 8px; padding: 0.75rem;">
+            <img src="https://peppe8o.com/wp-content/uploads/2024/11/28byj-48-stepper-motor-picture.webp" alt="28BYJ-48 stepper motor with ULN2003 driver board" style="width: 100%; aspect-ratio: 4 / 3; object-fit: contain; display: block;" />
+            <figcaption style="font-size: 0.78rem; color: #466; margin-top: 0.5rem;">28BYJ-48 stepper motor and ULN2003 driver board. Image source: peppe8o.</figcaption>
+          </figure>
+          <figure style="margin: 0; background: white; border-radius: 8px; padding: 0.75rem;">
+            <img src="https://peppe8o.com/wp-content/uploads/2024/11/stepper-motor-raspberry-pi-wiring-diagram.webp" alt="Wiring diagram for connecting a Raspberry Pi to a ULN2003 driver and 28BYJ-48 stepper motor" style="width: 100%; aspect-ratio: 4 / 3; object-fit: contain; display: block;" />
+            <figcaption style="font-size: 0.78rem; color: #466; margin-top: 0.5rem;">Example Raspberry Pi and ULN2003 wiring diagram. Image source: peppe8o.</figcaption>
+          </figure>
+        </div>
+        <ul style="text-align: left; margin: 1rem 0 0 1rem;">
+          <li>The ULN2003 driver has four main control inputs: IN1, IN2, IN3, and IN4.</li>
+          <li>The Raspberry Pi activates the inputs in a sequence of small steps. Reversing the sequence changes the motor's direction.</li>
+          <li>The tutorial maps Raspberry Pi GPIO pins 14, 15, 18, and 23 to the four driver inputs.</li>
+          <li>A Python control function can set both direction and speed, making the motor easier to test and tune.</li>
+          <li>Because motors draw significant current, the tutorial recommends powering the motor through the driver with an external power supply instead of relying on the Raspberry Pi for extended use.</li>
+        </ul>
+      </div>
+      <p style="font-size: 0.86rem; color: #466; margin-bottom: 0;">
+        Source: <a href="https://peppe8o.com/28byj-48-uln2003-stepper-motor-raspberry-pi/" target="_blank" rel="noopener">28BYJ-48 stepper motor with Raspberry Pi and ULN2003 tutorial</a>.
+      </p>
+      <div style="margin-top: 1rem; padding: 1rem; background: var(--muted); border: 1px solid rgba(0, 127, 143, 0.16); border-radius: 8px;">
+        <h4 style="color: var(--primary-dark); margin: 0 0 0.75rem;">Custom PCB Engineering Notes</h4>
+        <p style="margin: 0 0 0.75rem;">
+          To make our rover smaller, cleaner, and more reliable, we designed and built our own custom PCB. We started by testing our ideas on a breadboard and creating a working circuit. Our first manufacturing approach was to use a UV printer to transfer the PCB design onto a copper board and then use ferric chloride to etch away the unwanted copper. While the PCB looked great, we had difficulty cutting and finishing the board accurately. After learning from this challenge, we switched to a CNC carving method, which allowed us to precisely carve the copper traces and drill the holes. We then carefully soldered all the components onto the board. The finished PCB reduced wiring clutter, saved space inside the rover, created stronger connections, and transformed our prototype into a more reliable system for real-world cave exploration.
+        </p>
+        <img src="assets/tidal/innovation/custom-pcb.png" alt="How the Tidal Engineers built their custom PCB from breadboard planning through CNC carving and soldering" style="margin-top: 0.5rem;" />
+      </div>
+    </div>
+
+    <h3>Feedback & Impact</h3>
+    <div class="grid">
+      <div class="card" style="grid-column: 1 / -1;">
+        <img src="assets/tidal/innovation/how-it-works.png" alt="How Tidal Scout checks safety before, monitors during exploration, and logs data for future cave modeling" />
+        <h4 style="color: var(--primary); margin-top: 0;">How Tidal Scout Helps</h4>
+        <p>
+          The Tidal Scout is designed to support archaeologists throughout the entire cave exploration process. Before anyone enters a cave, the rover travels ahead to assess safety conditions by measuring air quality, temperature, humidity, distance to obstacles, and signs of unstable terrain. This helps archaeologists identify potential dangers and make informed decisions about whether it is safe to enter.
+        </p>
+        <p>
+          Once exploration begins, the Tidal Scout continues monitoring conditions in real time. As archaeologists work, the rover can provide ongoing updates about environmental changes, helping detect new hazards such as poor air quality, falling rocks, flooding risks, or blocked passages. This allows teams to respond quickly if conditions become unsafe.
+        </p>
+        <p>
+          The Tidal Scout also records and stores data from every exploration. Over time, this information can help archaeologists identify patterns, compare conditions across different caves, and better predict future safety risks. By combining pre-entry assessment, real-time monitoring, and long-term data collection, the Tidal Scout aims to make cave exploration safer, smarter, and more informed.
+        </p>
+      </div>
+      <div class="card" style="grid-column: 1 / -1;">
+        <img src="assets/tidal/innovation-slide-media/slide-39-image81.png" alt="Real caves and real discoveries that inspired Tidal Scout" />
+        <h4 style="color: var(--primary); margin-top: 0;">Why It Matters</h4>
+        <p>
+          Our hope is that the Tidal Cave Scout can help archaeologists like Dr. Maggie Furtner, Mr. Adam Niesley, and many others explore caves more safely while continuing their important work of discovering and protecting history. By helping identify potential dangers before people enter a cave and monitoring conditions during exploration, the Tidal Cave Scout can reduce risks and provide valuable information to research teams.
+        </p>
+        <p>
+          We believe that every artifact, cave painting, and archaeological site tells a story about our past. By making cave exploration safer and more accessible, our solution could help archaeologists spend less time worrying about hazards and more time uncovering and preserving these stories for future generations. While our project is still a prototype, we hope it inspires new ideas and technologies that help protect both the people who explore caves and the history they work so hard to preserve.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="community-outreach">
+    <h2>Community Outreach</h2>
+    <p>
+      Tidal Engineers wanted our rookie season to reach beyond the robot table. We shared our project, code, resources, and team story with school leaders, families, students, and other teams to help more people discover robotics, coding, innovation, and STEAM.
+    </p>
     <div class="grid">
       <div class="card">
-        <img src="studentsharefolder_ss.png" alt="Shared student folder" />
+        <img src="assets/tidal/innovation-slide-media/slide-36-image63.png" alt="Tidal Engineers Board of Education outreach" />
+        <h4 style="color: var(--primary); margin-top: 0;">Board of Education Presentation</h4>
         <p>
-          Our coach maintains a shared student folder where teams from Manhattan, Queens, and Hudson Valley upload robot designs, attachments, code, and videos. This resource accelerates learning and collaboration across teams.
+          We presented our Innovation Project and FLL journey to the Superintendent and Board of Education in New Rochelle to help build awareness and support for our FLL program and STEAM education.
+        </p>
+        <p>
+          We shared how robotics, coding, teamwork, and innovation helped us grow as students and problem-solvers. At the presentation, we were honored with a science medal recognizing our hard work, creativity, and dedication throughout the season.
         </p>
       </div>
       <div class="card">
-        <img src="69309collaborationv2.png" alt="Community design collaboration" />
+        <img src="assets/tidal/outreach/youtube-channel.png" alt="Tidal Engineers YouTube channel" />
+        <h4 style="color: var(--primary); margin-top: 0;">YouTube Channel</h4>
         <p>
-          During our redesign, we studied Manhattan Team 69309’s robot and used it as a starting framework. After sharing our redesign, they later improved their robot using our ideas. This back-and-forth demonstrates true coopertition—learning from and contributing to the community.
+          We created a YouTube channel to document and share our FLL journey with other students, families, and teams. Through videos of our robot runs, attachment designs, coding progress, competitions, and team experiences, we hope to inspire more kids to explore FIRST LEGO League, engineering, and robotics.
         </p>
         <p>
-          Shout-out to Team 69309! Below are championship photos celebrating our shared spirit.
+          <a href="https://www.youtube.com/channel/UCm-ZvMZ_dkLqw_H8yLu6vLA" target="_blank" rel="noopener">Visit the Tidal Engineers YouTube channel</a>
         </p>
-        <div class="champions-row" style="display:flex;gap:1rem;align-items:center;margin-top:0.75rem;">
-          <figure style="margin:0;flex:1;text-align:center;">
-            <img src="collegiatechampion pic.jpeg" alt="Collegiate Dutchmen Team 69309 Champions" style="width:100%;height:auto;border-radius:8px;" />
-            <figcaption style="font-size:0.9rem;margin-top:0.5rem;color:#555;">Collegiate Dutchmen 69309 - Championship</figcaption>
-          </figure>
-          <figure style="margin:0;flex:1;text-align:center;">
-            <img src="championship picutre.jpg" alt="Our Team Champions" style="width:100%;height:auto;border-radius:8px;" />
-            <figcaption style="font-size:0.9rem;margin-top:0.5rem;color:#555;">History Guardians 67843 — Championship</figcaption>
-          </figure>
-        </div>
+      </div>
+      <div class="card">
+        <img src="assets/tidal/outreach/tidal-scout-academy.png" alt="Tidal Cave Scout Academy interactive cave safety game screens" />
+        <h4 style="color: var(--primary); margin-top: 0;">Interactive Cave Safety Game</h4>
+        <p>
+          We designed and developed an interactive game to teach others how robotics, sensors, and engineering can improve cave safety for archaeologists and explorers. The game helps players understand real-world cave dangers while showing how technology can collect important safety data before humans enter risky environments.
+        </p>
+        <p>
+          <a href="https://tidalengineers.github.io/cave-safety/" target="_blank" rel="noopener">Play the Cave Safety game</a>
+        </p>
+      </div>
+      <div class="card">
+        <img src="assets/tidal/outreach/family-steam-night.png" alt="Tidal Engineers Family STEAM Night at Trinity Elementary School" />
+        <h4 style="color: var(--primary); margin-top: 0;">Family STEAM Night</h4>
+        <p>
+          We hosted a Family STEAM Night for more than 150 families where we showcased our FLL robot game, explained our coding and engineering design process, and demonstrated how our robot completed missions on the competition table.
+        </p>
+        <p>
+          We also led hands-on robotics, coding, and building activities that encouraged younger students and families to explore STEAM, teamwork, and the exciting world of FIRST LEGO League.
+        </p>
+      </div>
+      <div class="card">
+        <img src="github_ss.png" alt="Tidal Engineers GitHub repository screenshot" />
+        <h4 style="color: var(--primary); margin-top: 0;">Shared GitHub Resources</h4>
+        <p>
+          We expanded our outreach by creating a GitHub repository where we shared our code, robot ideas, engineering resources, and project materials.
+        </p>
+        <p>
+          By making our work accessible online, we hope to support and inspire more students, rookie teams, and educators to explore robotics, programming, innovation, and the world of FLL.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="core-values">
+    <h2>Core Values</h2>
+    <p>
+      The Core Values are really important to us, and we're excited to share what each one means to our team!
+    </p>
+    <div id="team-intro">
+      <h3>Meet the Team</h3>
+      <p>
+        We're a rookie FLL team making big waves! Fun facts about us: we are probably one of the youngest teams in the competition. Our team name, Tidal Engineers, represents both swimming and innovation. We build robots almost as fast as we swim laps! From the swimming pool to the robot table - we never stop moving!
+      </p>
+      <div class="team-intro-grid">
+        <img src="assets/tidal/team-intro/isaiah-intro.png" alt="Meet Isaiah Irwin, Tidal Engineers team member" />
+        <img src="assets/tidal/team-intro/finn-intro.png" alt="Meet Finn Fitzner, Tidal Engineers team member" />
+        <img src="assets/tidal/team-intro/elis-intro.png" alt="Meet Elis Fishman, Tidal Engineers team member" />
+        <img src="assets/tidal/team-intro/dom-intro.png" alt="Meet Domenico Petrini, Tidal Engineers team member" />
+      </div>
+    </div>
+    <div class="core-values-quotes">
+      <blockquote class="core-value-quote">
+        <p><strong>Discovery & Innovation:</strong> We love learning new facts, solving challenges, and turning our curiosity into working ideas.</p>
+        <cite>Elis</cite>
+      </blockquote>
+      <blockquote class="core-value-quote">
+        <p><strong>Inclusion & Teamwork:</strong> Everyone belongs on our team. We make sure every teammate has a role and every idea gets heard.</p>
+        <cite>Finn</cite>
+      </blockquote>
+      <blockquote class="core-value-quote">
+        <p><strong>Impact:</strong> We want to do something good for others by sharing what we learn and building tools that can help real people.</p>
+        <cite>Isaiah</cite>
+      </blockquote>
+      <blockquote class="core-value-quote">
+        <p><strong>Fun:</strong> We laugh a lot, build together, and turn playdates into robot work. Having fun helps us keep learning.</p>
+        <cite>Dom</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section id="mentors-support">
+    <h2>Our Coaches & Mentors</h2>
+    <p>
+      As a rookie team, it was very important for us to learn from mentors, experienced teams, and subject matter experts who helped guide us throughout our FIRST LEGO League journey. Their advice, encouragement, and shared experiences helped us learn faster, avoid mistakes, and grow more confident as engineers, coders, and innovators.
+    </p>
+    <div class="grid">
+      <div class="card">
+        <img class="coach-gio-photo" src="assets/tidal/mentors/coach-gio.png" alt="Coach Gio with Tidal Engineers during a museum research visit" />
+        <h4>Coach Gio</h4>
+        <p>
+          Coach Gio helped turn our ideas into real robots by teaching us coding, strategy, testing, and problem-solving. He pushed us to keep improving, think like engineers, and never give up when things didn't work the first time.
+        </p>
+      </div>
+      <div class="card">
+        <img src="assets/tidal/mentors/coach-anik-innovation-project.jpeg" alt="Coach Anik helping Tidal Engineers plan their Innovation Project" />
+        <h4>Coach Anik</h4>
+        <p>
+          Coach Anik guided our Innovation Project and helped us think bigger about real-world problems and creative solutions. He encouraged us to communicate our ideas clearly, work as a team, and believe that even rookie teams can make a real impact.
+        </p>
+      </div>
+      <div class="card">
+        <img src="assets/tidal/mentors/team-67843-mentors.jpg" alt="FLL Team 67843 mentors holding trophies" />
+        <h4>FLL Team 67843</h4>
+        <p>
+          A huge shoutout to FLL Team 67843 for being incredible mentors and supporting us throughout the season. They shared valuable competition tips, robot strategy ideas, and lessons they learned from their own FLL experiences. Their guidance helped us better prepare for competitions and believe in ourselves as a rookie team.
+        </p>
+      </div>
+      <div class="card">
+        <img src="assets/tidal/mentors/nrhs-robotics-team.jpeg" alt="Tidal Engineers with New Rochelle High School Robotics students" />
+        <h4>New Rochelle High School Robotics Team</h4>
+        <p>
+          We also want to thank the New Rochelle High School Robotics Team for supporting our journey and inspiring us with their advanced robotics knowledge and teamwork. Seeing older students succeed in robotics motivated us to keep learning, improving, and dreaming bigger about what we can achieve in STEAM and engineering.
+        </p>
       </div>
     </div>
   </section>
@@ -2757,29 +3041,79 @@
     <h2>Summary & Reflection</h2>
     <div class="card">
       <p>
-        Our robot reflects a complete design cycle: identifying problems, brainstorming, testing, and iterating. By combining strong mechanical design, precise programming, and effective teamwork, we built a robot that is reliable, efficient, and repeatable.
+        Tidal Engineers reflects a complete rookie-season design cycle: identifying problems, brainstorming, testing, and iterating. By combining friendship, swim-team discipline, mechanical design, programming, and teamwork, we are building a robot story that is reliable, efficient, and repeatable.
       </p>
       <p>
-        This process allowed us to overcome challenges from last year, improve our drive-straight performance, and consistently complete more missions during competition.
+        This process helped us qualify at John Jay Middle School, earn 3rd place and the Best Innovation Award at the Hudson Valley Regional Championship, and grow from four rookies into one amazing team.
       </p>
       <p>
-        Winning the Hudson Valley Regional Championship showed how much our strategy, robot design, and teamwork grew across the season. Now we are preparing for the California Western Edge Invitational on May 28-31, 2026, where we will represent the New York State area and keep building on the same cycle of testing, learning, and improving.
+        Now we are preparing for the American Robotics Invitational on June 6-7, 2026, where we will represent the New York State area and keep building on the same cycle of testing, learning, improving, and having fun.
       </p>
     </div>
   </section>
 
+  <section id="season-gallery">
+    <h2>Season Gallery</h2>
+    <p>
+      A growing gallery from our first nine months: swim friends becoming engineers, research trips, build sessions, outreach, judging prep, and plenty of team fun.
+    </p>
+    <div class="season-gallery">
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-78-robotics-flag-arrival.jpg" alt="Tidal Engineers teammates arriving at a robotics event" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-79-team-food-break.jpg" alt="Tidal Engineers taking a food break together" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-80-mentor-design-session.jpg" alt="Tidal Engineers reviewing robot design with mentors" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-81-classroom-build-pair.jpg" alt="Tidal Engineers building together in the classroom" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-82-robot-attachment-build.jpg" alt="Tidal Engineers working on a robot attachment" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-83-lego-build-focus.jpg" alt="Tidal Engineers building a LEGO robot mechanism" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-84-home-field-team.jpg" alt="Tidal Engineers practicing on a home FIRST LEGO League field" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-85-team-snack-table.jpg" alt="Tidal Engineers sharing snacks during practice" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-86-project-planning.jpg" alt="Tidal Engineers planning their innovation project presentation" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-87-team-overlook.jpg" alt="Tidal Engineers team photo at a scenic overlook" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-88-cave-model-team.jpg" alt="Tidal Engineers with their cave model" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-89-expert-visit-team.jpg" alt="Tidal Engineers visiting an expert for project research" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-90-cave-model-painting.jpg" alt="Tidal Engineers painting their cave model" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-91-idea-drawing-dom.jpg" alt="Tidal Engineers teammate showing a rover idea drawing" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-92-idea-drawing-young-builder.jpg" alt="Tidal Engineers young teammate showing a drone idea drawing" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-93-idea-drawing-finn.jpg" alt="Tidal Engineers teammate showing a rover concept drawing" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-94-idea-drawing-eli.jpg" alt="Tidal Engineers teammate showing an innovation idea drawing" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-95-team-3d-printer.jpg" alt="Tidal Engineers teammates by a 3D printer" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-96-cave-model-painting-team.jpg" alt="Tidal Engineers painting their cave model as a team" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-97-idea-drawing-isaiah.jpg" alt="Tidal Engineers teammate showing a rover idea sketch" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/team-intro-slides/slide-08-image33.jpg" alt="Tidal Engineers learning during discovery work" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/team-intro-slides/slide-08-image21.jpg" alt="Tidal Engineers field trip and research moment" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/team-intro-slides/slide-09-image19.jpg" alt="Tidal Engineers working together" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/team-intro-slides/slide-09-image17.jpg" alt="Tidal Engineers teamwork practice" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/team-intro-slides/slide-10-image20.jpg" alt="Tidal Engineers outreach and impact" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/team-intro-slides/slide-11-image36.jpg" alt="Tidal Engineers having fun as a team" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-09-team-meal.jpg" alt="Tidal Engineers team meal" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-07-robot-run.jpg" alt="Tidal Engineers robot on the field" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-75-home-field-practice.jpg" alt="Tidal Engineers home practice field" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-66-pit-waiting.jpg" alt="Tidal Engineers waiting with robot bins at competition" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-68-wire-tool-demo.jpg" alt="Tidal Engineers learning to use a wire tool" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-65-trophy-team.jpg" alt="Tidal Engineers with their trophy" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-61-whiteboard-strategy.jpg" alt="Tidal Engineers reviewing robot strategy on a whiteboard" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-20-teamwork-build.jpg" alt="Tidal Engineers building as a team" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-32-archaeology-exhibit.jpg" alt="Tidal Engineers exploring an archaeology exhibit" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-42-sensor-close-build.jpg" alt="Tidal Engineers closely wiring a sensor prototype" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-48-outreach-visitor.jpg" alt="Tidal Engineers explaining their project to an outreach visitor" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-50-coach-planning.jpg" alt="Tidal Engineers planning with their coach" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-51-laptop-field-programming.jpg" alt="Tidal Engineers programming at the robot field" /></div>
+      <div class="gallery-item"><img loading="lazy" src="assets/tidal/gallery/gallery-64-impact-presentation.jpg" alt="Tidal Engineers presenting impact and outreach" /></div>
+    </div>
+  </section>
+
+
 </main>
 
 <footer>
-  <p>FIRST LEGO League • Robot Design Process</p>
+  <p>Tidal Engineers 74703 • FIRST LEGO League</p>
   
     <div class="visitor-counter">
-    <h3>🔥 Website Visitors</h3>
+    <h3>Website Visitors</h3>
     <div style="margin-top: 1rem;" id="visitorCountWrapper">
-      <div id="visitorCount" class="counter-digit" aria-live="polite">121</div>
+      <div id="visitorCount" class="counter-digit" aria-live="polite">1,873</div>
     </div>
     <div class="counter-label" style="margin-top: 0.75rem;">Total Page Hits</div>
-    <div style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">Updates every 2 hours</div>
+    <div style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">Celebrating every visit</div>
   </div>
 </footer>
 
@@ -2874,34 +3208,6 @@
       section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
       observer.observe(section);
     });
-  });
-</script>
-
-<!-- Live visitor counter script (uses CountAPI) -->
-<script>
-  async function fetchVisitorCount() {
-    const el = document.getElementById('visitorCount');
-    if (!el) return;
-    // show requested default while we attempt to fetch
-    el.textContent = '173';
-    try {
-      // use 'get' to avoid incrementing the counter on each page load
-      const res = await fetch('https://api.countapi.xyz/get/gio1880/firefox65269');
-      if (!res.ok) throw new Error('Network error');
-      const data = await res.json();
-      if (data && typeof data.value !== 'undefined') {
-        el.textContent = Number(data.value).toLocaleString();
-      }
-    } catch (err) {
-      console.error('Failed to fetch visitor count:', err);
-      // keep default 121 if network fails
-    }
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    fetchVisitorCount();
-    // refresh every 2 hours (7200000 ms)
-    setInterval(fetchVisitorCount, 7200000);
   });
 </script>
 
