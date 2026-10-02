@@ -940,6 +940,82 @@
       color: #0b5aa6;
     }
 
+    .bioglow-journal {
+      display: grid;
+      gap: 1.25rem;
+    }
+    .bioglow-journal-intro {
+      padding: 1.2rem 0;
+      border-top: 1px solid rgba(0, 127, 143, 0.22);
+      border-bottom: 1px solid rgba(0, 127, 143, 0.22);
+    }
+    .bioglow-journal-intro h3 {
+      margin: 0 0 0.35rem;
+      color: var(--deep-blue);
+      font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+    }
+    .bioglow-journal-intro p {
+      margin: 0;
+      max-width: 780px;
+      color: #31536e;
+    }
+    .journal-entry-list {
+      display: grid;
+      gap: 1rem;
+    }
+    .journal-entry {
+      display: grid;
+      grid-template-columns: minmax(140px, 0.3fr) minmax(0, 1fr);
+      gap: 1.5rem;
+      padding: 1.5rem;
+      background: white;
+      border: 1px solid rgba(0, 127, 143, 0.2);
+      border-left: 6px solid var(--primary);
+      border-radius: 8px;
+      box-shadow: 0 12px 28px rgba(2, 44, 86, 0.1);
+    }
+    .journal-entry-meta {
+      padding-right: 1.25rem;
+      border-right: 1px solid rgba(0, 127, 143, 0.2);
+    }
+    .journal-entry-number {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    .journal-entry time {
+      display: block;
+      color: var(--deep-blue);
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      font-weight: 900;
+      line-height: 1.15;
+    }
+    .journal-entry-body p {
+      margin: 0;
+    }
+    .journal-entry-author {
+      margin-top: 1rem !important;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(0, 127, 143, 0.16);
+      color: var(--primary-dark);
+      font-weight: 900;
+    }
+    @media (max-width: 680px) {
+      .journal-entry {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1.2rem;
+      }
+      .journal-entry-meta {
+        padding: 0 0 0.85rem;
+        border-right: 0;
+        border-bottom: 1px solid rgba(0, 127, 143, 0.2);
+      }
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1684,14 +1760,25 @@
 
 <section id="season-2026" class="bioglow-season">
   <h2>2026/27 Bioglow</h2>
-  <div class="card">
-    <span class="tag">New Season Workspace</span>
-    <p>
-      This is where the Tidal Engineers will build the 2026/27 Bioglow competition journal as the new challenge unfolds.
-    </p>
-    <p>
-      Add new research, robot design notes, strategy updates, prototypes, outreach, testing results, photos, and reflections here throughout the season.
-    </p>
+  <div class="bioglow-journal">
+    <div class="bioglow-journal-intro">
+      <h3>Digital Engineering Journal</h3>
+      <p>A session-by-session record of what we explored, learned, discussed, and designed throughout the 2026/27 Bioglow season.</p>
+    </div>
+    <div class="journal-entry-list" aria-label="2026/27 Bioglow journal entries">
+      <article class="journal-entry" aria-labelledby="journal-entry-2026-09-04">
+        <div class="journal-entry-meta">
+          <span class="journal-entry-number">Session 01</span>
+          <time id="journal-entry-2026-09-04" datetime="2026-09-04">September 4th</time>
+        </div>
+        <div class="journal-entry-body">
+          <p>
+            For our FLL BioGlow Innovation Project, we learned about biodiversity and how different living things depend on each other. We researched problems that can harm biodiversity, such as habitat loss, pollution, and changes in the environment. Our team discussed different problems and came up with ideas for how we could help protect biodiversity. We worked together to share ideas, ask questions, and design a creative solution.
+          </p>
+          <p class="journal-entry-author">By Oliver</p>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
